@@ -7,6 +7,7 @@
   
   <!-- Social / OG -->
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Entheogen Atlas — Sacred Plants, Science &amp; the Law">
   <meta property="og:description" content="A complete research atlas of entheogenic substances: archaeology, neuroscience, legal history, phenomenology, and religious use — mapped across 60,000 years.">
   <meta property="og:url" content="https://entheogetatlas.com">
@@ -15,12 +16,14 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@fatnugsmag">
   <meta name="twitter:title" content="Entheogen Atlas — Sacred Plants, Science &amp; the Law">
   <meta name="twitter:description" content="Ten substances. Sixty millennia. The archaeology, neuroscience, phenomenology, case law, and clinical science of entheogenic plants.">
   <meta name="twitter:image" content="https://entheogetatlas.com/og-image.png">
 
   <!-- Canonical -->
   <link rel="canonical" href="https://entheogetatlas.com">
+  <link rel="author" href="https://fatnugsmag.com">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -91,6 +94,7 @@
   --text-secondary: #c8c8e8;
   --text-muted:     #a0a0c8;
 
+  --fnm:        #C24A2E;
   /* Substance colors */
   --cannabis:   #4ade80;
   --ayahuasca:  #c084fc;
@@ -108,6 +112,7 @@
   --s2: 0.5rem;
   --s3: 0.75rem;
   --s4: 1rem;
+  --s5: 1.25rem;
   --s6: 1.5rem;
   --s8: 2rem;
   --s12: 3rem;
@@ -1073,11 +1078,11 @@ main { min-height: calc(100vh - 60px); }
 <nav class="site-nav" id="main-nav" role="navigation" aria-label="Main navigation">
   <div class="nav-logo" role="button" tabindex="0" onclick="showPage('home')" aria-label="Home">Entheogen Atlas</div>
   <ul class="nav-links nav-cat-links" role="menubar">
-    <li><a href="#substances" onclick="event.preventDefault();showPage('home');scrollToSection('#substances')" class="nav-page-link nav-cat">Substances</a></li>
-    <li><a href="#receptor" onclick="event.preventDefault();showPage('receptor')" class="nav-page-link nav-cat" data-page="receptor">Science</a></li>
-    <li><a href="#legitimacy" onclick="event.preventDefault();showPage('legitimacy')" class="nav-page-link nav-cat nav-cat-editorial" data-page="legitimacy">Law &amp; Policy</a></li>
-    <li><a href="#researchers" onclick="event.preventDefault();showPage('researchers')" class="nav-page-link nav-cat" data-page="researchers">Culture</a></li>
-    <li><a href="#glossary-page" onclick="event.preventDefault();showPage('glossary-page')" class="nav-page-link nav-cat" data-page="glossary-page">Reference</a></li>
+    <li><a href="#substances" onclick="event.preventDefault();showPage('home');scrollToSection('#substances')" class="nav-page-link nav-cat role="menuitem"">Substances</a></li>
+    <li><a href="#receptor" onclick="event.preventDefault();showPage('receptor')" class="nav-page-link nav-cat role="menuitem"" data-page="receptor">Science</a></li>
+    <li><a href="#legitimacy" onclick="event.preventDefault();showPage('legitimacy')" class="nav-page-link nav-cat role="menuitem" nav-cat-editorial" data-page="legitimacy" style="color:var(--fnm)">Law &amp; Policy</a></li>
+    <li><a href="#researchers" onclick="event.preventDefault();showPage('researchers')" class="nav-page-link nav-cat role="menuitem"" data-page="researchers">Culture</a></li>
+    <li><a href="#glossary-page" onclick="event.preventDefault();showPage('glossary-page')" class="nav-page-link nav-cat role="menuitem"" data-page="glossary-page">Reference</a></li>
   </ul>
   <div class="nav-right">
     <button class="nav-search-btn" onclick="openSiteSearch()" aria-label="Search (Cmd+K)">
@@ -1096,7 +1101,7 @@ main { min-height: calc(100vh - 60px); }
 <!-- ============================================================ -->
 <!-- HOME PAGE -->
 <!-- ============================================================ -->
-<div id="app">
+<div id="app"><span id="main-content" tabindex="-1" style="position:absolute;top:0"></span>
 <div id="page-home" class="page-section active">
 
 <section class="hero">
@@ -1565,6 +1570,7 @@ main { min-height: calc(100vh - 60px); }
     <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:var(--s2)">Who Uses Entheogens</div>
     <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-bottom:var(--s4)">Global demographics, traditions, and contemporary use</div>
     <div id="who-uses">
+  <a href="https://fatnugsmag.com" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;align-items:center;gap:0.4rem;margin-bottom:var(--s6);background:var(--fnm);border-color:var(--fnm);color:#fff">Read Fat Nugs Magazine &rarr;</a>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s4)">
     <div style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s5)">
       <div style="font-family:var(--font-display);font-weight:700;color:var(--acid);margin-bottom:var(--s2)">Indigenous Traditions</div>
@@ -1759,8 +1765,8 @@ main { min-height: calc(100vh - 60px); }
       <p class="footer-tagline" style="font-size:0.75rem">Griffiths et al. (2006), Hoffman et al. (2001), Pahnke (1967), Carhart-Harris et al. (2021), Nichols (2016), Gonzales v. O Centro (2006), Employment Division v. Smith (1990), and 25+ additional primary sources.</p>
     </div>
   </div>
-  <div style="text-align:center;padding:var(--s4) var(--s8);font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);border-top:1px solid var(--border)">This site does not use tracking cookies or third-party analytics by default. If analytics are added at deployment, a full privacy policy will be published at this URL. Data inquiries: contact via <a href="https://fatnugsmag.com" target="_blank" rel="noopener" style="color:var(--text-muted)">Fat Nugs Magazine</a>.</div>
-<div class="footer-bottom">Entheogen Atlas &mdash; Research and editorial reference site by RN Collins, M.S. Content does not constitute medical, legal, or therapeutic advice. For research and educational purposes only. Clinical trial data reflects published literature and may not reflect current trial status. Substance interaction data is for harm-reduction reference only. RFRA and legal analysis is educational issue-spotting, not legal counsel. &copy; 2025 RN Collins. Last updated June 2025.</div>
+  <div style="text-align:center;padding:var(--s4) var(--s8);font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);border-top:1px solid var(--border)">This site does not use tracking cookies or third-party analytics by default. If analytics are added at deployment, a full privacy policy will be published at this URL. Data inquiries: contact via <a href="https://fatnugsmag.com" target="_blank" rel="noopener" style="color:var(--fnm);font-weight:600">Fat Nugs Magazine</a>.</div>
+<div class="footer-bottom">Entheogen Atlas &mdash; Research and editorial reference site by RN Collins, M.S. Content does not constitute medical, legal, or therapeutic advice. For research and educational purposes only. Clinical trial data reflects published literature and may not reflect current trial status. Substance interaction data is for harm-reduction reference only. RFRA and legal analysis is educational issue-spotting, not legal counsel. &copy; 2026 RN Collins. Last updated July 2026.</div>
 </footer>
 <!-- fix: close page-home -->
 

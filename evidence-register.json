@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0.0",
+  "edition": "2026-08-15",
+  "verifiedThrough": "2026-08-15",
+  "correctionEndpoint": "/api/governance",
+  "governancePolicy": "/governance.html",
+  "standards": [
+    {
+      "id": "GOV-CARE",
+      "name": "CARE Principles for Indigenous Data Governance",
+      "url": "https://www.gida-global.org/careprinciples",
+      "application": "Collective benefit, authority to control, responsibility, and ethics govern community-origin material."
+    },
+    {
+      "id": "GOV-UNDRIP",
+      "name": "United Nations Declaration on the Rights of Indigenous Peoples",
+      "url": "https://legal.un.org/avl/ha/ga_61-295/ga_61-295.html",
+      "application": "Cultural heritage, traditional knowledge, medicines, ceremonies, and free, prior and informed consent are treated as governance interests, not merely citation interests."
+    }
+  ],
+  "publicationRules": [
+    "No dose recommendation, interaction clearance, individualized legal-risk score, RFRA outcome score, or unmaintained current-law tracker is published.",
+    "A citation is not described as primary unless it reports original research, enacted law, or an official judicial decision.",
+    "Living-tradition protocols require documented authorization from the relevant cultural authority before publication.",
+    "Correction and withdrawal requests are logged through the governance endpoint and can identify a claim ID."
+  ],
+  "withdrawnSurfaces": [
+    {
+      "id": "SURFACE-DOSE",
+      "status": "removed",
+      "reason": "No qualified clinical review, versioned dose provenance, contraindication ledger, or emergency escalation system."
+    },
+    {
+      "id": "SURFACE-INTERACTIONS",
+      "status": "removed",
+      "reason": "No continuously maintained, clinician-reviewed interaction database."
+    },
+    {
+      "id": "SURFACE-LEGAL-RISK",
+      "status": "removed",
+      "reason": "Could be mistaken for individualized legal advice and lacked continuously maintained jurisdictional authority."
+    },
+    {
+      "id": "SURFACE-RFRA-SCORE",
+      "status": "removed",
+      "reason": "Litigation outcomes cannot be responsibly reduced to a predictive strength score."
+    },
+    {
+      "id": "SURFACE-CURRENT-LAW",
+      "status": "removed",
+      "reason": "State, local, and international status data was not maintained to a reliable current-as-of standard."
+    },
+    {
+      "id": "SURFACE-CEREMONY",
+      "status": "removed",
+      "reason": "Living-tradition protocol publication lacked documented cultural-authority approval."
+    }
+  ],
+  "claims": [
+    {
+      "id": "EA-SCI-001",
+      "claim": "In a controlled 2006 study, psilocybin occasioned mystical-type experiences that participants rated as having substantial personal meaning and spiritual significance.",
+      "sourceType": "primary research",
+      "source": "Griffiths et al. (2006), Psychopharmacology",
+      "url": "https://doi.org/10.1007/s00213-006-0457-5",
+      "scope": "Healthy, hallucinogen-naive adult volunteers in a controlled research setting; not evidence of safety or benefit for general use.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-SCI-002",
+      "claim": "In a 2021 randomized trial comparing psilocybin therapy with escitalopram, the prespecified primary depression outcome did not show a significant between-group difference.",
+      "sourceType": "primary research",
+      "source": "Carhart-Harris et al. (2021), New England Journal of Medicine",
+      "url": "https://doi.org/10.1056/NEJMoa2032994",
+      "scope": "Small phase 2 trial; secondary outcomes were not corrected for multiple comparisons and cannot establish superiority.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-SCI-003",
+      "claim": "Acute psilocybin administration was associated with reduced activity and connectivity in key default-mode-network regions in a small fMRI study.",
+      "sourceType": "primary research",
+      "source": "Carhart-Harris et al. (2012), PNAS",
+      "url": "https://doi.org/10.1073/pnas.1119598109",
+      "scope": "Small experimental imaging study; association does not establish a complete therapeutic mechanism.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-SCI-004",
+      "claim": "The MEQ30 is a research questionnaire designed to assess dimensions of mystical-type experience.",
+      "sourceType": "measurement research",
+      "source": "Barrett et al. (2015), Journal of Psychopharmacology",
+      "url": "https://doi.org/10.1177/0269881115609019",
+      "scope": "A self-report research instrument, not a diagnostic test or evidence of clinical benefit.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-LAW-001",
+      "claim": "The federal Religious Freedom Restoration Act provides a statutory substantial-burden framework for federal government action, subject to strict-scrutiny defenses.",
+      "sourceType": "enacted federal statute",
+      "source": "42 U.S.C. §§ 2000bb–2000bb-4",
+      "url": "https://uscode.house.gov/view.xhtml?path=/prelim@title42/chapter21B&edition=prelim",
+      "scope": "Federal statutory text; application depends on facts, jurisdiction, subsequent law, and legal advice.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-LAW-002",
+      "claim": "In Gonzales v. O Centro Espírita Beneficente União do Vegetal, the Supreme Court affirmed preliminary relief under RFRA on the record before it.",
+      "sourceType": "judicial opinion",
+      "source": "546 U.S. 418 (2006)",
+      "url": "https://supreme.justia.com/cases/federal/us/546/418/",
+      "scope": "Case-specific holding; not a blanket exemption or prediction of another claimant’s result.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-REG-001",
+      "claim": "FDA issued final guidance in July 2026 on considerations for clinical investigations of psychedelic drugs.",
+      "sourceType": "official agency guidance",
+      "source": "U.S. Food and Drug Administration",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/psychedelic-drugs-considerations-clinical-investigations",
+      "scope": "Clinical-investigation guidance; not approval of any psychedelic product or advice for non-research use.",
+      "verified": "2026-08-15"
+    },
+    {
+      "id": "EA-GOV-001",
+      "claim": "Indigenous cultural heritage, traditional knowledge, medicines, and ceremonies engage collective authority and control interests.",
+      "sourceType": "international declaration and Indigenous data-governance standard",
+      "source": "UNDRIP arts. 11, 12, 24, 31, 32; CARE Principles",
+      "url": "https://legal.un.org/avl/ha/ga_61-295/ga_61-295.html",
+      "scope": "Governance baseline for editorial decisions; it does not imply endorsement by any Nation, community, church, or tradition.",
+      "verified": "2026-08-15"
+    }
+  ]
+}

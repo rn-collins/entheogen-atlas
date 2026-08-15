@@ -3130,6 +3130,7 @@ function buildWhoUsesFilter(containerId, data) {
   const wrap = document.getElementById(containerId);
   if (!wrap) return;
   const grid = wrap.querySelector('.who-grid');
+  if (!grid) return;
   const selects = wrap.querySelectorAll('.filter-select');
 
   function applyFilters() {

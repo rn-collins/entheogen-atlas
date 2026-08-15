@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://entheogen-atlas.vercel.app/sitemap.xml

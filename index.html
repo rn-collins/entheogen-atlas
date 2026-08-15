@@ -1072,40 +1072,20 @@ main { min-height: calc(100vh - 60px); }
 
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <meta name="robots" content="index, follow"/>
-<script defer src="/_vercel/insights/script.js"></script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
-<script>
-(function(){
-  var p=new URLSearchParams(location.search),u={};
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){if(p.get(k))u[k]=p.get(k);});
-  if(Object.keys(u).length)sessionStorage.setItem('rn_utm',JSON.stringify(u));
-  window._getUTM=function(){try{return JSON.parse(sessionStorage.getItem('rn_utm')||'{}')}catch(e){return{}}};
-  window.addEventListener('load',function(){
-    fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({event:'page_view',source:'entheogen-atlas',referrer:document.referrer||'direct',utm:window._getUTM()})
-    }}).catch(function(){});
-  });
-  var ms=[25,50,75,90],fired={};
-  window.addEventListener('scroll',function(){
-    var h=document.body.scrollHeight-window.innerHeight;if(h<=0)return;
-    var pct=Math.round((window.scrollY/h)*100);
-    ms.forEach(function(m){if(pct>=m&&!fired[m]){fired[m]=1;
-      fetch('/api/track',{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({event:'scroll_depth',source:'entheogen-atlas',depth:m+'%'})}}).catch(function(){});
-    }});
-  },{passive:true});
-})()
-</script>
+<meta name="description" content="An editorial research atlas of entheogens, science, culture, and legal history. Archival snapshot; reliance-prone tools are paused pending professional review."/>
+<meta property="og:title" content="Entheogen Atlas"/>
+<meta property="og:description" content="Research and editorial reference across ten substances, science, culture, and legal history."/>
+<meta property="og:type" content="website"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://rn-portfolio-khaki.vercel.app/#rn-collins",
+      "@id": "https://rn-selected-work.vercel.app/#rn-collins",
       "name": "RN Collins",
       "jobTitle": "AI Educator & Consultant",
-      "url": "https://rn-portfolio-khaki.vercel.app",
+      "url": "https://rn-selected-work.vercel.app",
       "sameAs": [
         "https://linkedin.com/in/rn-collins"
       ]
@@ -1115,7 +1095,7 @@ main { min-height: calc(100vh - 60px); }
       "name": "Entheogen Atlas \u2014 RN Collins",
       "url": "https://entheogen-atlas.vercel.app",
       "author": {
-        "@id": "https://rn-portfolio-khaki.vercel.app/#rn-collins"
+        "@id": "https://rn-selected-work.vercel.app/#rn-collins"
       }
     }
   ]
@@ -1156,7 +1136,7 @@ main { min-height: calc(100vh - 60px); }
   </div>
 </nav>
 <div style="background:#FFF8E7;border-left:4px solid #B8842A;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#5A4000;border-radius:0 4px 4px 0;">
-  <strong>Note:</strong> This tool is for informational purposes only and does not constitute legal advice. Consult a qualified legal professional before making decisions.
+  <strong>Review status:</strong> This July 2026 archival snapshot is not a current legal-status service. Verify official authorities and consult a qualified professional before relying on any legal, clinical, interaction, or safety statement.
 </div>
 
 </div>
@@ -1191,7 +1171,7 @@ main { min-height: calc(100vh - 60px); }
   <div style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:var(--s8);align-items:center">
     <div>
       <div style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-muted);margin-bottom:var(--s3)">About this Atlas</div>
-      <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin:0">Entheogen Atlas is a research and editorial reference site built by <strong style="color:var(--text-primary)">RN Collins</strong> — neuroscientist, technologist, AI content creator, and law student at Northeastern University (FlexJD, class of 2029). Built for researchers, legal professionals and religious organizations tracking RFRA exposure, harm-reduction workers, and clinicians who need primary-source grounding on substances the law still calls Schedule I — the Legal Risk Calculator, RFRA Case Law Builder, and Dose Calculator below exist for exactly that use. The atlas serves as the research infrastructure beneath <em>Ask a Neuroscientist</em>, a column in <em>Fat Nugs Magazine</em>, and an analytical column on emerging technology &amp; industry law for the <em>Cannabis Law Report</em>. All citations are primary sources. Case analysis is educational issue-spotting only and does not constitute legal advice. Substance interaction data is harm-reduction reference only and does not constitute medical advice.</p>
+      <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.8;margin:0">Entheogen Atlas is a research and editorial reference site built by <strong style="color:var(--text-primary)">RN Collins</strong> — neuroscientist, technologist, AI content creator, and law student at Northeastern University (FlexJD, class of 2029). Built as an editorial research interface for readers exploring entheogen science, legal history, and culture. Reliance-prone dose, interaction, legal-risk, and RFRA-strength outputs are paused until every material claim has item-level sourcing, a visible current-through date, professional review, and a correction history. The atlas also supports <em>Ask a Neuroscientist</em> in <em>Fat Nugs Magazine</em> and writing for <em>Cannabis Law Report</em>. The citation library contains a mixture of peer-reviewed research, judicial opinions, government material, and foundational or contextual texts; citation presence does not itself establish claim-level verification.</p>
     </div>
     <div style="text-align:right;min-width:180px">
       <div style="font-family:var(--font-display);font-size:0.75rem;font-weight:700;color:var(--acid);margin-bottom:var(--s2)">RN Collins, M.S.</div>
@@ -1295,7 +1275,7 @@ main { min-height: calc(100vh - 60px); }
     <div id="radar-chart-container" style="flex:1;min-width:300px"></div>
   </div>
   <div style="margin-top:var(--s4);font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono)">
-    Scores are editorial assessments synthesizing pharmacological and clinical literature. 
+    Scores are unvalidated editorial assessments retained for design demonstration only. The scoring rubric, weighting, calibration, and reviewer record are not complete; do not use these scores for health, legal, or access decisions. 
     Duration=experience length; Potency=active dose (inverse); Safety=physiological risk profile; 
     Clinical Evidence=RCT/trial strength; Legal Access=current global access; Tradition=documented historical use.
   </div>
@@ -1452,12 +1432,10 @@ main { min-height: calc(100vh - 60px); }
       <div class="card-sub">46 terms, fully searchable</div>
       <div class="card-tags"><span class="tag">Reference</span></div>
     </div>
-    <div class="substance-card" style="--card-color:#ff2d8f" onclick="showPage('home');setTimeout(function(){scrollToSection('#dose-calculator')},100)">
-      <div class="card-symbol" style="color:#ff2d8f">&#9878;</div>
-      <div class="card-name">Dose Calculator</div>
-      <div class="card-sub">Evidence-based ranges + contraindications</div>
-      <div class="card-tags"><span class="tag">Harm Reduction</span></div>
-    </div>
+    <div class="substance-card" style="--card-color:#ff2d8f" onclick="showPage('home');setTimeout(function(){scrollToSection('#dose-calculator')},100)" role="button" tabindex="0">
+      <div class="card-symbol" style="color:#ff2d8f">&#9878;</div><div class="card-name">Safety Evidence Review</div>
+      <div class="card-sub">Dose and interaction outputs paused pending clinical review</div>
+      <div class="card-tags"><span class="tag">Review Paused</span></div></div>
     <div class="substance-card" style="--card-color:var(--violet)" onclick="showPage('phenomenology')">
       <div class="card-symbol" style="color:var(--violet)">&#9651;</div>
       <div class="card-name">MEQ30 Self-Scorer</div>
@@ -1603,31 +1581,12 @@ main { min-height: calc(100vh - 60px); }
     <div class="drawer-overlay" onclick="document.getElementById('timeline-panel').style.display='none'"></div>
   </div>
 
-  <!-- Legal Risk Calculator -->
   <div style="margin-bottom:var(--s12)" id="tool-legal-risk">
-    <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:var(--s2)">Legal Risk Calculator</div>
-    <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-bottom:var(--s4)">Jurisdiction-specific risk assessment based on substance, state law, and context.</div>
-    <div style="display:flex;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s4)">
-      <select id="risk-substance" onchange="window.renderLegalRisk&&window.renderLegalRisk()" aria-label="Select substance" style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s2) var(--s3);color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem"><option value="psilocybin">Psilocybin</option><option value="cannabis">Cannabis</option><option value="lsd">LSD</option><option value="mdma">MDMA</option><option value="ayahuasca">Ayahuasca</option><option value="peyote">Peyote</option><option value="ketamine">Ketamine</option><option value="ibogaine">Ibogaine</option><option value="dmt">DMT</option><option value="salvia">Salvia</option></select>
-      <select id="risk-state" onchange="window.renderLegalRisk&&window.renderLegalRisk()" aria-label="Select state" style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s2) var(--s3);color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem"><option value="CA">California</option><option value="OR">Oregon</option><option value="CO">Colorado</option><option value="TX">Texas</option><option value="FL">Florida</option><option value="NY">New York</option></select>
-      <select id="risk-context" onchange="window.renderLegalRisk&&window.renderLegalRisk()" aria-label="Select context" style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s2) var(--s3);color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem"><option value="personal">Personal use</option><option value="religious">Religious ceremony</option><option value="therapeutic">Therapeutic</option><option value="distribution">Distribution</option></select>
-    </div>
-    <div id="legal-risk-output" style="min-height:100px"></div>
-  </div>
-
-  <!-- Case Law Builder -->
+    <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:var(--s2)">Legal Status Research</div>
+    <div style="background:var(--panel);border:1px solid #fb923c;border-radius:var(--r-lg);padding:var(--s6);color:var(--text-secondary);line-height:1.7"><strong style="color:#fb923c">Interactive assessment paused.</strong> The former jurisdiction-specific risk calculator could create reliance on a static and incomplete legal snapshot. It will return only after each jurisdictional statement is mapped to controlling authority, a current-through date, a reviewer, and a correction record.</div></div>
   <div style="margin-bottom:var(--s12)" id="tool-caselaw">
-    <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:var(--s2)">RFRA Case Law Builder</div>
-    <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--text-muted);margin-bottom:var(--s4)">Apply RFRA factors to a religious organization &mdash; generates case-strength assessment.</div>
-    <div style="display:flex;gap:var(--s4);flex-wrap:wrap;margin-bottom:var(--s4)">
-      <select id="cl-substance" aria-label="Substance" style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s2) var(--s3);color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem"><option value="ayahuasca">Ayahuasca</option><option value="peyote">Peyote</option><option value="psilocybin">Psilocybin</option><option value="cannabis">Cannabis</option></select>
-      <select id="cl-org" aria-label="Organization type" style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s2) var(--s3);color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem"><option value="udv">UDV-type (Brazilian)</option><option value="nac">NAC-type (Indigenous)</option><option value="syncretic">Syncretic</option><option value="novel">Novel Church</option></select>
-      <select id="cl-circuit" aria-label="Circuit" style="background:var(--panel);border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s2) var(--s3);color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem"><option value="9th">9th Circuit</option><option value="10th">10th Circuit</option><option value="5th">5th Circuit</option><option value="1st">1st Circuit</option></select>
-      <button onclick="window.renderCaseLawBuilder&&window.renderCaseLawBuilder()" class="btn btn-primary">Analyze</button>
-    </div>
-    <div id="caselaw-output" style="min-height:100px"></div>
-  </div>
-
+    <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:var(--s2)">RFRA Case-Law Framework</div>
+    <div style="background:var(--panel);border:1px solid #fb923c;border-radius:var(--r-lg);padding:var(--s6);color:var(--text-secondary);line-height:1.7"><strong style="color:#fb923c">Case-strength scoring paused.</strong> RFRA outcomes turn on facts, jurisdiction, procedural posture, and changing authority. The atlas retains neutral case history, but no longer grades a person or organization’s likelihood of success.</div></div>
   <!-- Who Uses -->
   <div style="margin-bottom:var(--s12)">
     <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;margin-bottom:var(--s2)">Who Uses Entheogens</div>
@@ -1658,83 +1617,19 @@ main { min-height: calc(100vh - 60px); }
 </section>
 
 <section class="section" id="dose-calculator">
-  <div class="section-header">
-    <div class="section-eyebrow">Harm Reduction</div>
-    <h2 class="section-title">Dose <span class="accent-magenta">Calculator</span></h2>
-    <p style="color:var(--text-secondary);max-width:700px;margin-top:var(--s4);line-height:1.7">
-      Evidence-based dosage ranges per substance with weight-based calculation where clinically relevant. 
-      <strong style="color:#ff2d8f">Not medical advice.</strong> Individual sensitivity varies. Always test substances for purity. Know your contraindications.
-    </p>
-  </div>
-  <div id="tool-dose-calculator">
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s4)">
-    <div style="background:var(--panel);border-left:3px solid #f472b6;border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5)">
-      <div style="color:#f472b6;font-weight:700;font-family:var(--font-display);margin-bottom:var(--s3)">Psilocybin</div>
-      <table style="width:100%;font-size:0.72rem;border-collapse:collapse">
-        <tr><td style="color:var(--text-muted);padding:2px 0">Threshold</td><td style="text-align:right;font-family:var(--font-mono)">0.1–0.25g dried</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Light</td><td style="text-align:right;font-family:var(--font-mono)">0.5–1g</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Moderate</td><td style="text-align:right;font-family:var(--font-mono)">1–2.5g</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Strong</td><td style="text-align:right;font-family:var(--font-mono)">2.5–3.5g</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Heavy</td><td style="text-align:right;font-family:var(--font-mono)">3.5g+</td></tr>
-      </table>
-      <div style="font-size:0.65rem;color:#ff2d8f;margin-top:var(--s3);font-family:var(--font-mono)">Contraindications: SSRIs · Lithium · MAOIs · History of psychosis</div>
-    </div>
-    <div style="background:var(--panel);border-left:3px solid #38bdf8;border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5)">
-      <div style="color:#38bdf8;font-weight:700;font-family:var(--font-display);margin-bottom:var(--s3)">LSD</div>
-      <table style="width:100%;font-size:0.72rem;border-collapse:collapse">
-        <tr><td style="color:var(--text-muted);padding:2px 0">Threshold</td><td style="text-align:right;font-family:var(--font-mono)">10–25µg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Light</td><td style="text-align:right;font-family:var(--font-mono)">25–75µg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Moderate</td><td style="text-align:right;font-family:var(--font-mono)">75–150µg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Strong</td><td style="text-align:right;font-family:var(--font-mono)">150–300µg</td></tr>
-      </table>
-      <div style="font-size:0.65rem;color:#ff2d8f;margin-top:var(--s3);font-family:var(--font-mono)">Contraindications: SSRIs · Lithium · History of psychosis</div>
-    </div>
-    <div style="background:var(--panel);border-left:3px solid #fb7185;border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5)">
-      <div style="color:#fb7185;font-weight:700;font-family:var(--font-display);margin-bottom:var(--s3)">MDMA <span style="font-size:0.7rem;font-weight:400">~1.5mg/kg</span></div>
-      <table style="width:100%;font-size:0.72rem;border-collapse:collapse">
-        <tr><td style="color:var(--text-muted);padding:2px 0">Threshold</td><td style="text-align:right;font-family:var(--font-mono)">50–75mg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Common</td><td style="text-align:right;font-family:var(--font-mono)">75–125mg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Strong</td><td style="text-align:right;font-family:var(--font-mono)">125–175mg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Clinical</td><td style="text-align:right;font-family:var(--font-mono)">80mg + 40mg supplement</td></tr>
-      </table>
-      <div style="font-size:0.65rem;color:#ff2d8f;margin-top:var(--s3);font-family:var(--font-mono)">Contraindications: MAOIs (fatal) · SSRIs · Stimulants · Lithium</div>
-    </div>
-    <div style="background:var(--panel);border-left:3px solid #34d399;border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5)">
-      <div style="color:#34d399;font-weight:700;font-family:var(--font-display);margin-bottom:var(--s3)">Ketamine <span style="font-size:0.7rem;font-weight:400">0.5mg/kg IV</span></div>
-      <table style="width:100%;font-size:0.72rem;border-collapse:collapse">
-        <tr><td style="color:var(--text-muted);padding:2px 0">Antidepressant</td><td style="text-align:right;font-family:var(--font-mono)">0.5mg/kg IV</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Spravato (nasal)</td><td style="text-align:right;font-family:var(--font-mono)">56mg or 84mg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Recreational</td><td style="text-align:right;font-family:var(--font-mono)">50–200mg IM/nasal</td></tr>
-      </table>
-      <div style="font-size:0.65rem;color:#ff2d8f;margin-top:var(--s3);font-family:var(--font-mono)">Contraindications: Uncontrolled hypertension · History of psychosis</div>
-    </div>
-    <div style="background:var(--panel);border-left:3px solid #a78bfa;border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5)">
-      <div style="color:#a78bfa;font-weight:700;font-family:var(--font-display);margin-bottom:var(--s3)">Ibogaine <span style="font-size:0.7rem;font-weight:400;color:#ff2d8f">⚠ CARDIAC RISK</span></div>
-      <table style="width:100%;font-size:0.72rem;border-collapse:collapse">
-        <tr><td style="color:var(--text-muted);padding:2px 0">Test dose</td><td style="text-align:right;font-family:var(--font-mono)">1–3mg/kg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Flood dose</td><td style="text-align:right;font-family:var(--font-mono)">10–25mg/kg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">70kg example</td><td style="text-align:right;font-family:var(--font-mono)">700–1750mg</td></tr>
-      </table>
-      <div style="font-size:0.65rem;color:#ff2d8f;margin-top:var(--s3);font-family:var(--font-mono)">Requires cardiac screening · Medical supervision mandatory</div>
-    </div>
-    <div style="background:var(--panel);border-left:3px solid #f0abfc;border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5)">
-      <div style="color:#f0abfc;font-weight:700;font-family:var(--font-display);margin-bottom:var(--s3)">DMT (vaporized)</div>
-      <table style="width:100%;font-size:0.72rem;border-collapse:collapse">
-        <tr><td style="color:var(--text-muted);padding:2px 0">Threshold</td><td style="text-align:right;font-family:var(--font-mono)">5–10mg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Light</td><td style="text-align:right;font-family:var(--font-mono)">10–20mg</td></tr>
-        <tr><td style="color:var(--text-muted);padding:2px 0">Breakthrough</td><td style="text-align:right;font-family:var(--font-mono)">40–60mg</td></tr>
-      </table>
-      <div style="font-size:0.65rem;color:#ff2d8f;margin-top:var(--s3);font-family:var(--font-mono)">Contraindications: MAOIs (extends dramatically) · SSRIs</div>
-    </div>
-  </div>
-</div>
+  <div class="section-header"><div class="section-eyebrow">Safety Governance</div>
+    <h2 class="section-title">Dose &amp; Interaction <span class="accent-magenta">Review Paused</span></h2>
+    <p style="color:var(--text-secondary);max-width:760px;margin-top:var(--s4);line-height:1.7">The previous substance-specific dose ranges and contraindication summaries have been removed from the public interface. Static ranges can be mistaken for individualized instructions and incomplete interaction lists can omit material risks.</p></div>
+  <div style="background:var(--panel);border:1px solid #ff2d8f;border-radius:var(--r-lg);padding:var(--s8);max-width:860px">
+    <div style="font-family:var(--font-display);font-weight:700;color:#ff2d8f;margin-bottom:var(--s3)">Re-release requirements</div>
+    <ul style="color:var(--text-secondary);line-height:1.8;padding-left:1.2rem"><li>item-level clinical or regulatory authority for every dose and interaction statement;</li><li>severity, uncertainty, population, route, and currency fields;</li><li>independent qualified clinical review and correction history; and</li><li>clear emergency and adverse-event escalation guidance.</li></ul></div>
 </section>
 
 <section class="section" id="research">
   <div class="section-header">
     <div class="section-eyebrow">Research Hub</div>
     <h2 class="section-title">Citation <span class="accent-magenta">Library</span></h2>
-    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:var(--s3)">30+ sources including primary case law, peer-reviewed trials, and foundational texts</div>
+    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:var(--s3)">30+ sources spanning judicial opinions, government material, peer-reviewed research, and foundational or contextual texts</div>
   </div>
   <div style="margin-bottom:var(--s6);display:flex;gap:var(--s3)">
     <button class="btn btn-outline" onclick="exportCitationLibraryPDF()">Export Citations PDF</button>
@@ -1876,8 +1771,8 @@ main { min-height: calc(100vh - 60px); }
       <p class="footer-tagline" style="font-size:0.75rem">Griffiths et al. (2006), Hoffman et al. (2001), Pahnke (1967), Carhart-Harris et al. (2021), Nichols (2016), Gonzales v. O Centro (2006), Employment Division v. Smith (1990), and 25+ additional primary sources.</p>
     </div>
   </div>
-  <div style="text-align:center;padding:var(--s4) var(--s8);font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);border-top:1px solid var(--border)">This site does not use tracking cookies or third-party analytics by default. If analytics are added at deployment, a full privacy policy will be published at this URL. Data inquiries: contact via <a href="https://fatnugsmag.com" target="_blank" rel="noopener" style="color:var(--fnm);font-weight:600">Fat Nugs Magazine</a>.</div>
-<div class="footer-bottom">Entheogen Atlas &mdash; Research and editorial reference site by RN Collins, M.S. Content does not constitute medical, legal, or therapeutic advice. For research and educational purposes only. Clinical trial data reflects published literature and may not reflect current trial status. Substance interaction data is for harm-reduction reference only. RFRA and legal analysis is educational issue-spotting, not legal counsel. &copy; 2026 RN Collins. Last updated July 2026.</div>
+  <div style="text-align:center;padding:var(--s4) var(--s8);font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);border-top:1px solid var(--border)">This site does not use tracking cookies, automatic page-view beacons, or third-party analytics. Contact details are sent only after explicit consent and are used to respond to the inquiry. Data inquiries: contact via <a href="https://fatnugsmag.com" target="_blank" rel="noopener" style="color:var(--fnm);font-weight:600">Fat Nugs Magazine</a>.</div>
+<div class="footer-bottom">Entheogen Atlas &mdash; Research and editorial reference site by RN Collins, M.S. Content does not constitute medical, legal, or therapeutic advice. For research and educational purposes only. Clinical, legal, regulatory, and cultural material is an archival July 2026 editorial snapshot and may be incomplete or outdated. Reliance-prone dose, interaction, legal-risk, and case-strength outputs are paused pending item-level evidence and professional review. &copy; 2026 RN Collins. Last updated July 2026.</div>
 </footer>
 <!-- fix: close page-home -->
 
@@ -3491,7 +3386,6 @@ var RADAR_SCORES = {
   salvia:     {duration_score:1,potency_score:9,safety_score:7,clinical_score:2,legal_score:8,tradition_score:6}
 };
 
- ready
 // Additional exports for onclick handlers
 window.showSubstanceModal = showSubstanceModal;
 window.openTimeline = openTimeline;
@@ -5195,6 +5089,8 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
   <div style="background:#fff;max-width:420px;width:90%;padding:2rem;border-radius:4px">
     <h2 id="ca-modal-title" style="margin:0 0 .5rem">Contact the Architect</h2>
     <p style="margin:0 0 1rem;font-size:.8rem;color:#555;line-height:1.5">Goes directly to RN Collins — the atlas's researcher and author. Use it for citation corrections, collaboration inquiries, or questions about a specific claim on this site.</p>
+    <label style="display:flex;gap:.5rem;align-items:flex-start;margin:0 0 1rem;font-size:.72rem;color:#555;line-height:1.45"><input id="ca-consent" type="checkbox" required> I consent to RN Collins receiving these details to respond to this inquiry.</label>
+    <div id="ca-status" role="status" aria-live="polite" style="min-height:1.2rem;margin-bottom:.65rem;font-size:.72rem;color:#8a2d55"></div>
     <input id="ca-name" placeholder="Name (optional)"
       style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box"/>
     <input id="ca-email" type="email" placeholder="Email (required)"
@@ -5210,19 +5106,18 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
   </div>
 </div>
 <script>
-document.getElementById('ca-send').onclick=function(){
-  var e=document.getElementById('ca-email').value;
-  if(!e){alert('Email is required');return;}
-  fetch('https://rn-api-rn-collins.vercel.app/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:document.getElementById('ca-name').value,email:e,
-    message:document.getElementById('ca-msg').value,source:'contact-architect-entheogen-atlas'})})
-  .then(function(){document.getElementById('ca-modal').style.display='none';alert('Sent!');})
-  .catch(function(){alert('Error. Please try again.');});
+document.getElementById('ca-send').onclick=async function(){
+  var e=document.getElementById('ca-email').value.trim(),consent=document.getElementById('ca-consent').checked,status=document.getElementById('ca-status'),button=this;
+  if(!e || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(e)){status.textContent='Enter a valid email address.';return;}
+  if(!consent){status.textContent='Confirm consent before sending.';return;}
+  button.disabled=true; status.textContent='Sending…';
+  try {var response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('ca-name').value,email:e,message:document.getElementById('ca-msg').value,source:'contact-architect-entheogen-atlas',consent:true})});if(!response.ok)throw new Error('Request failed');status.textContent='Inquiry received.';}
+  catch(_){status.textContent='Unable to send. Please try again later.';}finally{button.disabled=false;}
 };
 </script>
 
 <div style="text-align:center;padding:.75rem 1rem;font-size:.7rem;border-top:1px solid rgba(255,255,255,.08);color:var(--text-muted)">
-  Built by <a href="https://rn-portfolio-khaki.vercel.app" target="_blank" rel="noopener"
+  Built by <a href="https://rn-selected-work.vercel.app" target="_blank" rel="noopener"
   style="color:var(--acid);text-decoration:none">RN Builds</a> — explore all AI tools and projects.
 </div>
 </body>

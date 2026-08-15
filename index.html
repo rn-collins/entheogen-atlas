@@ -3434,8 +3434,9 @@ var STATE_GRID = [
 function buildUSMap(containerId, substanceId) {
   const wrap = document.getElementById(containerId);
   if (!wrap) return;
+  if (!STATE_STATUS || !STATE_STATUS[substanceId]) { wrap.innerHTML = '<div style="padding:1rem;color:var(--text-secondary)">Current jurisdictional status maps have been removed from this edition. Consult official, current authority.</div>'; return; }
 
-  const statusData = STATE_STATUS[substanceId] || STATE_STATUS.cannabis;
+  const statusData = STATE_STATUS[substanceId];
   const subColor = (typeof SUBSTANCES !== 'undefined' && SUBSTANCES[substanceId]) ? SUBSTANCES[substanceId].color : '#c8ff00';
 
   const cellSize = 42;
@@ -4093,7 +4094,7 @@ var showSubstanceModal = window.showSubstanceModal = function(id) {
             '<tr style="border-bottom:1px solid var(--border)"><td style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;color:var(--text-muted);padding:var(--s2) var(--s3)">Receptor</td><td style="font-family:var(--font-mono);font-size:0.7rem;padding:var(--s2) var(--s3)">' + sub.receptor + '</td></tr>' +
             '<tr style="border-bottom:1px solid var(--border)"><td style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;color:var(--text-muted);padding:var(--s2) var(--s3)">Onset</td><td style="font-family:var(--font-mono);font-size:0.72rem;padding:var(--s2) var(--s3)">' + sub.onset + '</td></tr>' +
             '<tr style="border-bottom:1px solid var(--border)"><td style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;color:var(--text-muted);padding:var(--s2) var(--s3)">Duration</td><td style="font-family:var(--font-mono);font-size:0.72rem;padding:var(--s2) var(--s3)">' + sub.duration + '</td></tr>' +
-            '<tr style="border-bottom:1px solid var(--border)"><td style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;color:var(--text-muted);padding:var(--s2) var(--s3)">Schedule</td><td style="font-family:var(--font-mono);font-size:0.68rem;color:'+sub.color+';padding:var(--s2) var(--s3)">' + sub.scheduleUS + '</td></tr>' +
+            '<tr style="border-bottom:1px solid var(--border)"><td style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;color:var(--text-muted);padding:var(--s2) var(--s3)">Current status</td><td style="font-family:var(--font-mono);font-size:0.68rem;color:'+sub.color+';padding:var(--s2) var(--s3)">Removed — verify official authority</td></tr>' +
             '<tr><td style="font-family:var(--font-mono);font-size:0.6rem;text-transform:uppercase;color:var(--text-muted);padding:var(--s2) var(--s3)">Use Since</td><td style="font-family:var(--font-mono);font-size:0.72rem;padding:var(--s2) var(--s3)">' + sub.historicalUse + '</td></tr>' +
           '</table>' +
         '</div>' +

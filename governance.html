@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Evidence & Cultural Governance — Entheogen Atlas</title>
+<meta name="robots" content="index,follow">
+<style>
+:root{color-scheme:dark;--bg:#09110f;--panel:#111d19;--ink:#eef7f1;--muted:#a9bdb3;--line:#284137;--accent:#e9b65b}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% 0,#17392d 0,transparent 35%),var(--bg);color:var(--ink);font:16px/1.6 system-ui,sans-serif}main{width:min(920px,calc(100% - 32px));margin:auto;padding:64px 0 96px}a{color:#ffd98f}h1{font:clamp(2.4rem,7vw,5rem)/.96 Georgia,serif;margin:.2em 0}.kicker{color:var(--accent);letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}.lede{color:var(--muted);font-size:1.15rem;max-width:760px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:36px 0}.card,form{background:rgba(17,29,25,.92);border:1px solid var(--line);border-radius:16px;padding:24px}.status{display:inline-block;background:#173e2f;color:#bff6d7;border:1px solid #2c684f;border-radius:999px;padding:4px 10px;font-size:.78rem}h2{margin-top:44px}label{display:block;margin:14px 0 6px}input,select,textarea,button{width:100%;font:inherit;border-radius:10px;border:1px solid #3a5349;background:#0b1512;color:var(--ink);padding:12px}textarea{min-height:140px}button{margin-top:16px;background:var(--accent);color:#1c160a;border:0;font-weight:700;cursor:pointer}.fine{font-size:.86rem;color:var(--muted)}#result{min-height:1.6em;margin-top:12px}
+</style>
+</head>
+<body><main>
+<a href="/">← Return to atlas</a>
+<p class="kicker">Evidence integrity</p><h1>Evidence &amp; Cultural Governance</h1>
+<p class="lede">This is an enforceable publication boundary. Unsupported safety tools, predictive legal tools, unmaintained current-status trackers, and unauthorized living-tradition protocols are removed—not labeled as complete.</p>
+<div class="grid">
+<section class="card"><span class="status">Enforced</span><h2>Claim-level evidence</h2><p>Retained substantive claims identify source type, scope, limitations, verification date, and a stable claim ID.</p><a href="/evidence-register.json">Open the machine-readable register</a></section>
+<section class="card"><span class="status">Enforced</span><h2>Cultural authority</h2><p>Community-origin knowledge is not treated as permission to reproduce. Living-tradition protocols require documented authorization from the relevant authority.</p></section>
+<section class="card"><span class="status">Removed</span><h2>Unsafe or stale tools</h2><p>Dose, interaction, legal-risk, RFRA-strength, live-law, and ceremony-protocol tools are not available in this edition.</p></section>
+</div>
+<h2>Editorial rules</h2>
+<ul><li>Primary research, reviews, statutes, opinions, history, and community-origin sources are classified separately.</li><li>No Nation, community, church, lineage, or tradition is represented as endorsing this atlas without explicit documented authority.</li><li>A cultural authority may request correction, contextualization, restriction, attribution change, or withdrawal.</li><li>Medical and legal outputs cannot return without qualified review, maintained provenance, versioning, and correction controls.</li></ul>
+<h2>Correction or withdrawal request</h2>
+<form id="governance-form">
+<label for="requestType">Request type</label><select id="requestType" name="requestType"><option>Factual correction</option><option>Cultural-context correction</option><option>Attribution change</option><option>Restriction or withdrawal</option><option>Rights or permission concern</option></select>
+<label for="claimId">Claim ID or page/section</label><input id="claimId" name="claimId" maxlength="160" required>
+<label for="name">Name or authority</label><input id="name" name="name" maxlength="120" required>
+<label for="email">Reply email</label><input id="email" name="email" type="email" maxlength="254" required>
+<label for="message">Evidence, requested action, and relationship to the material</label><textarea id="message" name="message" maxlength="5000" required></textarea>
+<label><input id="consent" name="consent" type="checkbox" required style="width:auto"> I consent to transmission and processing of this request for editorial review.</label>
+<button type="submit">Submit governance request</button><p class="fine">Submission creates an editorial request; it does not concede ownership or determine authority.</p><p id="result" role="status" aria-live="polite"></p>
+</form>
+</main><script>
+document.getElementById('governance-form').addEventListener('submit',async function(e){e.preventDefault();const result=document.getElementById('result');result.textContent='Submitting…';const f=this.elements;const body={requestType:f.requestType.value,claimId:f.claimId.value,name:f.name.value,email:f.email.value,message:f.message.value,consent:f.consent.checked};try{const r=await fetch('/api/governance',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await r.json();if(!r.ok)throw new Error(data.error||'Request failed');result.textContent='Request received. Reference: '+data.reference;this.reset()}catch(err){result.textContent=err.message||'Request failed'}})
+</script></body></html>

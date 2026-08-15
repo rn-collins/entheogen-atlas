@@ -9,7 +9,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Entheogen Atlas — Sacred Plants, Science &amp; the Law">
-  <meta property="og:description" content="A complete research atlas of entheogenic substances: archaeology, neuroscience, legal history, phenomenology, and religious use — mapped across 60,000 years.">
+  <meta property="og:description" content="A source-classified research atlas covering selected historical, scientific, and legal materials with explicit evidence and cultural-governance controls.">
   <meta property="og:url" content="https://entheogetatlas.com">
   <meta property="og:image" content="https://entheogetatlas.com/og-image.png">
   <meta property="og:site_name" content="Entheogen Atlas">
@@ -1110,6 +1110,7 @@ main { min-height: calc(100vh - 60px); }
   button[style*="position:fixed"][style*="bottom:24px"][style*="right:24px"]{bottom:12px!important;right:12px!important;padding:7px 12px!important;font-size:11px!important}
 }
 </style>
+  <link rel="alternate" type="application/json" href="/evidence-register.json" title="Entheogen Atlas evidence register">
 </head>
 <body>
 
@@ -1378,11 +1379,11 @@ main { min-height: calc(100vh - 60px); }
       <div class="card-sub">Pahnke's 9 characteristics expanded</div>
       <div class="card-tags"><span class="tag">MEQ30</span><span class="tag">DMN</span></div>
     </div>
-    <div class="substance-card" style="--card-color:var(--peyote)" onclick="showPage('rfra')">
+    <div class="substance-card" style="--card-color:var(--peyote)" onclick="showPage('governance')">
       <div class="card-symbol" style="color:var(--peyote)">&#9878;</div>
-      <div class="card-name">RFRA Litigation Tracker</div>
-      <div class="card-sub">Every exemption case mapped</div>
-      <div class="card-tags"><span class="tag">Case Law</span><span class="tag">Active</span></div>
+      <div class="card-name">Evidence & Governance</div>
+      <div class="card-sub">Claim-level legal-source controls</div>
+      <div class="card-tags"><span class="tag">Case Law</span><span class="tag">Source-controlled</span></div>
     </div>
     <div class="substance-card" style="--card-color:var(--cyan)" onclick="showPage('pipeline')">
       <div class="card-symbol" style="color:var(--cyan)">&#8982;</div>
@@ -1390,28 +1391,28 @@ main { min-height: calc(100vh - 60px); }
       <div class="card-sub">Active clinical trials</div>
       <div class="card-tags"><span class="tag">FDA</span><span class="tag">Phase 3</span></div>
     </div>
-    <div class="substance-card" style="--card-color:var(--sage)" onclick="showPage('ceremony')">
+    <div class="substance-card" style="--card-color:var(--sage)" onclick="showPage('governance')">
       <div class="card-symbol" style="color:var(--sage)">&#9685;</div>
-      <div class="card-name">Ceremony Structures</div>
-      <div class="card-sub">Four traditions documented</div>
+      <div class="card-name">Cultural Governance</div>
+      <div class="card-sub">Authority, correction & withdrawal</div>
       <div class="card-tags"><span class="tag">Ritual</span><span class="tag">Protocol</span></div>
     </div>
-    <div class="substance-card" style="--card-color:var(--magenta)" onclick="showPage('comparative')">
+    <div class="substance-card" style="--card-color:var(--magenta)" onclick="showPage('governance')">
       <div class="card-symbol" style="color:var(--magenta)">&#9770;</div>
-      <div class="card-name">Global Legal Frameworks</div>
-      <div class="card-sub">US vs. Brazil, Peru, Australia, Netherlands</div>
+      <div class="card-name">Legal Evidence Register</div>
+      <div class="card-sub">Verified sources, scope and as-of dates</div>
       <div class="card-tags"><span class="tag">International</span><span class="tag">Policy</span></div>
     </div>
-    <div class="substance-card" style="--card-color:var(--amber)" onclick="showPage('decrim')">
+    <div class="substance-card" style="--card-color:var(--amber)" onclick="showPage('governance')">
       <div class="card-symbol" style="color:var(--amber)">&#9650;</div>
-      <div class="card-name">Decriminalization Tracker</div>
-      <div class="card-sub">City by city, state by state</div>
+      <div class="card-name">Current-Status Boundary</div>
+      <div class="card-sub">Unmaintained live-status claims removed</div>
       <div class="card-tags"><span class="tag">Reform</span><span class="tag">Local</span></div>
     </div>
-    <div class="substance-card" style="--card-color:#ff6b6b" onclick="showPage('interactions')">
+    <div class="substance-card" style="--card-color:#ff6b6b" onclick="showPage('governance')">
       <div class="card-symbol" style="color:#ff6b6b">&#9888;</div>
-      <div class="card-name">Drug Interactions</div>
-      <div class="card-sub">Safety data across all substances</div>
+      <div class="card-name">Safety Boundary</div>
+      <div class="card-sub">Unreviewed interaction guidance removed</div>
       <div class="card-tags"><span class="tag">Safety</span><span class="tag">Harm Reduction</span></div>
     </div>
     <div class="substance-card" style="--card-color:#a78bfa" onclick="showPage('researchers')">
@@ -1758,12 +1759,12 @@ main { min-height: calc(100vh - 60px); }
         <li><a onclick="showPage('legitimacy')" style="cursor:pointer">The Legitimacy Gap</a></li>
         <li><a onclick="showPage('receptor')" style="cursor:pointer">Receptor Atlas</a></li>
         <li><a onclick="showPage('phenomenology')" style="cursor:pointer">Mystical Experience Taxonomy</a></li>
-        <li><a onclick="showPage('rfra')" style="cursor:pointer">RFRA Litigation Tracker</a></li>
+        <li><a onclick="showPage('governance')" style="cursor:pointer">RFRA Litigation Tracker</a></li>
         <li><a onclick="showPage('pipeline')" style="cursor:pointer">Science Pipeline</a></li>
-        <li><a onclick="showPage('ceremony')" style="cursor:pointer">Ceremony Structures</a></li>
-        <li><a onclick="showPage('comparative')" style="cursor:pointer">Global Legal Frameworks</a></li>
-        <li><a onclick="showPage('decrim')" style="cursor:pointer">Decrim Tracker</a></li>
-        <li><a onclick="showPage('interactions')" style="cursor:pointer">Drug Interactions</a></li>
+        <li><a onclick="showPage('governance')" style="cursor:pointer">Ceremony Structures</a></li>
+        <li><a onclick="showPage('governance')" style="cursor:pointer">Global Legal Frameworks</a></li>
+        <li><a onclick="showPage('governance')" style="cursor:pointer">Decrim Tracker</a></li>
+        <li><a onclick="showPage('governance')" style="cursor:pointer">Drug Interactions</a></li>
       </ul>
     </div>
     <div>
@@ -1884,10 +1885,10 @@ main { min-height: calc(100vh - 60px); }
       <div style="margin-top:var(--s12);padding:var(--s8);background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg)">
         <div style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:var(--s4)">Explore Further</div>
         <div style="display:flex;gap:var(--s3);flex-wrap:wrap">
-          <button onclick="showPage('rfra')" class="btn btn-outline">RFRA Litigation Tracker</button>
+          <button onclick="showPage('governance')" class="btn btn-outline">RFRA Litigation Tracker</button>
           <button onclick="showPage('phenomenology')" class="btn btn-outline">Mystical Experience Taxonomy</button>
           <button onclick="showPage('pipeline')" class="btn btn-outline">Science Pipeline</button>
-          <button onclick="showPage('comparative')" class="btn btn-outline">Global Legal Frameworks</button>
+          <button onclick="showPage('governance')" class="btn btn-outline">Global Legal Frameworks</button>
         </div>
       </div>
     </div>
@@ -1973,19 +1974,7 @@ main { min-height: calc(100vh - 60px); }
 <!-- ============================================================ -->
 <!-- RFRA TRACKER -->
 <!-- ============================================================ -->
-<div id="page-rfra" class="page-section">
-<div style="padding-top:80px">
-  <div style="background:linear-gradient(135deg,rgba(251,146,60,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto">
-      <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
-      <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--peyote);margin-bottom:var(--s3)">Legal Research</div>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">RFRA Litigation <span style="color:var(--peyote)">Tracker</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">Every major entheogenic religious exemption case — from People v. Woody (1964) through active 2023 litigation. The arc from Smith through O Centro to today.</p>
-    </div>
-  </div>
-  <div class="section" id="rfra-content"></div>
-</div>
-</div>
+
 
 <!-- ============================================================ -->
 <!-- SCIENCE PIPELINE -->
@@ -2008,76 +1997,22 @@ main { min-height: calc(100vh - 60px); }
 <!-- ============================================================ -->
 <!-- CEREMONY STRUCTURES -->
 <!-- ============================================================ -->
-<div id="page-ceremony" class="page-section">
-<div style="padding-top:80px">
-  <div style="background:linear-gradient(135deg,rgba(74,222,128,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto">
-      <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
-      <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--sage);margin-bottom:var(--s3)">Ritual Protocol</div>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">Ceremony <span style="color:var(--sage)">Structures</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">Four documented ritual frameworks — NAC peyote, Mazatec velada, Shipibo ayahuasca, and Santo Daime. The shamans solved the safety protocol problem millennia before clinical research rediscovered it.</p>
-    </div>
-  </div>
-  <div class="section" id="ceremony-content"></div>
-</div>
-</div>
+
 
 <!-- ============================================================ -->
 <!-- GLOBAL LEGAL FRAMEWORKS -->
 <!-- ============================================================ -->
-<div id="page-comparative" class="page-section">
-<div style="padding-top:80px">
-  <div style="background:linear-gradient(135deg,rgba(255,45,143,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto">
-      <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
-      <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--magenta);margin-bottom:var(--s3)">International Law</div>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">Global Legal <span style="color:var(--magenta)">Frameworks</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">How US Schedule I compares to Brazil, Peru, Australia, Canada, Jamaica, Colombia, Netherlands. The US is not the most restrictive — nor the most progressive.</p>
-    </div>
-  </div>
-  <div class="section" id="comparative-content"></div>
-</div>
-</div>
+
 
 <!-- ============================================================ -->
 <!-- DECRIM TRACKER -->
 <!-- ============================================================ -->
-<div id="page-decrim" class="page-section">
-<div style="padding-top:80px">
-  <div style="background:linear-gradient(135deg,rgba(255,140,0,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto">
-      <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
-      <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--amber);margin-bottom:var(--s3)">Policy Reform</div>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">Decriminalization <span style="color:var(--amber)">Tracker</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">Denver 2019 to Colorado 2022 — the bottom-up pressure that preceded state reform. Every major city and state action documented.</p>
-    </div>
-  </div>
-  <div class="section" id="decrim-content"></div>
-</div>
-</div>
+
 
 <!-- ============================================================ -->
 <!-- DRUG INTERACTIONS -->
 <!-- ============================================================ -->
-<div id="page-interactions" class="page-section">
-<div style="padding-top:80px">
-  <div style="background:linear-gradient(135deg,rgba(255,107,107,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
-    <div style="max-width:1200px;margin:0 auto">
-      <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
-      <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:#ff6b6b;margin-bottom:var(--s3)">Harm Reduction</div>
-      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">Drug <span style="color:#ff6b6b">Interactions</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">Safety data across all substances. SSRIs, lithium, cannabis combinations. Critical contraindications for ayahuasca MAOI activity.</p>
-      <div style="background:rgba(255,107,107,0.1);border:1px solid rgba(255,107,107,0.3);border-radius:var(--r-md);padding:var(--s4);margin-top:var(--s6);font-size:0.85rem;color:#ff6b6b">For educational reference only. Not medical advice. Consult a healthcare provider before any substance use.</div>
-    </div>
-  </div>
-  <div class="section" id="interactions-content"></div>
-</div>
-
-
-<!-- DRAWER -->
-
-
-</div><!-- #app -->
+<!-- #app -->
 <div class="mega-menu" id="mega-menu" aria-hidden="true" role="dialog" aria-label="Site navigation">
   <div class="mega-menu-inner">
     <div class="mega-menu-header">
@@ -2105,22 +2040,22 @@ main { min-height: calc(100vh - 60px); }
           <li><a onclick="closeMegaMenu();showPage('neuro')" data-page="neuro">Brain Science &amp; Neuroimaging</a></li>
           <li><a onclick="closeMegaMenu();showPage('pipeline')" data-page="pipeline">Science Pipeline</a></li>
           <li><a onclick="closeMegaMenu();showPage('phenomenology')" data-page="phenomenology">Mystical Experience (MEQ)</a></li>
-          <li><a onclick="closeMegaMenu();showPage('interactions')" data-page="interactions">Drug Interactions</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="interactions">Drug Interactions</a></li>
         </ul>
         <div class="mega-divider"></div>
         <div class="mega-col-label">Law &amp; Policy</div>
         <ul class="mega-links">
           <li><a onclick="closeMegaMenu();showPage('legitimacy')" data-page="legitimacy" class="mega-editorial">&#9632; The Legitimacy Gap</a></li>
-          <li><a onclick="closeMegaMenu();showPage('rfra')" data-page="rfra">RFRA Litigation Tracker</a></li>
-          <li><a onclick="closeMegaMenu();showPage('decrim')" data-page="decrim">Decriminalization Tracker</a></li>
-          <li><a onclick="closeMegaMenu();showPage('comparative')" data-page="comparative">Global Legal Frameworks</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="rfra">RFRA Litigation Tracker</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="decrim">Decriminalization Tracker</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="comparative">Global Legal Frameworks</a></li>
         </ul>
       </div>
       <div class="mega-col">
         <div class="mega-col-label">Culture &amp; History</div>
         <ul class="mega-links">
           <li><a onclick="closeMegaMenu();showPage('researchers')" data-page="researchers">Key Researchers</a></li>
-          <li><a onclick="closeMegaMenu();showPage('ceremony')" data-page="ceremony">Ceremony Structures</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="ceremony">Ceremony Structures</a></li>
           <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#timelines')">Historical Timelines</a></li>
         </ul>
         <div class="mega-divider"></div>
@@ -2448,72 +2383,10 @@ var SCIENCE_PIPELINE = [
 ];
 
 // ---- COMPARATIVE LEGAL FRAMEWORKS ----
-var INTL_FRAMEWORKS = [
-  { country: 'Brazil', flag: '🇧🇷', substance: 'ayahuasca', status: 'Legal', framework: 'CONAD Resolution 1/2010 — Federal Council for Drug Policy formally legalized ayahuasca for religious use. UDV and Santo Daime operate openly. No medical license required for ceremonial use.', year: 2010 },
-  { country: 'Peru', flag: '🇵🇪', substance: 'ayahuasca', status: 'Legal (National Heritage)', framework: 'Ministerial Resolution 002-2004-MC declared ayahuasca National Cultural Heritage. Ceremonial use protected. Growing retreat center industry creates regulatory tension.', year: 2008 },
-  { country: 'Netherlands', flag: '🇳🇱', substance: 'psilocybin', status: 'Legal (truffles)', framework: 'Psilocybin mushrooms banned 2008 after tourist incidents. Psilocybin truffles (sclerotia) technically not covered by ban — remain legally sold in smart shops. Legal gray area exploited commercially.', year: 2008 },
-  { country: 'Jamaica', flag: '🇯🇲', substance: 'psilocybin', status: 'Unregulated', framework: 'Psilocybin mushrooms never scheduled in Jamaica. Not covered by Dangerous Drugs Act. Large retreat industry operates openly. Legal for production, sale, and consumption.', year: 1948 },
-  { country: 'Australia', flag: '🇦🇺', substance: 'psilocybin', status: 'Therapeutic', framework: 'TGA rescheduled psilocybin (depression) and MDMA (PTSD) effective July 1, 2023. First country to formally authorize psychedelic-assisted therapy. Authorized Prescribers system.', year: 2023 },
-  { country: 'Canada', flag: '🇨🇦', substance: 'psilocybin', status: 'Section 56 Exemptions', framework: 'Health Canada Section 56 exemptions granted to terminal patients (2020) and therapists-in-training (2022). Case-by-case basis. No systematic framework yet.', year: 2020 },
-  { country: 'Colombia', flag: '🇨🇴', substance: 'ayahuasca', status: 'Legal', framework: 'Constitutional Court ruling protects indigenous plant medicine use. Yagé (ayahuasca) recognized as part of indigenous cultural heritage. Urban ceremonial use in gray area.', year: 1994 },
-  { country: 'United States', flag: '🇺🇸', substance: 'all', status: 'Schedule I (exemptions)', framework: 'All five substances Schedule I federally. NAC peyote exempt (AIRFA 1994). UDV/Santo Daime ayahuasca protected (O Centro 2006 + circuit courts). State-level cannabis (24 states), psilocybin reform (OR, CO) creates federal-state conflict.', year: 1970 }
-];
+var INTL_FRAMEWORKS = [];
 
 // ---- CEREMONY STRUCTURES ----
-var CEREMONIES = [
-  {
-    tradition: 'Native American Church Peyote Ceremony',
-    substance: 'peyote',
-    color: '#fb923c',
-    duration: '12 hours (8pm–8am)',
-    setting: 'Teepee, central fire, sacred altar',
-    leadership: 'Roadman (chief), Cedar Man, Fireman, Drummer',
-    preparation: 'Physical cleanliness, spiritual purity, psychological humility, concentrated meditation mindset (Slotkin 1956)',
-    structure: ['Sunset: setup and prayer', '8pm: ceremony opens, Water Drum begins', '9–11pm: singing rounds, initial peyote ingestion', 'Midnight: water ceremony (water-drinking rite)', '12am–4am: deep ceremonial singing and contemplation', 'Dawn: special foods — corn, fruit, dried meat', '8am: ceremony closes, communal meal'],
-    dose: '4–30 peyote buttons across the night',
-    music: 'Water drum (rawhide over water-filled iron pot) + gourd rattle. Ceremonial songs sung in turns by each participant.',
-    function: 'Healing, sobriety, spiritual guidance, communal bonding, rites of passage'
-  },
-  {
-    tradition: 'Mazatec Velada (Mushroom Ceremony)',
-    substance: 'psilocybin',
-    color: '#f472b6',
-    duration: '6–8 hours (midnight ceremony)',
-    setting: 'Healer\'s home, candlelit, family present',
-    leadership: 'Curandera (healer) — most famously María Sabina',
-    preparation: 'Sexual abstinence days prior, fasting, prayer. Mushrooms addressed as deities.',
-    structure: ['Mushrooms blessed and ingested by curandera and patient', 'Curandera begins chanting (singing in Mazatec)', 'Patient enters altered state; curandera diagnoses and heals through song', 'Ceremony continues until effect wanes', 'Dawn: closing prayers and interpretation'],
-    dose: '13 pairs of mushrooms (traditional), equivalent ~30+ mg psilocybin',
-    music: 'Spoken-sung Mazatec chants (icaros equivalent). Rhythm, intonation carry the healing.',
-    function: 'Diagnosis and healing of illness (physical and spiritual), divination, community consultation'
-  },
-  {
-    tradition: 'Ayahuasca Ceremony (Shipibo tradition)',
-    substance: 'ayahuasca',
-    color: '#c084fc',
-    duration: '6–8 hours (night)',
-    setting: 'Maloca (ceremonial hut), jungle, darkness or candlelight',
-    leadership: 'Curandero trained through years of plant dietas (isolation, dietary restriction, plant communication)',
-    preparation: 'Plant dieta weeks prior: no salt, sugar, sex, pork. Psychological preparation with curandero.',
-    structure: ['Dusk: circle formation, mapacho (tobacco) ceremony', 'Brew distributed by curandero', 'Lights extinguished', 'Curandero begins icaros (healing songs)', 'Individual healing: curandero works on each participant', 'Purging (vomiting) common — considered cleansing', 'Dawn: closing, integration discussion'],
-    dose: '0.3–1.0mg/kg DMT equivalent; highly variable by brew',
-    music: 'Icaros — specific healing songs learned through dieta. Each plant taught the curandero its song.',
-    function: 'Healing, purification, visionary guidance, communication with plant spirits'
-  },
-  {
-    tradition: 'Santo Daime Hinário (Hymn Work)',
-    substance: 'ayahuasca',
-    color: '#c084fc',
-    duration: '4–12 hours',
-    setting: 'Church (the Centro), white uniforms, men and women separated',
-    leadership: 'Padrinho (Godfather) — church leader. Madrinha for women\'s leadership.',
-    preparation: 'Dietary restrictions 3 days prior. Church membership and preparation period.',
-    structure: ['Opening prayers (Lord\'s Prayer, Hail Mary)', 'Daime (ayahuasca) served in cups by measure', 'Singing of hinários (hymnals received through revelation)', 'Dancing in geometric formation (bailado)', 'Daime served again every 2 hours', 'Closing prayers'],
-    dose: 'Standardized cup measures; multiple doses over ceremony',
-    music: 'Hinários — revealed hymns specific to each church lineage. Sung collectively with maracas and guitars.',
-    function: 'Healing, spiritual development, collective revelation, Christian-Amazonian synthesis'
-  }
-];
+var CEREMONIES = [];
 
 // ---- EXPANDED WHO USES DATA ----
 var WHO_USES_DATA = [
@@ -2536,34 +2409,10 @@ var WHO_USES_DATA = [
 ];
 
 // ---- DECRIMINALIZATION TRACKER ----
-var DECRIM_TRACKER = [
-  { city: 'Denver, CO', year: 2019, substance: 'psilocybin', mechanism: 'Ballot initiative I-301', margin: '50.6%', effect: 'Lowest law enforcement priority; no city prosecution', next: 'Contributed to CO Prop 122 (2022)' },
-  { city: 'Oakland, CA', year: 2019, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'All entheogenic plants lowest priority; no city budget for enforcement', next: 'Template for subsequent California cities' },
-  { city: 'Santa Cruz, CA', year: 2020, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'Non-commercial adult use deprioritized', next: null },
-  { city: 'Ann Arbor, MI', year: 2020, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'Lowest enforcement priority', next: 'Michigan state reform discussions ongoing' },
-  { city: 'Washington, DC', year: 2020, substance: 'all psychedelics', mechanism: 'Initiative 81 (ballot)', margin: '76%', effect: 'Lowest enforcement priority for possession', next: 'Congress blocked D.C. from legalizing sales' },
-  { city: 'Cambridge, MA', year: 2021, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'Deprioritized enforcement', next: 'Massachusetts reform bill filed 2023' },
-  { city: 'Northampton, MA', year: 2021, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'Deprioritized enforcement', next: null },
-  { city: 'Somerville, MA', year: 2021, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'Lowest enforcement priority', next: null },
-  { city: 'Seattle, WA', year: 2021, substance: 'all psychedelics', mechanism: 'City Council resolution', margin: 'Unanimous', effect: 'Non-commercial adult use deprioritized', next: 'Washington state reform filed 2023' },
-  { city: 'Detroit, MI', year: 2021, substance: 'all psychedelics', mechanism: 'Ballot initiative', margin: '61%', effect: 'Lowest enforcement priority', next: null },
-  { city: 'Oregon (statewide)', year: 2020, substance: 'psilocybin', mechanism: 'Measure 109', margin: '55.7%', effect: 'Licensed therapeutic centers; 25mg sessions with facilitator', next: 'First licensed sessions began 2023' },
-  { city: 'Colorado (statewide)', year: 2022, substance: 'psilocybin, DMT, ibogaine, mescaline (not peyote)', mechanism: 'Prop 122', margin: '53.7%', effect: 'Personal possession/use; licensed healing centers; gifting allowed', next: 'Healing centers accepting applications 2024' }
-];
+var DECRIM_TRACKER = [];
 
 // ---- DOSE SAFETY / INTERACTION DATA ----
-var INTERACTION_DATA = [
-  { substance: 'ayahuasca', interactant: 'SSRIs/SNRIs', risk: 'critical', description: 'Serotonin syndrome risk. MAOIs + serotonergic drugs = potentially fatal. Taper required 2+ weeks before ceremony. Widely documented.' },
-  { substance: 'ayahuasca', interactant: 'Lithium', risk: 'critical', description: 'Multiple seizure case reports. Avoid completely.' },
-  { substance: 'psilocybin', interactant: 'Lithium', risk: 'critical', description: 'Seizure risk documented. Absolute contraindication in all clinical protocols.' },
-  { substance: 'lsd', interactant: 'Lithium', risk: 'critical', description: 'Cardiac arrhythmia and seizure. Absolute contraindication.' },
-  { substance: 'psilocybin', interactant: 'SSRIs', risk: 'moderate', description: '5-HT₂A downregulation reduces effects 30–50%. Not dangerous, but blunts therapeutic experience. Clinical trials require SSRI washout.' },
-  { substance: 'cannabis', interactant: 'Psilocybin/LSD', risk: 'moderate', description: 'Amplifies and intensifies psychedelic effects. Anxiety risk significantly increased. Experienced users may combine intentionally; contraindicated for naive users.' },
-  { substance: 'ayahuasca', interactant: 'Tyramine foods', risk: 'moderate', description: 'MAOIs + tyramine (aged cheese, wine, cured meats) = hypertensive crisis risk. Standard MAOI dietary restrictions apply to ayahuasca.' },
-  { substance: 'lsd', interactant: 'Cannabis', risk: 'moderate', description: 'Cannabis extends and intensifies LSD experience. Common in recreational contexts; anxiety and psychosis risk in predisposed individuals.' },
-  { substance: 'psilocybin', interactant: 'MAOIs', risk: 'moderate', description: 'Prolonged and intensified effects. Some therapeutic protocols intentionally combine (psilocybin + harmala). Requires expertise.' },
-  { substance: 'cannabis', interactant: 'Alcohol', risk: 'low-moderate', description: 'Additive CNS depression. "Greening out" — nausea, paranoia, brief loss of consciousness in naive users. Well-documented.' }
-];
+var INTERACTION_DATA = [];
 
 
 
@@ -3280,50 +3129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ═══════════════════════════════════════════
 // DOSE CALCULATOR DATA
 // ═══════════════════════════════════════════
-var DOSE_DATA = {
-  psilocybin: {
-    name: 'Psilocybin', color: '#f472b6', unit: 'g dried mushroom',
-    weight_based: false,
-    ranges: { threshold:'0.1–0.25g', light:'0.5–1g', moderate:'1–2.5g', strong:'2.5–3.5g', heavy:'3.5g+' },
-    note: 'Potency varies significantly by species and strain. P. cubensis is most common. Test before full dose. No weight-based adjustment — individual sensitivity varies more than weight.',
-    contraindications: ['SSRIs (reduce effect)', 'Lithium (seizure risk)', 'MAOIs (serotonin risk)', 'Personal/family history of psychosis']
-  },
-  lsd: {
-    name: 'LSD', color: '#60a5fa', unit: 'µg',
-    weight_based: false,
-    ranges: { threshold:'10–25µg', light:'25–75µg', moderate:'75–150µg', strong:'150–300µg', heavy:'300µg+' },
-    note: 'Street doses vary enormously. Lab-tested blotter averages 75–125µg. Microdose: 5–15µg. No weight-based adjustment — sensitivity is highly individual.',
-    contraindications: ['SSRIs (reduce effect, serotonin risk)', 'Lithium (seizure risk)', 'History of psychosis', 'Cardiovascular disease']
-  },
-  mdma: {
-    name: 'MDMA', color: '#fb7185', unit: 'mg',
-    weight_based: true, mg_per_kg: 1.5,
-    ranges: { threshold:'50–75mg', common:'75–125mg', strong:'125–175mg', heavy:'175mg+' },
-    note: 'Clinical protocol (MAPS): 80mg + 40mg supplemental at 90 min. Weight-based: ~1.5mg/kg. Redosing: +50% of initial dose once. Re-dosing beyond this increases neurotoxicity risk without enhancing therapeutic effect.',
-    contraindications: ['MAOIs (fatal serotonin syndrome)', 'SSRIs (5-week washout required for MAPS protocol)', 'Stimulants (cardiac)', 'Lithium', 'Tramadol']
-  },
-  ketamine: {
-    name: 'Ketamine', color: '#34d399', unit: 'mg/kg (IV)',
-    weight_based: true, mg_per_kg: 0.5,
-    ranges: { antidepressant:'0.5mg/kg IV', anesthetic:'1–2mg/kg IV', recreational:'50–200mg (IM/nasal)', 'k-hole':'>2mg/kg or >300mg oral' },
-    note: 'Clinical antidepressant dose: 0.5mg/kg IV over 40 min. Spravato (nasal): 56mg or 84mg. Do not use alone — clinical monitoring required. Schedule III, but IV ketamine requires prescription and medical setting.',
-    contraindications: ['Uncontrolled hypertension', 'History of psychosis', 'Active substance use disorder', 'Pregnancy']
-  },
-  ibogaine: {
-    name: 'Ibogaine', color: '#a78bfa', unit: 'mg/kg',
-    weight_based: true, mg_per_kg: 15,
-    ranges: { 'test dose':'1–3mg/kg', 'flood (addiction)':'10–25mg/kg', 'ceremonial':'5–15mg/kg' },
-    note: '⚠️ CARDIAC RISK: QTc prolongation. Requires cardiac screening (ECG), medical supervision, crash cart. Calculate: body weight (kg) × dose (mg/kg). 70kg adult flood dose: 700–1750mg ibogaine HCl. Duration: 18–36hr. Do not use alone under any circumstances.',
-    contraindications: ['Any cardiac condition', 'QTc >450ms baseline', 'SSRIs/SNRIs (10-day washout minimum)', 'Opioids active in system', 'Liver disease', 'Psychiatric medication']
-  },
-  dmt: {
-    name: 'DMT (vaporized)', color: '#f0abfc', unit: 'mg',
-    weight_based: false,
-    ranges: { threshold:'5–10mg', light:'10–20mg', moderate:'20–35mg', strong:'35–50mg', breakthrough:'50–75mg+' },
-    note: 'Breakthrough experience typically at 40–60mg depending on device and technique. Onset: 30–60sec. Duration: 5–20min. Must be seated or lying down — complete immobility at breakthrough doses. Freebase DMT, not salt.',
-    contraindications: ['MAOIs (extends duration dramatically, use ayahuasca protocol)', 'SSRIs (reduced effect)', 'Stimulants', 'History of psychosis']
-  }
-};
+var DOSE_DATA = {};
 
 
 // ═══════════════════════════════════════════
@@ -3622,84 +3428,7 @@ var MOLECULES = {
 // ============================================
 
 // Status codes: 'legal' | 'medical' | 'decrim' | 'schedule1' | 'exempt' | 'therapeutic'
-var STATE_STATUS = {
-  cannabis: {
-    AK:'legal', AZ:'legal', CA:'legal', CO:'legal', CT:'legal', DE:'legal',
-    IL:'legal', ME:'legal', MD:'legal', MA:'legal', MI:'legal', MN:'legal',
-    MO:'legal', MT:'legal', NJ:'legal', NM:'legal', NY:'legal', NV:'legal',
-    OH:'legal', OR:'legal', RI:'legal', VT:'legal', VA:'legal', WA:'legal',
-    FL:'medical', GA:'medical', HI:'medical', LA:'medical', NH:'medical',
-    ND:'medical', OK:'medical', PA:'medical', SD:'medical', TX:'medical',
-    UT:'medical', WV:'medical',
-    NC:'decrim', NE:'decrim',
-    AL:'schedule1', AR:'schedule1', ID:'schedule1', IN:'schedule1',
-    IA:'schedule1', KS:'schedule1', KY:'schedule1', MS:'schedule1',
-    SC:'schedule1', TN:'schedule1', WI:'schedule1', WY:'schedule1', WV:'schedule1'
-  },
-  psilocybin: {
-    OR:'therapeutic', CO:'therapeutic',
-    CA:'decrim', DC:'decrim', MA:'decrim', MI:'decrim', OR:'decrim',
-    AK:'decrim', AZ:'decrim', CT:'decrim', FL:'decrim', IL:'decrim',
-    MA:'decrim', MN:'decrim', NM:'decrim', TX:'decrim', WA:'decrim',
-    AL:'schedule1', AR:'schedule1', GA:'schedule1', HI:'schedule1',
-    ID:'schedule1', IN:'schedule1', IA:'schedule1', KS:'schedule1',
-    KY:'schedule1', LA:'schedule1', ME:'schedule1', MD:'schedule1',
-    MS:'schedule1', MO:'schedule1', MT:'schedule1', NE:'schedule1',
-    NV:'schedule1', NH:'schedule1', NJ:'schedule1', NY:'schedule1',
-    NC:'schedule1', ND:'schedule1', OH:'schedule1', OK:'schedule1',
-    PA:'schedule1', RI:'schedule1', SC:'schedule1', SD:'schedule1',
-    TN:'schedule1', UT:'schedule1', VT:'schedule1', VA:'schedule1',
-    WI:'schedule1', WY:'schedule1', WV:'schedule1'
-  },
-  peyote: {
-    // NAC exemption applies federally but varies by state implementation
-    OK:'exempt', NM:'exempt', AZ:'exempt', SD:'exempt', MT:'exempt',
-    WY:'exempt', ND:'exempt', NE:'exempt', TX:'exempt', UT:'exempt',
-    CO:'exempt', OR:'exempt', WA:'exempt', ID:'exempt', MN:'exempt',
-    // Most states: Schedule I with federal NAC override
-    AL:'schedule1', AK:'schedule1', AR:'schedule1', CA:'schedule1',
-    CT:'schedule1', DE:'schedule1', FL:'schedule1', GA:'schedule1',
-    HI:'schedule1', IL:'schedule1', IN:'schedule1', IA:'schedule1',
-    KS:'schedule1', KY:'schedule1', LA:'schedule1', ME:'schedule1',
-    MD:'schedule1', MA:'schedule1', MI:'schedule1', MS:'schedule1',
-    MO:'schedule1', MT:'schedule1', NV:'schedule1', NH:'schedule1',
-    NJ:'schedule1', NY:'schedule1', NC:'schedule1', OH:'schedule1',
-    PA:'schedule1', RI:'schedule1', SC:'schedule1', TN:'schedule1',
-    VA:'schedule1', VT:'schedule1', WI:'schedule1', WV:'schedule1'
-  },
-  ayahuasca: {
-    // O Centro ruling protects UDV federally; Santo Daime in OR
-    OR:'exempt',
-    // All other states: Schedule I (DMT)
-    AL:'schedule1', AK:'schedule1', AZ:'schedule1', AR:'schedule1',
-    CA:'schedule1', CO:'schedule1', CT:'schedule1', DE:'schedule1',
-    FL:'schedule1', GA:'schedule1', HI:'schedule1', ID:'schedule1',
-    IL:'schedule1', IN:'schedule1', IA:'schedule1', KS:'schedule1',
-    KY:'schedule1', LA:'schedule1', ME:'schedule1', MD:'schedule1',
-    MA:'schedule1', MI:'schedule1', MN:'schedule1', MS:'schedule1',
-    MO:'schedule1', MT:'schedule1', NE:'schedule1', NV:'schedule1',
-    NH:'schedule1', NJ:'schedule1', NM:'schedule1', NY:'schedule1',
-    NC:'schedule1', ND:'schedule1', OH:'schedule1', OK:'schedule1',
-    PA:'schedule1', RI:'schedule1', SC:'schedule1', SD:'schedule1',
-    TN:'schedule1', TX:'schedule1', UT:'schedule1', VT:'schedule1',
-    VA:'schedule1', WA:'schedule1', WI:'schedule1', WY:'schedule1', WV:'schedule1'
-  },
-  lsd: {
-    // LSD: no state has decriminalized or legalized
-    AL:'schedule1', AK:'schedule1', AZ:'schedule1', AR:'schedule1',
-    CA:'schedule1', CO:'schedule1', CT:'schedule1', DE:'schedule1',
-    FL:'schedule1', GA:'schedule1', HI:'schedule1', ID:'schedule1',
-    IL:'schedule1', IN:'schedule1', IA:'schedule1', KS:'schedule1',
-    KY:'schedule1', LA:'schedule1', ME:'schedule1', MD:'schedule1',
-    MA:'schedule1', MI:'schedule1', MN:'schedule1', MS:'schedule1',
-    MO:'schedule1', MT:'schedule1', NE:'schedule1', NV:'schedule1',
-    NH:'schedule1', NJ:'schedule1', NM:'schedule1', NY:'schedule1',
-    NC:'schedule1', ND:'schedule1', OH:'schedule1', OK:'schedule1',
-    PA:'schedule1', RI:'schedule1', SC:'schedule1', SD:'schedule1',
-    TN:'schedule1', TX:'schedule1', UT:'schedule1', VT:'schedule1',
-    VA:'schedule1', WA:'schedule1', WI:'schedule1', WY:'schedule1', WV:'schedule1'
-  }
-};
+var STATE_STATUS = {};
 
 var STATUS_COLORS = {
   legal:       '#4ade80',
@@ -3851,7 +3580,7 @@ function buildSearchIndex(){
   var idx=[];
   Object.values(SUBSTANCES).forEach(function(s){idx.push({type:'Substance',title:s.name,snippet:(s.abstract||s.receptor).slice(0,100),action:function(id){showSubstanceModal(id);},id:s.id,q:(s.name+' '+(s.aliases||[]).join(' ')+' '+(s.abstract||'')).toLowerCase()});});
   CITATIONS.forEach(function(c){idx.push({type:'Citation',title:c.authors+' ('+c.year+')',snippet:c.title.slice(0,100),action:function(){showPage('home');},id:c.id,q:(c.title+' '+c.authors).toLowerCase()});});
-  if(typeof RFRA_CASES!=='undefined')RFRA_CASES.forEach(function(c){idx.push({type:'Case Law',title:c.name,snippet:c.question,action:function(){showPage('rfra');},id:c.name,q:(c.name+' '+c.question).toLowerCase()});});
+  if(typeof RFRA_CASES!=='undefined')RFRA_CASES.forEach(function(c){idx.push({type:'Case Law',title:c.name,snippet:c.question,action:function(){showPage('governance');},id:c.name,q:(c.name+' '+c.question).toLowerCase()});});
   if(typeof GLOSSARY!=='undefined')Object.entries(GLOSSARY).forEach(function(e){idx.push({type:'Glossary',title:e[0],snippet:e[1].slice(0,100),action:function(){showPage('glossary-page');},id:e[0],q:(e[0]+' '+e[1]).toLowerCase()});});
   if(typeof RESEARCHERS!=='undefined')RESEARCHERS.forEach(function(r){idx.push({type:'Researcher',title:r.name,snippet:r.role,action:function(){showPage('researchers');},id:r.id,q:(r.name+' '+r.contributions.join(' ')).toLowerCase()});});
   SEARCH_INDEX=idx;return idx;
@@ -3868,7 +3597,7 @@ var handleSearchHit = window.handleSearchHit = function(idx) {
   } else if (h.type === 'Citation') {
     showPage('home'); setTimeout(function(){ scrollToSection('#research'); }, 100);
   } else if (h.type === 'Case Law') {
-    showPage('rfra');
+    showPage('governance');
   } else if (h.type === 'Glossary') {
     showPage('glossary-page');
   } else if (h.type === 'Researcher') {
@@ -4852,68 +4581,7 @@ var renderTimelineOverlay = window.renderTimelineOverlay = function() {
 // ===================================================
 // LEGAL RISK CALCULATOR
 // ===================================================
-var LEGAL_RISK_DB = {
-  psilocybin: {
-    federal: 'Schedule I. Possession: up to 1yr + $1,000 (first offense). Distribution/manufacture: 5–40yr. Federal prosecutors rarely charge simple possession.',
-    OR: 'Oregon: Measure 109 — licensed therapeutic use legal. Personal possession <1g decriminalized (civil penalty $100). No sales without license.',
-    CO: 'Colorado: Prop 122 — personal use/possession legal (21+). Licensed healing centers permitted. No personal sales.',
-    CA: 'California: decriminalized in several cities (Oakland, Santa Cruz, San Francisco). State law unchanged — still Schedule I state. Prosecution rare.',
-    TX: 'Texas: Schedule I state. Up to 1yr/$4,000 for <1g possession. 5–99yr for distribution. Among strictest enforcement states.',
-    FL: 'Florida: Schedule I. 5yr felony for simple possession. Soul Quest church litigation ongoing — no protection without church membership + RFRA claim.',
-    NY: 'New York: Schedule I. Decriminalized in some cities. Albany legislature filed reform bill 2023. No exemptions.',
-    WA: 'Washington: Decriminalized in Seattle (city level). State reform bill pending. Still Schedule I at state level.',
-    religious: 'RFRA claim possible. Requires: sincere religious belief, substantial burden, government compelling interest analysis. O Centro (2006) precedent favorable but requires organization.',
-    therapeutic: 'Oregon/Colorado: licensed therapeutic use legal. Other states: no legal pathway. Federal: Schedule I with DEA researcher license required.'
-  },
-  ayahuasca: {
-    federal: 'DMT Schedule I. Same federal penalties as psilocybin. RFRA claim available post-O Centro (2006). UDV and Santo Daime Oregon have won protection.',
-    OR: 'Oregon: not explicitly covered by Measure 109. DMT/ayahuasca decrim unclear. Strong RFRA claim in 9th Circuit post-Church of Holy Light.',
-    CO: 'Colorado: Prop 122 includes DMT. Personal use decriminalized. Licensed healing centers for DMT pending.',
-    CA: 'California: Schedule I. RFRA claim strongest for organized churches. Soul Quest-style operations face scrutiny.',
-    TX: 'Texas: Schedule I. No exemptions. Prosecution risk high. Arizona Yage Assembly case in D. Arizona — no Texas precedent.',
-    FL: 'Florida: Schedule I. Soul Quest litigation ongoing in M.D. Florida — no ruling yet.',
-    NY: 'New York: Schedule I. No city-level decrim of ayahuasca. RFRA claim possible but no NY circuit precedent.',
-    WA: 'Washington: Schedule I. 9th Circuit RFRA claim available if organized church.',
-    religious: 'RFRA claim STRONGEST for ayahuasca. O Centro (2006) is directly applicable. Sincere religious use in incorporated church with documented practice is high-probability claim in federal courts.',
-    therapeutic: 'No state therapeutic pathway yet (psilocybin-only in OR/CO). Federal: DMT research requires Schedule I license.'
-  },
-  peyote: {
-    federal: 'Schedule I. AIRFA (1994) exempts NAC members explicitly. Non-NAC use has no statutory exemption. RFRA claim available but contested.',
-    OR: '9th Circuit: strong RFRA. NAC members: federal exemption. Others: need documented sincere religious practice.',
-    CO: 'Colorado: Prop 122 explicitly excluded peyote at NAC request. Personal use NOT decriminalized. Prosecution risk persists.',
-    CA: 'California: NAC members protected. Non-NAC: People v. Woody (1964) precedent, but may not survive post-Smith.',
-    TX: 'Texas: NAC members federally protected. Non-indigenous possession: felony. Peyote populations in Texas protected botanically (but possession prosecuted).',
-    FL: 'Florida: No exemption. Non-NAC possession: felony.',
-    NY: 'New York: No exemption. Rare prosecutions but no protection for non-NAC.',
-    WA: 'Washington: NAC federally protected. Others: no exemption.',
-    religious: 'NAC members: explicit federal statutory protection (AIRFA 1994) — strongest protection of any entheogen in US law. Non-indigenous: RFRA claim contested. NAC has opposed non-member claims.',
-    therapeutic: 'No therapeutic pathway. Mescaline (San Pedro) in gray area in some jurisdictions.'
-  },
-  lsd: {
-    federal: 'Schedule I. Possession: up to 1yr (first offense). Distribution: 5–40yr. Federal sentencing driven by dose (not weight) since 1995.',
-    OR: 'Oregon: LSD not covered by Measure 109. Schedule I state. Possession decriminalized only at city level in Portland.',
-    CO: 'Colorado: Prop 122 does not include LSD (synthetic). Schedule I state.',
-    CA: 'California: Schedule I. City decrim does not cover LSD. Oakland resolution covers all psychedelics — lowest enforcement priority.',
-    TX: 'Texas: Schedule I. 5–99yr distribution. Extremely high risk state.',
-    FL: 'Florida: Schedule I. 5yr felony possession.',
-    NY: 'New York: Schedule I. City decrim covers all plants/fungi — does not cover synthetic LSD.',
-    WA: 'Washington: Schedule I. City decrim (Seattle) covers all psychedelics including synthetic.',
-    religious: 'RFRA claim weak for LSD — no established religious tradition with documented LSD use. Psychedelic Christianity precedents (1960s) not litigated post-RFRA.',
-    therapeutic: 'No US therapeutic pathway. University Basel Phase 2 trial ongoing in Switzerland.'
-  },
-  cannabis: {
-    federal: 'Schedule I federally. CSA preemption of state law technically intact. Federal prosecution of simple possession rare but legally possible.',
-    OR: 'Oregon: Fully legal recreational (2015). No prosecution risk for adults.',
-    CO: 'Colorado: Fully legal recreational (2012). No prosecution risk for adults.',
-    CA: 'California: Fully legal recreational (2016). Licensed dispensaries. Zide Door Church litigation for religious exemption ongoing.',
-    TX: 'Texas: Possession <2oz: Class B misdemeanor ($2,000/180 days). Over 2oz: felony. Medical program very limited.',
-    FL: 'Florida: Medical only. Possession without card: up to 1yr first offense. Ballot initiative 2024 pending.',
-    NY: 'New York: Fully legal recreational (2021). No prosecution risk.',
-    WA: 'Washington: Fully legal recreational (2012). No prosecution risk for adults.',
-    religious: 'RFRA claim for cannabis complicated by state legalization — government compelling interest harder to assert where state has already legalized. Zide Door testing this in California.',
-    therapeutic: 'Legal in medical states. No federal therapeutic pathway (IND possible but restricted).'
-  }
-};
+var LEGAL_RISK_DB = {};
 
 var renderLegalRisk = window.renderLegalRisk = function() {
   var subEl = document.getElementById('risk-substance');
@@ -4953,48 +4621,7 @@ var renderLegalRisk = window.renderLegalRisk = function() {
 // ===================================================
 // CASE LAW ARGUMENT BUILDER
 // ===================================================
-var RFRA_ANALYSIS = {
-  step1: {
-    label: 'Step 1: Sincere Religious Belief',
-    desc: 'Claimant must demonstrate a sincere religious belief. Courts apply subjective sincerity test (not truth or orthodoxy). Key precedent: Thomas v. Review Board (1981).',
-    factors: {
-      incorporated: { score: 'Strong', notes: 'Incorporated church with documented doctrine, membership, and practice history provides best sincerity record.' },
-      informal: { score: 'Moderate', notes: 'Informal group must demonstrate consistent practice. Undocumented group faces credibility risk.' },
-      indigenous: { score: 'Very Strong', notes: 'Long-standing indigenous tradition with pre-existing documentation. AIRFA (1994) provides additional statutory grounding for NAC.' },
-      commercial: { score: 'Weak', notes: 'Commercial operation raises sincerity question. Soul Quest v. Garland: DOJ argues commercial scale defeats sincere religious claim.' }
-    }
-  },
-  step2: {
-    label: 'Step 2: Substantial Burden on Religious Exercise',
-    desc: 'Government action must substantially burden the exercise. Criminal prosecution or DEA denial of exemption petition qualifies. Key: the burden must be on practice, not just belief.',
-    factors: {
-      incorporated: { score: 'Strong', notes: 'Prosecution or denial directly burdens sacramental practice. Same facts as O Centro.' },
-      informal: { score: 'Strong', notes: 'Criminal risk still constitutes substantial burden even without formal organization.' },
-      indigenous: { score: 'Strong', notes: 'Established by NAC case law. Peyote: AIRFA (1994) removes federal burden entirely.' },
-      commercial: { score: 'Strong', notes: 'Burden present but scope of operation affects compelling interest analysis downstream.' }
-    }
-  },
-  step3: {
-    label: 'Step 3: Government Compelling Interest',
-    desc: 'Government must show compelling interest in applying the CSA to this specific claimant. O Centro: generalized Schedule I interest insufficient. Must be particularized.',
-    factors: {
-      incorporated: { score: 'Favorable (for claimant)', notes: 'Post-O Centro, government cannot rely on categorical Schedule I argument. Must show specific harm from this organization\'s use.' },
-      informal: { score: 'Moderate', notes: 'Government may argue unstructured use creates diversion/trafficking risk. Harder to defend without documented protocols.' },
-      indigenous: { score: 'Very Favorable', notes: 'AIRFA already eliminates federal compelling interest for peyote/NAC. Other substances: strong argument that centuries of structured use negates diversion risk.' },
-      commercial: { score: 'Unfavorable', notes: 'Government\'s strongest argument: large-scale commercial operation presents real diversion/trafficking compelling interest.' }
-    }
-  },
-  step4: {
-    label: 'Step 4: Least Restrictive Means',
-    desc: 'Even with compelling interest, government must use least restrictive means. O Centro: UDV\'s record-keeping proposal was viable alternative to total prohibition.',
-    factors: {
-      incorporated: { score: 'Favorable', notes: 'Documented church with membership records, safety protocols, and limited distribution satisfies least restrictive means analysis.' },
-      informal: { score: 'Moderate', notes: 'Without documented protocols, harder to propose workable less-restrictive alternative.' },
-      indigenous: { score: 'Very Favorable', notes: 'Existing AIRFA framework demonstrates Congress already found a less restrictive means. Template for other substances.' },
-      commercial: { score: 'Unfavorable', notes: 'Scale of operation may mean total prohibition IS the least restrictive means given diversion risk.' }
-    }
-  }
-};
+var RFRA_ANALYSIS = {};
 
 var CIRCUIT_NOTES = {
   '9th': 'Favorable circuit. Church of Holy Light (2009) extended O Centro to Santo Daime. Strong RFRA precedent for ayahuasca churches.',
@@ -5104,6 +4731,18 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
       <button id="ca-send"
         style="background:#1B7A68;color:#fff;border:none;padding:.5rem 1rem;cursor:pointer">Send</button>
     </div>
+  </div>
+</div>
+<div id="page-governance" class="page-section">
+  <div class="section-header">
+    <div class="section-kicker">Evidence integrity</div>
+    <h2 class="section-title">Evidence &amp; Cultural Governance</h2>
+    <p class="section-desc">Every retained substantive claim must identify its source type, scope, verification date, and correction route. Unverified dose, interaction, current-law, legal-risk, RFRA-strength, and living-tradition protocol tools have been removed from production.</p>
+  </div>
+  <div class="feature-grid">
+    <article class="feature-card"><h3>Claim register</h3><p>Machine-readable records connect retained claims to sources and state the limits of each source.</p><p><a href="/evidence-register.json" target="_blank" rel="noopener">Open evidence register (JSON)</a></p></article>
+    <article class="feature-card"><h3>Cultural authority</h3><p>Community-origin material is not treated as public-domain permission. Living-tradition protocols are excluded unless the relevant authority has approved publication.</p><p><a href="/governance.html">Review policy or request correction/withdrawal</a></p></article>
+    <article class="feature-card"><h3>Current-status boundary</h3><p>This edition does not provide individualized medical advice, dose guidance, interaction clearance, or current legal advice. Those functions require qualified review and continuously maintained jurisdictional data.</p></article>
   </div>
 </div>
 <script>

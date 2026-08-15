@@ -5109,7 +5109,7 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
 <script>
 document.getElementById('ca-send').onclick=async function(){
   var e=document.getElementById('ca-email').value.trim(),consent=document.getElementById('ca-consent').checked,status=document.getElementById('ca-status'),button=this;
-  if(!e || !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(e)){status.textContent='Enter a valid email address.';return;}
+  if(!e || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){status.textContent='Enter a valid email address.';return;}
   if(!consent){status.textContent='Confirm consent before sending.';return;}
   button.disabled=true; status.textContent='Sending…';
   try {var response=await fetch('/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:document.getElementById('ca-name').value,email:e,message:document.getElementById('ca-msg').value,source:'contact-architect-entheogen-atlas',consent:true})});if(!response.ok)throw new Error('Request failed');status.textContent='Inquiry received.';}

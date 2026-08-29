@@ -39,7 +39,7 @@
         "@type": "WebSite",
         "name": "Entheogen Atlas",
         "url": "https://entheogen-atlas.vercel.app",
-        "description": "A research atlas of entheogenic substances covering archaeology, neuroscience, legal history, phenomenology, and religious use.",
+        "description": "A research atlas of entheogenic substances covering archaeology, neuroscience, legal history, phenomenology and religious use, anchored on 5,700 years of chemically confirmed use.",
         "author": {
           "@type": "Person",
           "name": "RN Collins",
@@ -1074,6 +1074,292 @@ main { min-height: calc(100vh - 60px); }
 .search-result-snippet { font-size: 0.76rem; color: #9a9ac0; margin-top: 2px; line-height: 1.4; }
 .site-search-input::placeholder { color: #7878a0; }
 .site-search-input:focus { outline: none; }
+
+/* ============================================
+   ARCHAEOLOGY — EVIDENCE LADDER
+   Rungs carry their own accent so the strength of a
+   claim is legible before the prose is read.
+   ============================================ */
+.ladder { list-style: none; padding: 0; margin: 0; display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; }
+.ladder-rung { background: var(--surface); padding: var(--s4) var(--s5); border-left: 3px solid var(--rung-color); }
+.ladder-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s4); margin-bottom: var(--s2); }
+.ladder-label { font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.02em; color: var(--rung-color); }
+.ladder-count { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); white-space: nowrap; }
+.ladder-blurb { font-size: 0.83rem; line-height: 1.7; color: var(--text-secondary); margin: 0; }
+
+.archaeo-group { margin-bottom: var(--s12); }
+.archaeo-group-title { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--rung-color); margin: 0 0 var(--s5); padding-bottom: var(--s2); border-bottom: 1px solid var(--border); }
+.archaeo-entry { position: relative; padding: 0 0 var(--s6) var(--s6); border-left: 1px solid var(--border); margin-left: 4px; }
+.archaeo-entry::before { content: ''; position: absolute; left: -5px; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--void); border: 2px solid var(--rung-color); }
+.archaeo-entry:last-child { border-left-color: transparent; }
+.archaeo-date { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rung-color); margin-bottom: var(--s2); }
+.archaeo-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; line-height: 1.35; margin: 0 0 var(--s3); color: var(--text-primary); }
+.archaeo-body { font-size: 0.88rem; line-height: 1.8; color: var(--text-secondary); margin: 0; max-width: 68ch; }
+
+/* Citation chips — every factual claim reaches its source in one click. */
+.cite-chip { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; padding: 3px 9px; border-radius: var(--r-pill); background: rgba(200,255,0,0.07); border: 1px solid rgba(200,255,0,0.28); color: var(--acid); cursor: pointer; transition: background .15s, border-color .15s; }
+.cite-chip:hover { background: rgba(200,255,0,0.16); border-color: var(--acid); }
+.cite-chip::before { content: '\2197\00a0'; opacity: .65; }
+
+.evidence-pill { display: inline-block; margin-left: var(--s3); font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 1px 7px; border-radius: var(--r-pill); color: var(--rung-color); border: 1px solid var(--rung-color); background: var(--void); vertical-align: middle; }
+
+.tl-permalink { position: absolute; top: 0; right: 0; font-family: var(--font-mono); font-size: 0.75rem; line-height: 1; padding: 4px 7px; border-radius: var(--r-sm); color: var(--text-muted); border: 1px solid transparent; opacity: 0; transition: opacity .15s, color .15s, border-color .15s; }
+.timeline-event:hover .tl-permalink, .tl-permalink:focus-visible { opacity: 1; }
+.tl-permalink:hover { color: var(--acid); border-color: var(--border); }
+.timeline-event.tl-targeted { background: rgba(200,255,0,0.05); box-shadow: inset 2px 0 0 var(--acid); }
+
+/* ============================================
+   KEYBOARD FOCUS — one visible treatment everywhere.
+   Acid on the dark ground; never removed, only restyled.
+   ============================================ */
+:where(a, button, [tabindex]:not([tabindex="-1"]), input, select, textarea):focus-visible {
+  outline: 2px solid var(--acid);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+.site-search-input:focus-visible { outline: 2px solid var(--acid); outline-offset: -2px; }
+.search-empty { padding: var(--s4) var(--s6); color: var(--text-muted); font-size: 0.8rem; line-height: 1.6; }
+.sr-mark { background: rgba(200,255,0,0.22); color: var(--text-primary); border-radius: 2px; padding: 0 1px; }
+.search-result-item { cursor: pointer; }
+
+/* ============================================
+   DEEP-TIME SPINE
+   ============================================ */
+.dt-spine { position: relative; padding: var(--s6) var(--s5) var(--s4); background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; }
+.dt-axis { position: relative; height: 18px; margin-bottom: var(--s3); border-bottom: 1px solid var(--border); }
+.dt-tick { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.dt-tick span { position: absolute; bottom: 3px; left: 4px; font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.1em; color: var(--text-muted); white-space: nowrap; }
+.dt-tick-now { background: var(--acid); }
+.dt-tick-now span { left: auto; right: 4px; color: var(--acid); }
+.dt-plot { position: relative; }
+.dt-bar { position: absolute; height: 10px; border-radius: 2px; background: var(--rung-color); display: block; text-decoration: none; transition: filter .15s, transform .15s; }
+.dt-bar:hover, .dt-bar:focus-visible { filter: brightness(1.35); transform: scaleY(1.5); }
+.dt-point { border-radius: 2px; }
+.dt-rejected { background: transparent; border: 1px dashed var(--rung-color); }
+.dt-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.dt-scale-note { margin-top: var(--s4); font-family: var(--font-mono); font-size: 0.58rem; line-height: 1.7; color: var(--text-muted); }
+.dt-legend { display: flex; flex-wrap: wrap; gap: var(--s4); margin-top: var(--s3); font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); }
+.dt-legend-item { display: inline-flex; align-items: center; gap: 5px; }
+.dt-legend-item i { width: 12px; height: 6px; border-radius: 2px; background: var(--rung-color); display: inline-block; }
+.archaeo-entry.archaeo-targeted { background: rgba(200,255,0,0.05); box-shadow: inset 2px 0 0 var(--acid); border-radius: var(--r-sm); }
+
+/* ============================================
+   CASE RECORD
+   Court tier is carried by the rail colour, so the shape of the
+   line — administrative, then judicial, then statutory — is legible
+   before any entry is read.
+   ============================================ */
+.case-key { display: flex; flex-wrap: wrap; gap: var(--s4); margin-bottom: var(--s6); font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+.case-key-item { display: inline-flex; align-items: center; gap: 6px; }
+.case-key-item::before { content: ''; width: 3px; height: 14px; border-radius: 2px; background: var(--case-rail); }
+.case-list { list-style: none; padding: 0; margin: 0; }
+.case-item { position: relative; padding: 0 0 var(--s8) var(--s6); border-left: 2px solid var(--case-rail); margin-left: 2px; }
+.case-item::before { content: ''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--void); border: 2px solid var(--case-rail); }
+.court-scotus   { --case-rail: var(--acid); }
+.court-lower    { --case-rail: var(--violet); }
+.court-statute  { --case-rail: var(--cyan); }
+.case-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s3); margin-bottom: var(--s2); font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.case-year { color: var(--case-rail); font-weight: 700; }
+.case-court { color: var(--text-muted); }
+.case-name { font-family: var(--font-display); font-size: 1rem; font-weight: 700; line-height: 1.35; margin: 0 0 var(--s3); color: var(--text-primary); }
+.case-body { margin: 0; max-width: 68ch; }
+.case-body dt { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-top: var(--s3); }
+.case-body dd { margin: 3px 0 0; font-size: 0.87rem; line-height: 1.75; color: var(--text-secondary); }
+.case-item.archaeo-targeted { background: rgba(200,255,0,0.05); border-radius: var(--r-sm); }
+
+/* ============================================================
+   TYPOGRAPHY — STRATIGRAPHIC
+   The subject is layered evidence of different ages and different
+   reliability, so the type is set like a field notebook: a mono
+   REGISTER voice for dates, classes and provenance; a heavy
+   geometric display for the strata headings; and body copy at a
+   real reading size on a controlled measure underneath both.
+   Colours are untouched — every ratio the correctness pass fixed
+   is still the ratio here.
+   ============================================================ */
+:root {
+  --measure: 68ch;
+  --measure-tight: 60ch;
+  /* fluid display scale */
+  --t-hero:  clamp(2.5rem, 8vw, 7rem);
+  --t-page:  clamp(2rem, 5vw, 4rem);
+  --t-strata: clamp(1.35rem, 2.2vw, 1.75rem);
+  --t-sub:   clamp(1.05rem, 1.4vw, 1.2rem);
+  --t-body:  1.0rem;
+  --t-small: 0.86rem;
+  --t-register: 0.62rem;
+}
+
+/* Body copy: the site read at 13.6px, which is not a research
+   reading size. Lifted, measured, and given a real leading. */
+.page-section p {
+  font-size: var(--t-body);
+  line-height: 1.78;
+  max-width: var(--measure);
+}
+.page-section li { line-height: 1.7; }
+.archaeo-body, .case-body dd, .ladder-blurb { font-size: var(--t-small); }
+
+/* Headings: optical tracking, and never a one-word orphan line. */
+.page-section h1, .page-section h2, .page-section h3, .page-section h4,
+.section-title, .hero-title, .archaeo-title, .case-name {
+  text-wrap: balance;
+}
+.page-section h2 { letter-spacing: -0.015em; }
+.page-section h3 { letter-spacing: -0.01em; }
+.hero-title, .section-title { letter-spacing: -0.03em; }
+
+/* The mono REGISTER voice: dates, evidence class, provenance,
+   section eyebrows. Uppercase, widely tracked, never large. */
+.section-eyebrow, .mega-col-label, .ladder-count, .archaeo-group-title,
+.case-meta, .dt-legend, .evidence-pill, .search-result-type {
+  font-feature-settings: "tnum" 1;
+}
+
+/* Lede: first paragraph after a page hero carries more weight than
+   the body it introduces, without becoming a pull quote. */
+.page-lede {
+  font-size: var(--t-sub);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: var(--measure-tight);
+}
+
+/* Strata rule — layers, not a divider. Four bands of decreasing
+   opacity read as deposition rather than as a horizontal line. */
+hr.section-rule {
+  border: 0;
+  height: 7px;
+  background:
+    linear-gradient(var(--border), var(--border)) 0 0 / 100% 1px no-repeat,
+    linear-gradient(var(--border), var(--border)) 0 3px / 100% 1px no-repeat,
+    linear-gradient(var(--border), var(--border)) 0 6px / 100% 1px no-repeat;
+  opacity: .85;
+  margin: var(--s16) auto;
+  max-width: 1400px;
+}
+
+/* Hero: the number is the argument. Give "5,700" the weight of a
+   figure rather than of a caption, and hang the unit beside it. */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s3);
+  padding: var(--s2) var(--s5);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  background: rgba(169,123,255,0.07);
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+}
+.hero-figure {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--acid);
+  line-height: 1;
+}
+.hero-subtitle { font-size: var(--t-sub); line-height: 1.7; max-width: 40rem; }
+.hero-quote { line-height: 1.8; }
+
+/* Substance and timeline cards: tighten the name, widen the register
+   line beneath it, so a grid of ten reads as a set rather than a list. */
+.card-name { letter-spacing: -0.01em; }
+.card-sub  { letter-spacing: 0.02em; }
+
+@media (max-width: 700px) {
+  :root { --t-body: 0.97rem; --measure: 100%; }
+  .archaeo-entry { padding-left: var(--s5); }
+  .case-item { padding-left: var(--s5); }
+  .dt-scale-note { font-size: 0.55rem; }
+  /* The hero lockup stacks rather than wrapping the label three ways. */
+  .hero-eyebrow { flex-direction: column; align-items: center; gap: var(--s1); padding: var(--s3) var(--s5); max-width: 22rem; }
+  .hero-figure { font-size: 1.6rem; }
+  .hero-eyebrow > span:last-child { font-size: 0.58rem; letter-spacing: 0.18em; }
+  /* Keep the spine readable at narrow widths instead of crushing it. */
+  .dt-spine { padding-left: var(--s4); padding-right: var(--s4); }
+  .dt-tick span { font-size: 0.5rem; }
+  .dt-legend { gap: var(--s3); font-size: 0.53rem; }
+  .case-body dd, .archaeo-body { font-size: 0.9rem; }
+}
+/* ============================================================
+   GOVERNANCE PAGE
+   These classes were authored against governance.html's own
+   stylesheet and had no definitions here, so the in-app page
+   rendered as unstyled near-black text on a near-black ground
+   with default blue links. Given real styles, on the site's tokens.
+   ============================================================ */
+#page-governance .section-kicker {
+  font-family: var(--font-mono); font-size: var(--t-register);
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: var(--s3);
+}
+#page-governance .section-title {
+  font-family: var(--font-display); font-size: var(--t-page);
+  font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
+  color: var(--text-primary); margin-bottom: var(--s5);
+}
+#page-governance .section-desc {
+  font-size: var(--t-sub); line-height: 1.7;
+  color: var(--text-secondary); max-width: var(--measure-tight);
+}
+#page-governance .feature-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--s5); margin-top: var(--s12);
+}
+#page-governance .feature-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-top: 2px solid var(--acid);
+  border-radius: var(--r-md); padding: var(--s6);
+}
+#page-governance .feature-card h2 {
+  font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
+  letter-spacing: -0.005em; color: var(--text-primary); margin-bottom: var(--s3);
+}
+#page-governance .feature-card p {
+  font-size: var(--t-small); line-height: 1.75;
+  color: var(--text-secondary); margin-bottom: var(--s3);
+}
+#page-governance .feature-card p:last-child { margin-bottom: 0; }
+#page-governance a { color: var(--acid); text-decoration: none; border-bottom: 1px solid rgba(200,255,0,0.35); }
+#page-governance a:hover { border-bottom-color: var(--acid); }
+
+/* ============================================================
+   BASE INK
+   The screen `body` carried no colour at all, so every heading
+   without an inline colour computed to pure black on a near-black
+   ground — invisible. Set the ground and the default ink once, on
+   screen only, so the @media print block above is untouched.
+   text-primary on void is 17.21:1.
+   ============================================================ */
+@media screen {
+  html, body { background: var(--void); }
+  body { color: var(--text-primary); font-family: var(--font-body); }
+  .page-section h1, .page-section h2, .page-section h3,
+  .page-section h4, .page-section h5, .page-section h6 { color: var(--text-primary); }
+  .page-section p, .page-section li, .page-section dd { color: var(--text-secondary); }
+  .page-section p a, .page-section li a { color: var(--acid); }
+  /* Headings that carry their own accent keep it — the blanket rule above
+     is a floor for headings with no colour of their own, not a ceiling. */
+  .page-section h3.archaeo-group-title { color: var(--rung-color); }
+  .page-section .ladder-label { color: var(--rung-color); }
+  .page-section .archaeo-date, .page-section .case-year { color: var(--rung-color); }
+  .page-section .ladder-blurb, .page-section .dt-scale-note { color: var(--text-secondary); }
+  .page-section .case-court, .page-section .case-body dt { color: var(--text-muted); }
+}
+
+/* Nothing on this site should force the page to scroll sideways. */
+body { overflow-x: hidden; }
+.archaeo-body, .case-body dd, .page-section p { overflow-wrap: break-word; }
+.search-result-item:focus-visible, .search-result-item.sr-active { background: var(--panel); outline: 2px solid var(--acid); outline-offset: -2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  .timeline-event { opacity: 1 !important; transform: none !important; }
+  .hero-bg { animation: none !important; }
+}
 </style>
 
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
@@ -1122,6 +1408,7 @@ main { min-height: calc(100vh - 60px); }
   <div class="nav-logo" role="button" tabindex="0" onclick="showPage('home')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('home')}" aria-label="Home">Entheogen Atlas</div>
   <ul class="nav-links nav-cat-links" role="menubar">
     <li><a href="#substances" onclick="event.preventDefault();showPage('home');scrollToSection('#substances')" class="nav-page-link nav-cat" role="menuitem">Substances</a></li>
+    <li><a href="#archaeology" onclick="event.preventDefault();showPage('archaeology')" class="nav-page-link nav-cat" role="menuitem" data-page="archaeology">Archaeology</a></li>
     <li><a href="#receptor" onclick="event.preventDefault();showPage('receptor')" class="nav-page-link nav-cat" role="menuitem" data-page="receptor">Science</a></li>
     <li><a href="#legitimacy" onclick="event.preventDefault();showPage('legitimacy')" class="nav-page-link nav-cat nav-cat-editorial" role="menuitem" data-page="legitimacy" style="color:var(--fnm-text)">Law &amp; Policy</a></li>
     <li><a href="#researchers" onclick="event.preventDefault();showPage('researchers')" class="nav-page-link nav-cat" role="menuitem" data-page="researchers">Culture</a></li>
@@ -1147,7 +1434,7 @@ main { min-height: calc(100vh - 60px); }
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-eyebrow">5,700 Years of Confirmed Sacred Chemistry</div>
+  <div class="hero-eyebrow"><span class="hero-figure">5,700</span> <span>years of chemically confirmed use</span></div>
   <h1 class="hero-title">
     <span class="line-acid">Entheogen</span><br>
     <span class="line-violet">Atlas</span>
@@ -1360,6 +1647,12 @@ main { min-height: calc(100vh - 60px); }
     <h2 class="section-title">Go <span class="accent-magenta">Deeper</span></h2>
   </div>
   <div class="substance-grid">
+    <div class="substance-card" style="--card-color:var(--amber)" onclick="showPage('archaeology')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('archaeology')}">
+      <div class="card-symbol" style="color:var(--amber)">&#9878;&#65038;</div>
+      <div class="card-name">The Evidence Ladder</div>
+      <div class="card-sub">What &ldquo;confirmed&rdquo; actually means, claim by claim</div>
+      <div class="card-tags"><span class="tag">Archaeology</span><span class="tag">Method</span></div>
+    </div>
     <div class="substance-card" style="--card-color:var(--acid)" onclick="showPage('legitimacy')">
       <div class="card-symbol" style="color:var(--acid)">&#9632;</div>
       <div class="card-name">The Legitimacy Gap</div>
@@ -1429,7 +1722,7 @@ main { min-height: calc(100vh - 60px); }
     <div class="substance-card" style="--card-color:var(--acid)" onclick="showPage('glossary-page')">
       <div class="card-symbol" style="color:var(--acid)">&#9783;</div>
       <div class="card-name">Glossary</div>
-      <div class="card-sub">46 terms, fully searchable</div>
+      <div class="card-sub" data-count="glossary">Fully searchable</div>
       <div class="card-tags"><span class="tag">Reference</span></div>
     </div>
     <div class="substance-card" style="--card-color:#ff2d8f" onclick="showPage('home');setTimeout(function(){scrollToSection('#dose-calculator')},100)" role="button" tabindex="0">
@@ -1837,12 +2130,13 @@ main { min-height: calc(100vh - 60px); }
           <li><a href="#leg-iii" style="color:var(--text-secondary);font-size:0.85rem;text-decoration:none">III. The Religious Freedom Rupture</a></li>
           <li><a href="#leg-iv" style="color:var(--text-secondary);font-size:0.85rem;text-decoration:none">IV. The Clinical Paradox</a></li>
           <li><a href="#leg-v" style="color:var(--text-secondary);font-size:0.85rem;text-decoration:none">V. The Phenomenological Category Error</a></li>
+          <li><a href="#leg-vi" style="color:var(--text-secondary);font-size:0.85rem;text-decoration:none">VI. The record behind the argument</a></li>
         </ol>
       </div>
       <div class="legitimacy-pullquote">"You can lie to the priest or to your therapist, but you can't lie to ayahuasca." — South American shaman (Ball, 2009)</div>
 
-      <h3 id="leg-i">I. The Archaeological Problem</h3>
-      <p>Peyote has been used ritually for 5,700 years. Psilocybin mushrooms appear in cave paintings dated to 9,000 BCE. Cannabis in ritual burial predates the written word. Ayahuasca's use in Amazonian tradition is prehistoric. LSD, the youngest of the five, was synthesized in 1938 — and within fifteen years had been administered therapeutically to 40,000 patients.</p>
+      <h2 id="leg-i">I. The Archaeological Problem</h2>
+      <p>Peyote has been used ritually for 5,700 years: two buttons from Shumla Cave on the Rio Grande are radiocarbon dated to 3780&ndash;3660 cal BC and yielded mescaline on GC-MS, which makes them the oldest plant drug to have given up its active compound to chemical analysis. Cannabis was burned in a Judahite shrine at Tel Arad in the late eighth century BCE and smoked in braziers at Jirzankal in the Pamirs by about 500 BCE, both established by residue chemistry rather than inference. A ritual bundle from the Bolivian altiplano dated to around 1000 CE carries harmine and DMT together &mdash; ayahuasca&rsquo;s two pharmacological halves in one kit. Older claims exist, and several are weaker than they are usually reported to be; the <a href="#archaeology" onclick="event.preventDefault();showPage('archaeology')" style="color:var(--acid)">evidence ladder</a> separates what is demonstrated from what is inferred. LSD, the youngest of the substances here, was synthesized in 1938 &mdash; and within fifteen years had been administered therapeutically to tens of thousands of patients.</p>
       <p>Against this record, the Controlled Substances Act of 1970 placed all five substances in Schedule I — alongside heroin — as having "no accepted medical use" and "lack of accepted safety." Schedule I was designed as a temporary placeholder pending study. The study never came. The substances stayed. That gap between what the archaeological and clinical record shows and what the legal framework asserts is the legitimacy problem.</p>
 
       <div style="background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--acid);border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s6);margin:var(--s8) 0">
@@ -1856,30 +2150,35 @@ main { min-height: calc(100vh - 60px); }
 
       <p>Psilocybin received FDA Breakthrough Therapy designation in 2018 and 2019 — meaning FDA acknowledges it may be substantially better than existing treatments for depression. The designation coexists with Schedule I. The law has not caught up with the agency's own evidence assessments.</p>
 
-      <h3 id="leg-ii">II. The Criminal Architecture</h3>
+      <h2 id="leg-ii">II. The Criminal Architecture</h2>
       <p>The War on Drugs was not a neutral policy response to substance harms. John Ehrlichman, Nixon\'s domestic policy chief, told journalist Dan Baum in 1994: "We knew we couldn't make it illegal to be either against the war or Black, but by getting the public to associate the hippies with marijuana and Blacks with heroin, and then criminalizing both heavily, we could disrupt those communities." This was published in Harper's Magazine in 2016.</p>
       <p>LSD was federally prohibited in 1966 — during the peak of therapeutic research. The research was producing results. The prohibition ended the research. The scheduling of cannabis in 1970 came despite the Shafer Commission — Nixon\'s own appointed body — recommending decriminalization. Nixon rejected the report without response.</p>
       <p>This is not conspiracy. It is documented political history. The criminal architecture of entheogen law was built on race, politics, and counterculture suppression — not pharmacology, harm evidence, or religious freedom analysis.</p>
 
       <div class="legitimacy-pullquote">Schedule I was built as a political instrument. It remains one.</div>
 
-      <h3 id="leg-iii">III. The Religious Freedom Rupture</h3>
+      <h2 id="leg-iii">III. The Religious Freedom Rupture</h2>
       <p>The Native American Church had used peyote ceremonially for generations before the United States existed as a legal entity. In 1990, Employment Division v. Smith ruled that the Free Exercise Clause of the First Amendment does not require religious exemptions from neutral, generally applicable laws — meaning the State of Oregon could deny unemployment benefits to NAC members fired for peyote use.</p>
       <p>Congress responded with RFRA in 1993. The Supreme Court then limited RFRA to federal law in 1997 (City of Boerne v. Flores). In 2006, Gonzales v. O Centro held unanimously that RFRA protects UDV ayahuasca use — but the decision applies only to that organization, with other churches required to litigate individually in each circuit.</p>
       <p>The result: a Shipibo curandero practicing in the Amazon has cultural sovereignty. A UDV member in New Mexico has a Supreme Court ruling. A Santo Daime member in Oregon has a circuit court ruling. An independent practitioner in Texas has a criminal charge. The same substance, the same intent, the same phenomenology — different legal outcomes depending on zip code and organizational membership.</p>
 
-      <h3 id="leg-iv">IV. The Clinical Paradox</h3>
+      <h2 id="leg-iv">IV. The Clinical Paradox</h2>
       <p>Carhart-Harris et al. (2021) published in the New England Journal of Medicine that psilocybin was non-inferior to escitalopram (the most prescribed SSRI globally) across all secondary outcome measures, and superior on several. The study was published while psilocybin remained Schedule I, while researchers required DEA Schedule I researcher licenses, and while the cost of that research was increased an estimated 5–10× by the regulatory burden Schedule I imposes.</p>
       <p>Griffiths et al. (2006) found that 79% of participants reported sustained increases in well-being at 2-month follow-up — changes corroborated by friends and family. Not one participant reported decreased well-being. The Griffiths data has been replicated. The Carhart-Harris data has been replicated. The Pahnke data has been replicated at 14 months (Griffiths 2011) and at 25 years (Doblin 1991).</p>
       <p>The clinical evidence for psychedelic therapeutic value is among the most consistent in the history of psychiatric research. The legal framework governing these substances was built in explicit defiance of the evidence that existed at the time it was built, and has been maintained in defiance of fifty years of accumulating evidence since.</p>
 
       <div class="legitimacy-pullquote">The gap between what the science shows and what the law asserts is not a knowledge problem. It is a power problem.</div>
 
-      <h3 id="leg-v">V. The Phenomenological Category Error</h3>
+      <h2 id="leg-v">V. The Phenomenological Category Error</h2>
       <p>Stanislav Grof, the Czech psychiatrist who administered LSD to over 4,000 patients in clinical settings between 1956 and 1967, documented what he called the perinatal and transpersonal dimensions of psychedelic experience: layers of the unconscious inaccessible to ordinary therapy, including what he termed COEX systems (systems of condensed experience) and experiences of cosmic unity indistinguishable from the mystical states described in every major contemplative tradition. Grof's clinical archive — the largest in history — was ended not by evidence of harm but by Schedule I in 1970.</p>
       <p>Pahnke (1967) documented nine characteristics of mystical experience produced by psychedelics: unity, transcendence of time and space, deeply felt positive mood, sense of sacredness, noetic quality, paradoxicality, alleged ineffability, transiency, and persisting positive changes. These are indistinguishable, by self-report and by external rater assessment, from spontaneously occurring mystical experiences reported across all major religious traditions.</p>
       <p>The law treats the chemical occasion of such experiences as a criminal act. It simultaneously grants constitutional protection — through RFRA — to the religious belief that such experiences are sacred. The contradiction is not theoretical: you may believe psilocybin produces communion with God; you may not consume it to have that communion, unless you belong to the right organization, in the right state, with the right DEA exemption.</p>
       <p>The framework cannot hold this. The Legitimacy Gap is not a regulatory problem awaiting a technical fix. It is a category error at the foundation of how the United States has classified substances that produce what Plato called "our greatest blessings" — "provided madness is given us by way of divine gift."</p>
+
+      <h2 id="leg-vi">VI. The record behind the argument</h2>
+      <p>The essay above is an argument. What follows is not: it is the chain of authorities the argument runs along, each one linked to the primary source &mdash; a Library of Congress scan of the United States Reports, a court&rsquo;s own opinion PDF, the Statutes at Large, or the text of the regulation. Read in order it shows something the summary version misses. The exemption line was drawn administratively in 1971, contested in the courts for two decades, nearly erased by a peyote case in 1990, rebuilt by statute in 1993, cut in half in 1997, and has since been extended exactly twice, both times to ayahuasca churches, both times on their particular records.</p>
+      <p>Two things are worth holding onto while reading it. First, most claims that fail do not fail on the compelling-interest question that gets the attention; they fail earlier, on whether the belief system is a religion at all (<em>Meyers</em>) or whether prohibition substantially burdens it (<em>Oklevueha</em>). Second, the constitutional ground is not settled. <em>Fulton</em> (2021) decided for a religious claimant while explicitly declining to overrule <em>Smith</em>, and several Justices wrote separately to say <em>Smith</em> should go. If it does, this entire line is re-argued on First Amendment terms rather than statutory ones.</p>
+      <div id="case-record"></div>
 
       <div style="margin-top:var(--s12);padding:var(--s8);background:var(--panel);border:1px solid var(--border);border-radius:var(--r-lg)">
         <div style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:var(--s4)">Explore Further</div>
@@ -1898,6 +2197,64 @@ main { min-height: calc(100vh - 60px); }
 <!-- ============================================================ -->
 <!-- RECEPTOR ATLAS -->
 <!-- ============================================================ -->
+<!-- ============================================================ -->
+<!-- ARCHAEOLOGY -->
+<!-- ============================================================ -->
+<div id="page-archaeology" class="page-section">
+<div style="padding-top:80px">
+  <div style="background:linear-gradient(135deg,rgba(255,140,0,0.10) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
+    <div style="max-width:1200px;margin:0 auto">
+      <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
+      <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--amber);margin-bottom:var(--s3)">Archaeology</div>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">The <span style="color:var(--amber)">Evidence Ladder</span></h1>
+      <p class="page-lede">Almost every popular claim about how long humans have used psychoactive plants rests on a different <em>kind</em> of evidence from the one beside it. This page separates them, and dates the atlas from the strongest rung rather than the oldest story.</p>
+    </div>
+  </div>
+  <div class="section" style="max-width:1200px">
+
+    <div style="margin-bottom:var(--s12);max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">Why the headline says <span style="color:var(--amber)">5,700 years</span></h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">The figure comes from two dried peyote buttons collected from Shumla Cave No.&nbsp;5 on the Rio Grande and held at the Witte Museum in San Antonio. El-Seedi and colleagues radiocarbon dated them to 3780&ndash;3660 cal&nbsp;BC and then ran thin-layer chromatography and GC-MS on the same material: the buttons yielded roughly 2% alkaloids, and mescaline was identified in both. Nothing else was.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">That combination is what makes the date usable. A single object supplies the plant, the human context, the calendar date and the psychoactive compound, and each is established by an independent method on the same specimen. El-Seedi et al. describe it as the oldest plant drug yet to yield its major bioactive compound on chemical analysis, and the claim has not been displaced in the twenty years since.</p>
+      <p style="color:var(--text-secondary);line-height:1.8">Older claims exist. Some are serious. None of them close all four gaps at once, and the difference between them is not a matter of degree.</p>
+    </div>
+
+    <div style="margin-bottom:var(--s12);max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">Five kinds of claim</h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">Samorini (2019) divides archaeological evidence for psychoactive plant use into direct evidence &mdash; material, chemical and genetic &mdash; and indirect evidence, which covers iconography, literature, paraphernalia and skeletal indicators. Guerra-Doce (2015) sets out what an individual claim must satisfy before it counts. The ladder below is adapted from both, and the entries beneath it are sorted onto its rungs rather than into a single undifferentiated list.</p>
+      <div id="archaeo-ladder"></div>
+    </div>
+
+    <div style="margin-bottom:var(--s12)">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">The record, plotted</h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s6);max-width:760px">Several entries below are ranges rather than dates, and one is a claim rather than a finding. Plotted on a linear axis the last three thousand years would collapse into a smear and the contested Neanderthal claim would push everything else off the right-hand edge, so the scale here is logarithmic in years before present. Width is the dated range; colour is the class of evidence.</p>
+      <div id="archaeo-spine"></div>
+    </div>
+
+    <div style="margin-bottom:var(--s12)">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">The record, by strength of evidence</h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s6);max-width:760px">Fourteen entries. Every one carries the excavation report or the dating paper rather than a secondary summary, and every source below has been resolved before publication. Where the literature disagrees, both sides are cited.</p>
+      <div id="archaeo-groups"></div>
+    </div>
+
+    <div style="margin-bottom:var(--s12);max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">The Shanidar problem</h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">The claim that Neanderthals buried their dead with medicinal flowers 60,000 years ago is the single most repeated statement in popular writing about ancient drug use, and it is the one this atlas has removed from its headline.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">Its basis is narrow. Soil samples taken around the Shanidar&nbsp;IV burial in Iraqi Kurdistan contained clumped pollen, and Leroi-Gourhan (1975) identified taxa including <em>Ephedra</em>. Solecki (1975) read the clumping as deliberate deposition. Sommer (1999) pointed out that the Persian jird, a burrowing rodent that hoards flower heads and is present at the site, produces exactly that signature. Fiacconi and Hunt (2015) sampled modern pollen at Shanidar and found that insect and animal activity concentrates whole anthers and pollen clumps in the way the 1975 report treated as anthropogenic. Renewed excavation (Pomeroy et al. 2020) supports intentional burial at the site while leaving the floral reading unsupported.</p>
+      <p style="color:var(--text-secondary);line-height:1.8">Two things are worth keeping separate. The scholarship genuinely disagrees about whether Shanidar&nbsp;IV involved deliberate floral deposition; that argument is live. It does not disagree about entheogens, because no entheogen appears in the assemblage at all. <em>Ephedra</em> is a stimulant, not a psychedelic, and its presence in a pollen sample is not evidence that anyone consumed it. A contested burial rite became, by repetition, a 60,000-year date for sacred plant medicine. The atlas lists it as a claim and dates itself from Shumla Cave.</p>
+    </div>
+
+    <div style="max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">What the chemistry has changed</h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">The last decade has moved several claims off the iconographic rungs and onto the chemical one, and it has done so in a consistent direction: the practices are real, and the dates are younger and better constrained than the popular literature assumed.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">Cannabis is the clearest case. The ritual reading of the Yanghai tomb cache (Jiang et al. 2006) rested on the character of the burial. Thirteen years later Ren et al. recovered cannabinoids from burnt residue in ten wooden braziers at Jirzankal in the eastern Pamirs, dated to about 500&nbsp;BCE, at concentrations indicating plants unusually high in psychoactive compound &mdash; smoking, in a funerary rite, demonstrated rather than inferred. In the same year Arie, Rosen and Namdar found &Delta;9-THC, CBD and CBN on the smaller altar of the Judahite shrine at Tel Arad, mixed with animal dung as a slow fuel, with frankincense on the larger altar beside it. Two laboratories, working independently with comparable extraction methods, reported the same result.</p>
+      <p style="color:var(--text-secondary);line-height:1.8">The same shift applies in the Andes. Miller et al. (2019) analysed a fox-snout ritual bundle from a Bolivian rock shelter dated to around 1000&nbsp;CE and identified bufotenine, DMT, harmine, cocaine and benzoylecgonine on a single artefact &mdash; including harmine and DMT together, the two pharmacological halves of ayahuasca, in one kit. The plants involved grow in ecological zones far apart, which makes the bundle evidence of botanical knowledge and exchange as much as of consumption.</p>
+    </div>
+
+  </div>
+</div>
+</div>
+
 <div id="page-receptor" class="page-section">
 <div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(0,245,255,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
@@ -1905,7 +2262,7 @@ main { min-height: calc(100vh - 60px); }
       <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
       <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);margin-bottom:var(--s3)">Pharmacology</div>
       <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">Receptor <span style="color:var(--cyan)">Atlas</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">How structurally divergent substances converge on a single receptor — and why mescaline (phenethylamine) producing the same mystical experience as DMT (tryptamine) is one of pharmacology's most remarkable facts.</p>
+      <p class="page-lede">How structurally divergent substances converge on a single receptor — and why mescaline (phenethylamine) producing the same mystical experience as DMT (tryptamine) is one of pharmacology's most remarkable facts.</p>
     </div>
   </div>
   <div class="section" style="max-width:1200px">
@@ -1927,6 +2284,21 @@ main { min-height: calc(100vh - 60px); }
       <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">Endogenous Analogs</h2>
       <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s6)">Each entheogen has a structural relative already present in the human body. This is not coincidence — it explains why these molecules have receptors to bind. The brain did not evolve 5-HT₂A receptors for exogenous psychedelics; psychedelics activate receptors built for endogenous compounds.</p>
       <div id="endogenous-grid"></div>
+    </div>
+
+    <div style="margin-bottom:var(--s12);max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">Correlation, and then the <span style="color:var(--cyan)">causal test</span></h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">That classical psychedelics bind 5-HT<sub>2A</sub> is not in dispute. What binding <em>explains</em> is a harder question, and imaging alone cannot answer it: a receptor can be occupied during an experience without being the reason for it. The test that settles it is pharmacological blockade.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">Preller and colleagues gave LSD with and without pretreatment by ketanserin, a 5-HT<sub>2A</sub> antagonist. The general subjective effects of LSD were fully blocked. So was the drug&rsquo;s characteristic effect of making previously meaningless stimuli feel personally relevant &mdash; the attribution of significance that participants describe afterwards as the substance of the experience. Block one receptor and the meaning goes with it. This is the strongest single piece of evidence that 5-HT<sub>2A</sub> agonism is not merely associated with the psychedelic state but constitutive of it.</p>
+      <p style="color:var(--text-secondary);line-height:1.8">The mechanistic account above that receptor has moved. Carhart-Harris and Friston&rsquo;s REBUS model (2019) reframes the loose 2014 &ldquo;entropic brain&rdquo; idea in predictive-processing terms: psychedelics relax the weight the brain gives its high-level priors, letting bottom-up signal revise expectations that are normally insulated from it. Siegel and colleagues (2024) then produced the sharpest imaging evidence yet by abandoning the usual design. Instead of scanning many people once, they scanned a few people around eighteen times each, before, during and for three weeks after 25&nbsp;mg psilocybin, with 40&nbsp;mg methylphenidate as an active comparator. Psilocybin disrupted functional connectivity more than three times as much as methylphenidate, and did so by <em>desynchronizing</em> the brain across spatial scales &mdash; dissolving the distinctions between networks rather than simply turning one down. The effect was strongest in the default mode network. &ldquo;DMN suppression&rdquo; is a serviceable shorthand; desynchronization is closer to what the data show.</p>
+    </div>
+
+    <div style="margin-bottom:var(--s12);max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">Where the field genuinely <span style="color:var(--magenta)">disagrees</span></h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">One question divides the laboratories, and it is not a technical one: <em>is the subjective experience doing the therapeutic work, or is it a side effect of the molecule that does?</em></p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">The case for necessary is clinical and old. Pahnke&rsquo;s nine characteristics, Griffiths&rsquo; mystical-experience scores, and the repeated finding that outcome tracks the intensity of the experience rather than the size of the dose all point the same way: something happens to the person, and the compound is the occasion for it. Bogenschutz&rsquo;s alcohol-dependence work found reductions in drinking correlated with mystical-experience intensity, not with plasma levels.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">The case for incidental is molecular and recent. Ly and colleagues (2018) showed that serotonergic psychedelics promote neuritogenesis and spinogenesis, with real increases in synapse number and function, through TrkB, mTOR and 5-HT<sub>2A</sub> signalling &mdash; a structural change in cortex that has nothing to say about what the participant saw. If that is the mechanism, the visions are epiphenomenal. Cameron and colleagues (2021) pushed the argument to its conclusion by engineering tabernanthalog, a water-soluble, non-hallucinogenic, non-toxic analogue of ibogaine that still promoted structural plasticity in rodents. A psychedelic-derived drug that does the plasticity without the trip is either the future of the field or a category mistake about what these compounds are for, depending which laboratory is asked.</p>
+      <p style="color:var(--text-secondary);line-height:1.8">This atlas does not adjudicate it, because it is not adjudicated. It is worth naming what rests on the answer. If the experience is necessary, psychedelic therapy is irreducibly a practice involving a prepared person, a trained guide and many hours &mdash; and the religious-use record on this site is continuous with the clinical one. If the experience is incidental, the therapeutic future is a pill with no ceremony attached, and the continuity between a Mazatec <em>velada</em> and a phase 3 protocol becomes a historical coincidence rather than a fact about the compounds. The law, which currently criminalises the ceremony and fast-tracks the pill, has already made its assumption.</p>
     </div>
 
     <div>
@@ -1985,8 +2357,19 @@ main { min-height: calc(100vh - 60px); }
       <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
       <div style="font-family:var(--font-mono);font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--cyan);margin-bottom:var(--s3)">Clinical Research</div>
       <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-0.02em;margin-bottom:var(--s4)">Science <span style="color:var(--cyan)">Pipeline</span></h1>
-      <p style="color:var(--text-secondary);max-width:600px;line-height:1.7">Active and recently completed clinical trials across all substances. NCT numbers, phases, institutions, and key findings.</p>
+      <p class="page-lede">Active and recently completed clinical trials across all substances. NCT numbers, phases, institutions, and key findings.</p>
       <div style="font-family:var(--font-mono);font-size:0.65rem;color:var(--text-muted);margin-top:var(--s3)">Data as of June 2025. Trial status changes frequently — verify current status at <a href="https://clinicaltrials.gov" target="_blank" rel="noopener" style="color:var(--cyan)">ClinicalTrials.gov</a>.</div>
+    </div>
+  </div>
+  <div class="section" style="max-width:1200px;padding-bottom:0">
+    <div style="max-width:760px">
+      <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;margin-bottom:var(--s4)">What the trial record actually <span style="color:var(--cyan)">shows</span></h2>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)">Two claims are commonly made about psychedelic medicine, and only one of them survives contact with the published trials. The first is that the effects are large. They are. The second is that the evidence base is settled. It is not, and the reasons are structural rather than a matter of more studies being needed.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)"><strong style="color:var(--text-primary)">Psilocybin for depression.</strong> Goodwin et al. (2022) randomised 233 people with treatment-resistant depression to 25&nbsp;mg, 10&nbsp;mg or 1&nbsp;mg of a synthetic psilocybin formulation with psychological support. Least-squares mean change on the MADRS at week&nbsp;3 was &minus;12.0, &minus;7.9 and &minus;5.4 respectively; the 25&nbsp;mg versus 1&nbsp;mg difference was &minus;6.6. Raison et al. (2023) ran a phase&nbsp;2 trial across eleven US sites comparing 25&nbsp;mg psilocybin against niacin, chosen as an <em>active</em> placebo. Both are phase&nbsp;2. Neither is an approval.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)"><strong style="color:var(--text-primary)">MDMA for PTSD.</strong> The two phase&nbsp;3 trials are Mitchell et al. (2021), 90 participants with severe PTSD, and Mitchell et al. (2023), the confirmatory trial in 104 participants with moderate to severe PTSD. In the confirmatory trial, least-squares mean change on the CAPS-5 was &minus;23.7 for MDMA-assisted therapy against &minus;14.8 for placebo with identical therapy (P&nbsp;&lt;&nbsp;0.001, d&nbsp;=&nbsp;0.7). These are the trials. They should not be confused with the widely cited pooled analysis of six phase&nbsp;2 studies, which the journal retracted in November 2024 and which this atlas lists in its citation library expressly so the retraction can be found rather than missed.</p>
+      <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s5)"><strong style="color:var(--text-primary)">The blinding problem.</strong> A 25&nbsp;mg dose of psilocybin is not something a participant can be uncertain about, and neither is MDMA. Functional unblinding is close to total in this field, expectancy effects are large in depression and PTSD specifically, and the therapy hours are part of the intervention in both arms. Raison&rsquo;s niacin comparator and the 1&nbsp;mg arm in Goodwin are attempts to narrow the gap, not to close it. This is why an FDA advisory committee voted against MDMA-assisted therapy in 2024 despite two positive phase&nbsp;3 trials: the question was never whether the effect was large, but whether the design could attribute it.</p>
+      <p style="color:var(--text-secondary);line-height:1.8">Read the trials rather than the summaries, and check any figure here against the cited paper and against <a href="https://clinicaltrials.gov" target="_blank" rel="noopener" style="color:var(--acid)">ClinicalTrials.gov</a> before relying on it.</p>
+      <div id="pipeline-sources" style="margin-top:var(--s6)"></div>
     </div>
   </div>
   <div class="section" id="pipeline-content"></div>
@@ -2025,52 +2408,60 @@ main { min-height: calc(100vh - 60px); }
         <div class="mega-divider"></div>
         <div class="mega-col-label">Home Sections</div>
         <ul class="mega-links">
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#substances')">&#9654; Substance Grid</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#timelines')">&#9654; Six Timelines</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#tools')">&#9654; Interactive Tools</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#research')">&#9654; Citation Library</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#publication-series')">&#9654; Publication Series</a></li>
+          <li><a href="#substances" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#substances')">&#9654; Substance Grid</a></li>
+          <li><a href="#timelines" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#timelines')">&#9654; Six Timelines</a></li>
+          <li><a href="#tools" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#tools')">&#9654; Interactive Tools</a></li>
+          <li><a href="#research" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#research')">&#9654; Citation Library</a></li>
+          <li><a href="#publication-series" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#publication-series')">&#9654; Publication Series</a></li>
         </ul>
       </div>
       <div class="mega-col">
         <div class="mega-col-label">Science &amp; Medicine</div>
         <ul class="mega-links">
-          <li><a onclick="closeMegaMenu();showPage('receptor')" data-page="receptor">Receptor Atlas</a></li>
-          <li><a onclick="closeMegaMenu();showPage('neuro')" data-page="neuro">Brain Science &amp; Neuroimaging</a></li>
-          <li><a onclick="closeMegaMenu();showPage('pipeline')" data-page="pipeline">Science Pipeline</a></li>
-          <li><a onclick="closeMegaMenu();showPage('phenomenology')" data-page="phenomenology">Mystical Experience (MEQ)</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="interactions">Drug Interactions &mdash; not published</a></li>
+          <li><a href="#receptor" onclick="event.preventDefault();closeMegaMenu();showPage('receptor')" data-page="receptor">Receptor Atlas</a></li>
+          <li><a href="#neuro" onclick="event.preventDefault();closeMegaMenu();showPage('neuro')" data-page="neuro">Brain Science &amp; Neuroimaging</a></li>
+          <li><a href="#pipeline" onclick="event.preventDefault();closeMegaMenu();showPage('pipeline')" data-page="pipeline">Science Pipeline</a></li>
+          <li><a href="#phenomenology" onclick="event.preventDefault();closeMegaMenu();showPage('phenomenology')" data-page="phenomenology">Mystical Experience (MEQ)</a></li>
+          <li><a href="#governance" onclick="event.preventDefault();closeMegaMenu();showPage('governance')" data-page="interactions">Drug Interactions &mdash; not published</a></li>
         </ul>
         <div class="mega-divider"></div>
         <div class="mega-col-label">Law &amp; Policy</div>
         <ul class="mega-links">
-          <li><a onclick="closeMegaMenu();showPage('legitimacy')" data-page="legitimacy" class="mega-editorial">&#9632; The Legitimacy Gap</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="rfra">RFRA Litigation Tracker &mdash; not published</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="decrim">Decriminalization Tracker &mdash; not published</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="comparative">Global Legal Frameworks &mdash; not published</a></li>
+          <li><a href="#legitimacy" onclick="event.preventDefault();closeMegaMenu();showPage('legitimacy')" data-page="legitimacy" class="mega-editorial">&#9632; The Legitimacy Gap</a></li>
+          <li><a href="#governance" onclick="event.preventDefault();closeMegaMenu();showPage('governance')" data-page="rfra">RFRA Litigation Tracker &mdash; not published</a></li>
+          <li><a href="#governance" onclick="event.preventDefault();closeMegaMenu();showPage('governance')" data-page="decrim">Decriminalization Tracker &mdash; not published</a></li>
+          <li><a href="#governance" onclick="event.preventDefault();closeMegaMenu();showPage('governance')" data-page="comparative">Global Legal Frameworks &mdash; not published</a></li>
         </ul>
       </div>
       <div class="mega-col">
         <div class="mega-col-label">Culture &amp; History</div>
         <ul class="mega-links">
-          <li><a onclick="closeMegaMenu();showPage('researchers')" data-page="researchers">Key Researchers</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="ceremony">Ceremony Structures &mdash; not published</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#timelines')">Historical Timelines</a></li>
+          <li><a href="#archaeology" onclick="event.preventDefault();closeMegaMenu();showPage('archaeology')" data-page="archaeology">Archaeology &mdash; The Evidence Ladder</a></li>
+          <li><a href="#researchers" onclick="event.preventDefault();closeMegaMenu();showPage('researchers')" data-page="researchers">Key Researchers</a></li>
+          <li><a href="#governance" onclick="event.preventDefault();closeMegaMenu();showPage('governance')" data-page="ceremony">Ceremony Structures &mdash; not published</a></li>
+          <li><a href="#timelines" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#timelines')">Historical Timelines</a></li>
         </ul>
         <div class="mega-divider"></div>
         <div class="mega-col-label">Reference</div>
         <ul class="mega-links">
-          <li><a onclick="closeMegaMenu();showPage('glossary-page')" data-page="glossary-page">Glossary (42 terms)</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#research')" id="mega-cite-count">Citation Library</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#tools')">Interactive Tools</a></li>
-          <li><a onclick="closeMegaMenu();openSiteSearch()">&#9906; Search Everything</a></li>
+          <li><a href="#glossary-page" onclick="event.preventDefault();closeMegaMenu();showPage('glossary-page')" data-page="glossary-page" id="mega-glossary-count">Glossary</a></li>
+          <li><a href="#research" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#research')" id="mega-cite-count">Citation Library</a></li>
+          <li><a href="#tools" onclick="event.preventDefault();closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#tools')">Interactive Tools</a></li>
+          <li><a href="#search" onclick="event.preventDefault();closeMegaMenu();openSiteSearch()">&#9906; Search Everything</a></li>
         </ul>
       </div>
     </div>
   </div>
   <div class="mega-menu-backdrop" onclick="closeMegaMenu()" aria-hidden="true"></div>
 <div class="drawer-overlay"></div>
-<div class="site-search-overlay" id="site-search-overlay" style="display:none" role="dialog" aria-modal="true"><div class="site-search-box"><input type="text" class="site-search-input" id="site-search-input" placeholder="Search substances, cases, citations, terms…" aria-label="Search" autocomplete="off"><div class="site-search-results" id="site-search-results"></div><div style="padding:8px 24px;font-family:monospace;font-size:0.6rem;color:#7878a0;display:flex;justify-content:space-between;align-items:center"><span>ESC to close &middot; ENTER to navigate &middot; Cmd+K to open</span><button onclick="closeSiteSearch()" style="background:none;border:1px solid #2a2a3e;border-radius:4px;color:#7878a0;padding:2px 8px;cursor:pointer;font-size:0.6rem">Close</button></div></div></div>
+<!-- Source drawer. The markup had been dropped, which left initDrawer()
+     returning early and window.openDrawer undefined; every citation link
+     on the site was inert. Restored here. -->
+<aside class="drawer" id="source-drawer" role="dialog" aria-modal="true" aria-label="Source detail" tabindex="-1">
+  <button class="drawer-close" type="button">&larr; Close</button>
+  <div class="drawer-body"></div>
+</aside>
+<div class="site-search-overlay" id="site-search-overlay" style="display:none" role="dialog" aria-modal="true"><div class="site-search-box"><input type="text" class="site-search-input" id="site-search-input" placeholder="Search substances, sources, timeline, glossary…" aria-label="Search the atlas" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="site-search-results" aria-autocomplete="list"><div class="site-search-results" id="site-search-results" role="listbox" aria-label="Search results"></div><div style="padding:8px 24px;font-family:monospace;font-size:0.6rem;color:#7878a0;display:flex;justify-content:space-between;align-items:center"><span>&uarr;&darr; to move &middot; ENTER to open &middot; ESC to close &middot; &#8984;K anywhere</span><button onclick="closeSiteSearch()" style="background:none;border:1px solid #2a2a3e;border-radius:4px;color:#7878a0;padding:2px 8px;cursor:pointer;font-size:0.6rem">Close</button></div></div></div>
 
 
 
@@ -2392,7 +2783,7 @@ var WHO_USES_DATA = [
   { tradition: 'Shipibo curanderos', region: 'Peruvian Amazon', substance: 'ayahuasca', period: 'Pre-Columbian–present', purpose: 'Healing through icaros; plant spirit communication; community medicine', source: 'Strassman 1994; Ball 2009', sovereigntyNote: 'Shipibo healers most prominent in Western ayahuasca tourism. Growing tension between authentic practice and ceremony-as-product for Western retreat market.' },
   { tradition: 'Urban ayahuasca circles', region: 'São Paulo, New York, Amsterdam, London', substance: 'ayahuasca', period: '1990s–present', purpose: 'Therapeutic; spiritual development; community; depression/trauma treatment', source: 'Carhart-Harris 2016', sovereigntyNote: 'Globalization of tradition. Legal status varies by city. Questions of cultural appropriation, adequate preparation, and harm reduction acute.' },
   { tradition: 'Clinical trial participants (secular)', region: 'USA, UK, Australia', substance: 'psilocybin', period: '2006–present', purpose: 'Depression treatment; existential distress; addiction cessation', source: 'Griffiths 2006; Carhart-Harris 2021; Davis 2021', sovereigntyNote: 'Secular context — yet 61% still report mystical experiences. Challenges assumption that spiritual experience requires spiritual intent or context.' },
-  { tradition: 'Bwiti (Gabon / Cameroon)', region: 'Central Africa', substance: 'ayahuasca', period: 'Pre-Colonial–2025', purpose: 'Initiation; ancestor contact; healing; death-rebirth experience (ibogaine/iboga -- one of the ten atlas substances, contextualizing global scope)', source: 'Schultes 1963', sovereigntyNote: 'Iboga and ibogaine are central to Bwiti initiation ceremonies. Covered in the atlas as one of the ten substances. The most important entheogenic tradition on the African continent. Colorado Prop 122 includes ibogaine. WHO consideration ongoing.' },
+  { tradition: 'Bwiti (Gabon / Cameroon)', region: 'Central Africa', substance: 'ibogaine', period: 'Pre-colonial–present', purpose: 'Initiation; ancestor contact; healing; the death-and-rebirth experience of the iboga flood dose', source: 'Schultes 1963', sovereigntyNote: 'Iboga (Tabernanthe iboga), whose principal alkaloid is ibogaine, is central to Bwiti initiation. Listed under ibogaine, one of the ten substances in this atlas — an earlier edition mis-keyed this tradition to ayahuasca. Colorado Proposition 122 names ibogaine among the substances in its regulated framework.' },
   { tradition: 'Festival harm reduction / recreational', region: 'Global (Burning Man, Glastonbury, etc.)', substance: 'lsd', period: '1960s–present', purpose: 'Pleasure; expanded consciousness; creative inspiration; community', source: 'Perry 1996', sovereigntyNote: 'DanceSafe and other harm reduction organizations occupy important space. Non-ceremonial use treated identically by law to sacred use — a key policy critique.' }
 ];
 
@@ -2425,17 +2816,24 @@ var TIMELINE_EVENTS = {
     { year: '2024', title: 'MAPS MDMA Phase 3 — FDA Advisory Panel', body: 'FDA advisory committee votes against approving MDMA-assisted therapy citing data concerns. Marks a significant setback for psychedelic medicine regulation.', substances: ['mdma'], color: '#38bdf8', category: 'clinical' },
   ],
   archaeological: [
-    { year: 'c. 60,000 BP — contested', title: 'Shanidar Cave &ldquo;Flower Burial&rdquo;', body: 'Clumped pollen from flowering and medicinal plants, including <em>Ephedra</em>, was recorded around the Neanderthal burial Shanidar IV in Iraq (Leroi-Gourhan 1975) and read as deliberate funerary deposition. Subsequent taphonomic work attributes the pollen to burrowing rodents rather than to human placement (Sommer 1999; Fiacconi &amp; Hunt 2015; Pomeroy et al. 2020). No entheogen is identified in the assemblage. Listed here as the earliest <em>claimed</em> evidence, not as accepted evidence of psychoactive plant use.', substances: [], color: '#ff8c00', category: 'archaeological' },
-    { year: 'c. 3,700 BCE', title: 'Earliest Chemically Confirmed Peyote Use', body: 'Two peyote buttons from Shumla Cave No. 5 on the Rio Grande, Texas, radiocarbon dated to 3780&ndash;3660 cal BC and shown by GC-MS to contain mescaline &mdash; roughly 5,700 years before present. The oldest plant drug yet to yield its major bioactive compound on chemical analysis (El-Seedi et al. 2005, <em>J. Ethnopharmacol.</em> 101:238&ndash;242, doi:10.1016/j.jep.2005.04.022).', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
-    { year: 'c. 4th&ndash;2nd c. BCE', title: 'Ergot at Mas Castellar de Pont&oacute;s', body: 'Fragments of ergot sclerotia (<em>Claviceps purpurea</em>) recovered from a beer-residue vessel and from human dental calculus at an Iron Age Iberian settlement in Catalonia with a cult space associated with Demeter and Persephone (Juan-Tresserras 2000, 2002). Ergot carries ergot alkaloids and traces of lysergic acid amide. Cited in support of the ergot hypothesis for the Eleusinian kykeon; the inference from residue to ritual ingestion remains contested.', substances: ['lsd'], color: '#38bdf8', category: 'archaeological' },
-    { year: '1,500 BCE', title: 'Vedic Soma', body: 'The Rigveda describes Soma — a ritual drink with likely psychedelic properties. Candidates include Amanita muscaria, Peganum harmala, or Ephedra.', substances: [], color: '#ff8c00', category: 'archaeological' },
-    { year: '750 BCE', title: 'Eleusinian Mysteries', body: 'Greek mystery cult centered at Eleusis uses kykeon — a barley drink possibly spiked with ergot (LSA). Participants including Plato and Cicero reported profound transformative experiences.', substances: ['lsd'], color: '#38bdf8', category: 'archaeological' },
-    { year: '1569&ndash;1582 CE', title: 'Aztec Teonan&aacute;catl Documented', body: 'Bernardino de Sahag&uacute;n records Nahua ceremonial use of psilocybin mushrooms &mdash; <em>teonan&aacute;catl</em>, &ldquo;flesh of the gods&rdquo; &mdash; in the Florentine Codex, the earliest written description of a Psilocybe ritual. Mesoamerican mushroom stones suggest the practice is far older, but they cannot be tied to a specific species.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
-    { year: '1300 CE', title: 'Huichol Peyote Pilgrimage', body: 'Huichol (Wixáritari) people of Mexico develop elaborate annual peyote pilgrimage to Wirikuta — still practiced today. Among the most intact pre-Columbian ritual systems surviving.', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
+    { year: 'c. 60,000 BP', t: -58000, t2: -58000, evidence: 'rejected', cite: ['leroi-gourhan-1975','solecki-1975','sommer-1999','fiacconi-hunt-2015','pomeroy-2020'], title: 'Shanidar Cave &ldquo;Flower Burial&rdquo; &mdash; contested', body: 'Clumped pollen from flowering and medicinal plants, including <em>Ephedra</em>, was recorded around the Neanderthal burial Shanidar IV in Iraq and read as deliberate funerary deposition (Solecki 1975; Leroi-Gourhan 1975). Subsequent taphonomic work attributes the pollen to burrowing rodents and to bee provisioning rather than to human placement (Sommer 1999; Fiacconi &amp; Hunt 2015), and renewed excavation has complicated the burial narrative further (Pomeroy et al. 2020). No entheogen is identified in the assemblage. Listed as the earliest <em>claimed</em> evidence, not as accepted evidence of psychoactive plant use.', substances: [], color: '#ff8c00', category: 'archaeological' },
+    { year: 'c. 6000&ndash;4500 BCE', t: -6000, t2: -4500, evidence: 'iconographic', cite: ['samorini-2019','guerra-doce-2015'], title: 'Tassili n&rsquo;Ajjer &ldquo;Round Head&rdquo; mushroom figures', body: 'Rock paintings of the Round Head phase in the Tassili n&rsquo;Ajjer massif, Algeria, dated by Samorini to 6000&ndash;4500 BC, include anthropomorphic figures holding mushroom-like objects, with dotted lines running from the object to the head. Samorini (1992; 2019) reads this as an intentional depiction of psychoactive effect. The identification of the objects as fungi, the species, and the dating are each disputed, and no residue or macrofossil supports the reading. Iconographic evidence only.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
+    { year: 'c. 4000 BCE', t: -4000, t2: -4000, evidence: 'iconographic', cite: ['akers-2011','samorini-2019'], title: 'Selva Pascuala mural, Spain', body: 'A Neolithic mural at Selva Pascuala (Villar del Humo, Cuenca) shows a row of bell-capped, sinuous-stalked forms alongside a bull. Akers, Ruiz, Piper and Ruck (2011) argue the forms are <em>Psilocybe hispanica</em>, a species that fruits locally on cattle dung. The reading is an inference from morphology in a schematic painting; other fungal and non-fungal identifications remain open.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
+    { year: '3780&ndash;3660 BCE', t: -3780, t2: -3660, evidence: 'chemical', cite: ['el-seedi-2005'], title: 'Shumla Cave peyote &mdash; oldest chemically confirmed use', body: 'Two peyote buttons from Shumla Cave No. 5 on the Rio Grande, Texas, radiocarbon dated to 3780&ndash;3660 cal BC and shown by TLC and GC-MS to contain mescaline &mdash; roughly 5,700 years before present. El-Seedi et al. describe them as the oldest plant drug yet to yield its major bioactive compound on chemical analysis. This is the anchor date for the atlas: the earliest point at which a psychoactive plant, a human context, and the active compound are all established by the same evidence.', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
+    { year: 'c. 1500 BCE', t: -1500, t2: -1200, evidence: 'textual', cite: ['schultes-1963','guerra-doce-2015'], title: 'Rigvedic Soma', body: 'The Rigveda devotes an entire book to Soma, a pressed ritual drink credited with visionary effect. The botanical identity is unresolved: <em>Amanita muscaria</em> (Wasson), <em>Ephedra</em>, <em>Peganum harmala</em> and several others have been proposed, and no residue, macrofossil or vessel has resolved the question. Textual evidence of a ritual intoxicant; not evidence of any particular plant.', substances: [], color: '#ff8c00', category: 'archaeological' },
+    { year: 'c. 1000 BCE&ndash;900 CE', t: -1000, t2: 900, evidence: 'iconographic', cite: ['samorini-2019'], title: 'Maya mushroom stones', body: 'Carved stone effigies with a mushroom-shaped cap over a human or animal figure, found across the Guatemalan highlands and adjacent regions, the oldest dated to about 1000 BC. Whether they represent psilocybian mushrooms, fly agaric, or a non-fungal object is unsettled, and no example has been associated with residue. Frequently cited as evidence of deep Mesoamerican mushroom ritual; the objects themselves do not establish it.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
+    { year: 'late 8th c. BCE', t: -730, t2: -700, evidence: 'chemical', cite: ['arie-2020'], title: 'Cannabis on the Judahite altar at Tel Arad', body: 'Organic residue analysis at two independent laboratories found &Delta;9-THC, CBD and CBN, with terpenes and terpenoids, on the smaller of two limestone altars in the Judahite shrine at Tel Arad, Israel, together with residues attributed to animal dung used as a mild-heating fuel. The larger altar carried boswellic acid and norursatriene from frankincense, mixed with animal fat. The first chemically demonstrated cannabis burning in a Near Eastern cultic context (Arie, Rosen &amp; Namdar 2020).', substances: ['cannabis'], color: '#4ade80', category: 'archaeological' },
+    { year: 'c. 550 BCE', t: -550, t2: -550, evidence: 'botanical', cite: ['jiang-2006'], title: 'Yanghai Tombs cannabis cache, Xinjiang', body: 'Nearly a kilogram of cannabis shoots, leaves and fruits, radiocarbon dated to about 2,500 years before present, was recovered from a tomb in the Yanghai cemetery, Turpan. The material was identified morphologically and anatomically as <em>Cannabis</em>; the ritual or medicinal reading rests on the shamanic character of the burial assemblage rather than on residue chemistry (Jiang et al. 2006).', substances: ['cannabis'], color: '#4ade80', category: 'archaeological' },
+    { year: 'c. 500 BCE', t: -500, t2: -500, evidence: 'chemical', cite: ['ren-2019'], title: 'Jirzankal braziers &mdash; earliest confirmed cannabis smoking', body: 'Ten wooden braziers from the Jirzankal Cemetery in the eastern Pamirs retained burnt residues in which GC-MS identified cannabinoids at levels indicating plants unusually high in psychoactive compound. Ren et al. (2019) present this as the earliest directly dated, chemically verified evidence of cannabis smoked in a mortuary rite &mdash; and as evidence that high-THC phenotypes were being selected or sought by 2,500 years ago.', substances: ['cannabis'], color: '#4ade80', category: 'archaeological' },
+    { year: '4th&ndash;2nd c. BCE', t: -400, t2: -100, evidence: 'contested', cite: ['guerra-doce-2015'], title: 'Ergot at Mas Castellar de Pont&oacute;s', body: 'Fragments of ergot sclerotia (<em>Claviceps purpurea</em>) were reported from a beer-residue vessel and from human dental calculus at an Iron Age Iberian settlement in Catalonia with a cult space associated with Demeter and Persephone (Juan-Tresserras 2000, 2002). Ergot carries ergot alkaloids including small amounts of lysergic acid amide, and the find is the strongest material support offered for the ergot hypothesis of the Eleusinian kykeon. The analytical report has not been replicated and the inference from presence to deliberate ingestion is contested.', substances: ['lsd'], color: '#38bdf8', category: 'archaeological' },
+    { year: '2nd c. BCE', t: -200, t2: -100, evidence: 'chemical', cite: ['tanasi-2024'], title: 'Ptolemaic Bes vase, Egypt', body: 'Proteomic, metabolomic, genetic and synchrotron FTIR analysis of residues in an Egyptian Bes-head vase identified <em>Peganum harmala</em> (Syrian rue, a source of harmala alkaloids), <em>Nymphaea nouchali</em> var. <em>caerulea</em> (blue water lily) and a <em>Cleome</em> species, alongside a fermented fruit liquid, honey or royal jelly, and human fluids (Tanasi et al. 2024). One of the few instances where a psychoactive ritual preparation has been reconstructed compound by compound rather than inferred.', substances: [], color: '#ff8c00', category: 'archaeological' },
+    { year: 'c. 1000 CE', t: 900, t2: 1100, evidence: 'chemical', cite: ['miller-2019'], title: 'Cueva del Chileno ritual bundle, Bolivia', body: 'A fox-snout pouch and associated paraphernalia from a rock shelter in the L&iacute;pez Altiplano of southwestern Bolivia, radiocarbon dated to about 1000 CE, yielded bufotenine, dimethyltryptamine, harmine, cocaine and its metabolite benzoylecgonine by LC-MS/MS (Miller et al. 2019). It is the largest set of psychoactive compounds recovered from a single artefact in the region, a documented case of harmine and DMT &mdash; the two pharmacological halves of ayahuasca &mdash; occurring together, and evidence that the plants involved were moving between distant ecological zones.', substances: ['ayahuasca'], color: '#c084fc', category: 'archaeological' },
+    { year: '1300 CE', t: 1300, t2: 1300, evidence: 'ethnographic', cite: ['schultes-1963'], title: 'Huichol peyote pilgrimage', body: 'The Wix&aacute;ritari (Huichol) of Nayarit and Jalisco maintain an annual pilgrimage to Wirikuta in San Luis Potos&iacute; to gather peyote. The practice is documented ethnographically from the nineteenth century onward and is understood to be pre-Columbian in origin; the conventional date given here marks the tradition&rsquo;s attributed antiquity rather than a dated deposit. Wirikuta is currently threatened by mining concessions.', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
+    { year: '1569&ndash;1582 CE', t: 1569, t2: 1582, evidence: 'textual', cite: ['schultes-1963','ruck-2011'], title: 'Aztec teonan&aacute;catl documented', body: 'Bernardino de Sahag&uacute;n records Nahua ceremonial use of psilocybin mushrooms &mdash; <em>teonan&aacute;catl</em>, &ldquo;flesh of the gods&rdquo; &mdash; in the Florentine Codex, the earliest written description of a Psilocybe ritual. It is a colonial ethnography written to catalogue practices the colonisers intended to suppress, and should be read as such. Mesoamerican mushroom effigies suggest the practice is far older, but cannot be tied to a species.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' }
   ],
   clinical: [
     { year: '1938', title: 'LSD-25 Synthesized', body: 'Albert Hofmann synthesizes LSD at Sandoz. Discovers psychoactive effects in 1943 via accidental exposure.', substances: ['lsd'], color: '#38bdf8', category: 'clinical' },
-    { year: '1950s', title: 'Sandoz LSD Research Program', body: 'Sandoz distributes LSD to researchers worldwide as Delysid. Estimated 40,000 patients receive LSD in psychotherapy by 1965.', substances: ['lsd'], color: '#38bdf8', category: 'clinical' },
+    { year: '1950s', title: 'Sandoz LSD Research Program', body: 'Sandoz distributes LSD to researchers worldwide under the trade name Delysid. The figure of roughly 40,000 patients treated by the mid-1960s is widely repeated but traces to secondary estimates rather than to a compiled patient record; it is reported here as an estimate, not a count.', substances: ['lsd'], color: '#38bdf8', category: 'clinical' },
     { year: '1960', title: 'Harvard Psilocybin Project', body: 'Timothy Leary and Richard Alpert begin the Harvard Psilocybin Project. The Marsh Chapel Experiment (Good Friday, 1962) produces lasting mystical experiences in 9 of 10 divinity students.', substances: ['psilocybin'], color: '#f472b6', category: 'clinical' },
     { year: '1970', title: 'Research Ends — Schedule I', body: 'CSA Schedule I classification effectively halts all human psychedelic research in the US for two decades.', substances: ['lsd','psilocybin','peyote','ayahuasca'], color: '#ff2d8f', category: 'clinical' },
     { year: '1990', title: 'Research Resumes — Rick Strassman DMT', body: 'Rick Strassman receives first FDA approval since 1970 to study a psychedelic in humans. DMT studies at University of New Mexico (1990–1995).', substances: ['ayahuasca'], color: '#c084fc', category: 'clinical' },
@@ -2473,12 +2871,6 @@ var TIMELINE_EVENTS = {
 
 // Extend timelines
 if (typeof TIMELINE_EVENTS !== 'undefined') {
-  TIMELINE_EVENTS.archaeological = TIMELINE_EVENTS.archaeological || [];
-  TIMELINE_EVENTS.archaeological.unshift(
-    { year: '9,000 BCE', title: 'Tassili Cave Art — Mushroom Figures', body: 'Cave paintings in Tassili n\'Ajjer (Algeria) depict anthropomorphic figures with mushrooms sprouting from body. Interpreted by some researchers as earliest evidence of psilocybin ritual use.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
-    { year: '2,700 BCE', title: 'Cannabis in Shaman Burial — Israel', body: 'Cannabis found in tomb of a young woman near Bet Shemesh, Israel. Used in ritual context 2,700 years ago, predating most documented religious use.', substances: ['cannabis'], color: '#4ade80', category: 'archaeological' },
-    { year: '100 CE', title: 'Teonanácatl in Mesoamerican Codices', body: 'Aztec codices document ritual mushroom use. Mushroom stones found at Guatemalan sites (700 BCE–900 CE) confirm pre-Aztec psilocybin ceremony.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' }
-  );
   TIMELINE_EVENTS.cultural = TIMELINE_EVENTS.cultural || [];
   TIMELINE_EVENTS.cultural.push(
     { year: '1953', title: 'CIA MKULTRA — LSD as Weapon', body: 'CIA launches MKULTRA mind control program. LSD administered without consent to civilians, prisoners, mental patients. Simultaneous with therapeutic research — the state\'s first serious LSD engagement was as a weapon.', substances: ['lsd'], color: '#38bdf8', category: 'cultural' },
@@ -2662,6 +3054,150 @@ var NEW_CITATIONS = [
 Object.assign(SUBSTANCES, NEW_SUBSTANCES);
 CITATIONS.push.apply(CITATIONS, NEW_CITATIONS);
 
+// ============================================================
+// ARCHAEOLOGY OF ENTHEOGENS — sources
+// Every DOI below verified as registered in Crossref; every URL
+// fetched at 200 with a browser User-Agent, 2026-08-29.
+// ============================================================
+var ARCHAEO_CITATIONS = [
+  { id: 'ren-2019', authors: 'Ren, M., Tang, Z., Wu, X., Spengler, R., Jiang, H., Yang, Y., & Boivin, N.', year: 2019, title: 'The origins of cannabis smoking: chemical residue evidence from the first millennium BCE in the Pamirs', journal: 'Science Advances', volume: '5(6), eaaw1391', doi: '10.1126/sciadv.aaw1391', url: 'https://doi.org/10.1126/sciadv.aaw1391', keyFinding: 'Cannabinoid residues in ten wooden braziers from the Jirzankal Cemetery, eastern Pamirs, c. 500 BCE. Earliest directly dated chemical evidence of cannabis smoked in a mortuary rite, at levels indicating high-THC plants.', tags: ['archaeology','anthropology','cannabis'], substances: ['cannabis'] },
+  { id: 'arie-2020', authors: 'Arie, E., Rosen, B., & Namdar, D.', year: 2020, title: 'Cannabis and frankincense at the Judahite shrine of Arad', journal: 'Tel Aviv', volume: '47(1), 5–28', doi: '10.1080/03344355.2020.1732046', url: 'https://doi.org/10.1080/03344355.2020.1732046', keyFinding: 'THC, CBD and CBN on the smaller altar of the Tel Arad shrine, mixed with animal dung as fuel; frankincense and animal fat on the larger. Independent replication at two laboratories.', tags: ['archaeology','religious','cannabis'], substances: ['cannabis'] },
+  { id: 'jiang-2006', authors: 'Jiang, H.-E., Li, X., Zhao, Y.-X., Ferguson, D.K., Hueber, F., Bera, S., Wang, Y.-F., Zhao, L.-C., Liu, C.-J., & Li, C.-S.', year: 2006, title: 'A new insight into Cannabis sativa (Cannabaceae) utilization from 2500-year-old Yanghai Tombs, Xinjiang, China', journal: 'Journal of Ethnopharmacology', volume: '108(3), 414–422', doi: '10.1016/j.jep.2006.05.034', url: 'https://doi.org/10.1016/j.jep.2006.05.034', keyFinding: 'Cannabis shoots, leaves and fruits dated to 2500 BP in a Turpan tomb; identification morphological and anatomical, the ritual reading inferred from the burial assemblage rather than from residue.', tags: ['archaeology','cannabis'], substances: ['cannabis'] },
+  { id: 'miller-2019', authors: 'Miller, M.J., Albarracin-Jordan, J., Moore, C., & Capriles, J.M.', year: 2019, title: 'Chemical evidence for the use of multiple psychotropic plants in a 1,000-year-old ritual bundle from South America', journal: 'Proceedings of the National Academy of Sciences', volume: '116(23), 11207–11212', doi: '10.1073/pnas.1902174116', url: 'https://doi.org/10.1073/pnas.1902174116', keyFinding: 'Bufotenine, DMT, harmine, cocaine and benzoylecgonine identified by LC-MS/MS in a ritual bundle from the Lípez Altiplano, Bolivia. Documented co-occurrence of the two pharmacological components of ayahuasca.', tags: ['archaeology','anthropology','ayahuasca'], substances: ['ayahuasca'] },
+  { id: 'tanasi-2024', authors: 'Tanasi, D., Greco, E., Noor, R.E., Feola, S., Kumar, V., Crispino, A., & Gelis, I.', year: 2024, title: 'Multianalytical investigation reveals psychotropic substances in a Ptolemaic Egyptian vase', journal: 'Scientific Reports', volume: '14, 27891', doi: '10.1038/s41598-024-78721-8', url: 'https://doi.org/10.1038/s41598-024-78721-8', keyFinding: 'Peganum harmala, Nymphaea nouchali var. caerulea and a Cleome species identified in residue from a 2nd-century BCE Bes-head vase, with a fermented fruit liquid and human fluids.', tags: ['archaeology','religious'], substances: [] },
+  { id: 'samorini-2019', authors: 'Samorini, G.', year: 2019, title: 'The oldest archeological data evidencing the relationship of Homo sapiens with psychoactive plants: a worldwide overview', journal: 'Journal of Psychedelic Studies', volume: '3(2), 63–80', doi: '10.1556/2054.2019.008', url: 'https://doi.org/10.1556/2054.2019.008', keyFinding: 'Separates direct evidence (material, chemical, genetic) from indirect evidence (iconographic, literary, paraphernalia, anthropophysical), and compiles earliest known dates per plant source. The evidence ladder this atlas uses is adapted from it.', tags: ['archaeology','anthropology'], substances: [] },
+  { id: 'guerra-doce-2015', authors: 'Guerra-Doce, E.', year: 2015, title: 'Psychoactive substances in prehistoric times: examining the archaeological evidence', journal: 'Time and Mind', volume: '8(1), 91–112', doi: '10.1080/1751696X.2014.993244', url: 'https://doi.org/10.1080/1751696X.2014.993244', keyFinding: 'Sets out the indicators an archaeological claim of psychoactive plant use should satisfy, and applies them to the standard worldwide examples. The methodological counterweight to enthusiastic readings of iconography.', tags: ['archaeology','anthropology'], substances: [] },
+  { id: 'akers-2011', authors: 'Akers, B.P., Ruiz, J.F., Piper, A., & Ruck, C.A.P.', year: 2011, title: 'A prehistoric mural in Spain depicting neurotropic Psilocybe mushrooms?', journal: 'Economic Botany', volume: '65(2), 121–128', doi: '10.1007/s12231-011-9152-5', url: 'https://doi.org/10.1007/s12231-011-9152-5', keyFinding: 'Argues the bell-capped forms in the Selva Pascuala mural (c. 4000 BCE) are Psilocybe hispanica. The paper’s own title carries the question mark.', tags: ['archaeology','psilocybin'], substances: ['psilocybin'] },
+  { id: 'solecki-1975', authors: 'Solecki, R.S.', year: 1975, title: 'Shanidar IV, a Neanderthal flower burial in northern Iraq', journal: 'Science', volume: '190(4217), 880–881', doi: '10.1126/science.190.4217.880', url: 'https://doi.org/10.1126/science.190.4217.880', keyFinding: 'The original claim: pollen clusters around Shanidar IV read as deliberate floral deposition, and the origin of the popular “Neanderthals used psychoactive plants” story.', tags: ['archaeology'], substances: [] },
+  { id: 'leroi-gourhan-1975', authors: 'Leroi-Gourhan, A.', year: 1975, title: 'The flowers found with Shanidar IV, a Neanderthal burial in Iraq', journal: 'Science', volume: '190(4214), 562–564', doi: '10.1126/science.190.4214.562', url: 'https://doi.org/10.1126/science.190.4214.562', keyFinding: 'The palynological report underlying the flower-burial claim, identifying Ephedra among other taxa.', tags: ['archaeology'], substances: [] },
+  { id: 'sommer-1999', authors: 'Sommer, J.D.', year: 1999, title: 'The Shanidar IV ‘flower burial’: a re-evaluation of Neanderthal burial ritual', journal: 'Cambridge Archaeological Journal', volume: '9(1), 127–129', doi: '10.1017/s0959774300015249', url: 'https://doi.org/10.1017/s0959774300015249', keyFinding: 'Attributes the Shanidar pollen clusters to the burrowing rodent Meriones persicus rather than to human placement.', tags: ['archaeology'], substances: [] },
+  { id: 'fiacconi-hunt-2015', authors: 'Fiacconi, M., & Hunt, C.O.', year: 2015, title: 'Pollen taphonomy at Shanidar Cave (Kurdish Iraq): an initial evaluation', journal: 'Review of Palaeobotany and Palynology', volume: '223, 87–93', doi: '10.1016/j.revpalbo.2015.09.003', url: 'https://doi.org/10.1016/j.revpalbo.2015.09.003', keyFinding: 'Modern pollen sampling at the site shows how insect and animal activity concentrates whole anthers and pollen clumps, reproducing the pattern read in 1975 as intentional.', tags: ['archaeology'], substances: [] },
+  { id: 'pomeroy-2020', authors: 'Pomeroy, E., Bennett, P., Hunt, C.O., Reynolds, T., Farr, L., Frouin, M., Holman, J., Lane, R., French, C., & Barker, G.', year: 2020, title: 'New Neanderthal remains associated with the ‘flower burial’ at Shanidar Cave', journal: 'Antiquity', volume: '94(373), 11–26', doi: '10.15184/aqy.2019.207', url: 'https://doi.org/10.15184/aqy.2019.207', keyFinding: 'Renewed excavation of the Shanidar deposits; the articulated remains support intentional burial but do not support the floral or psychoactive-plant reading.', tags: ['archaeology'], substances: [] }
+];
+CITATIONS.push.apply(CITATIONS, ARCHAEO_CITATIONS);
+
+// ============================================================
+// THE EXEMPTION LINE — case law and statutory instruments
+// Every entry below is keyed to a primary source: a Library of
+// Congress U.S. Reports scan, a court's own PDF, the Statutes at
+// Large, or the regulation's text. Each URL was fetched at 200 with
+// a browser User-Agent on 2026-08-29. Reporter citations for the
+// lower-court cases were confirmed against the CourtListener API;
+// CourtListener's own HTML answers 202 to automated clients, which
+// is bot mitigation and not a dead link.
+// ============================================================
+var LEGAL_CITATIONS = [
+  { id: 'sherbert-1963', authors: 'Supreme Court of the United States', year: 1963, title: 'Sherbert v. Verner, 374 U.S. 398', journal: 'United States Reports', volume: '374 U.S. 398', url: 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep374/usrep374398/usrep374398.pdf', keyFinding: 'Established that a substantial burden on religious exercise must be justified by a compelling state interest. The standard RFRA later restored by statute.', tags: ['legal','case-law'], substances: [] },
+  { id: 'woody-1964', authors: 'Supreme Court of California', year: 1964, title: 'People v. Woody, 61 Cal. 2d 716, 394 P.2d 813', journal: 'California Reports', volume: '61 Cal. 2d 716', url: 'https://www.courtlistener.com/opinion/2619277/people-v-woody/', keyFinding: 'Reversed peyote convictions of three Navajo defendants on Free Exercise grounds, finding the state had not shown a compelling interest. The first major judicial recognition of entheogenic religious practice in the United States, twenty-six years before Smith reversed the doctrine it relied on.', tags: ['legal','case-law','religious','peyote'], substances: ['peyote'] },
+  { id: 'leary-1969', authors: 'Supreme Court of the United States', year: 1969, title: 'Leary v. United States, 395 U.S. 6', journal: 'United States Reports', volume: '395 U.S. 6', url: 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep395/usrep395006/usrep395006.pdf', keyFinding: 'Struck down the Marihuana Tax Act’s transfer-tax scheme on Fifth Amendment self-incrimination grounds. Timothy Leary won; Congress replied the following year with the Controlled Substances Act, which needed no tax to prohibit.', tags: ['legal','case-law','cannabis'], substances: ['cannabis'] },
+  { id: 'yoder-1972', authors: 'Supreme Court of the United States', year: 1972, title: 'Wisconsin v. Yoder, 406 U.S. 205', journal: 'United States Reports', volume: '406 U.S. 205', url: 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep406/usrep406205/usrep406205.pdf', keyFinding: 'Applied the compelling-interest test to exempt Amish families from compulsory schooling after eighth grade. With Sherbert, the high-water mark of Free Exercise accommodation.', tags: ['legal','case-law'], substances: [] },
+  { id: 'cfr-1307-31', authors: 'Drug Enforcement Administration', year: 1971, title: '21 C.F.R. § 1307.31 — Native American Church', journal: 'Code of Federal Regulations', volume: '21 C.F.R. § 1307.31', url: 'https://www.law.cornell.edu/cfr/text/21/1307.31', keyFinding: 'The regulation states that Schedule I listing of peyote “does not apply to the nondrug use of peyote in bona fide religious ceremonies of the Native American Church.” An administrative exemption that predates both Smith and AIRFA, and the instrument that made the peyote carve-out federal policy before Congress wrote it into statute.', tags: ['legal','policy','indigenous','peyote'], substances: ['peyote'] },
+  { id: 'olsen-1989', authors: 'United States Court of Appeals, D.C. Circuit', year: 1989, title: 'Olsen v. Drug Enforcement Administration, 878 F.2d 1458', journal: 'Federal Reporter, Second Series', volume: '878 F.2d 1458', url: 'https://www.courtlistener.com/opinion/526028/carl-eric-olsen-v-drug-enforcement-administration-carl-eric-olsen-v-john/', keyFinding: 'Denied an Ethiopian Zion Coptic Church claim to a cannabis exemption parallel to the Native American Church’s peyote exemption, distinguishing the NAC on the volume of the substance involved and the specificity of its ceremonial use. The case that set the asymmetry between peyote and cannabis in federal exemption law.', tags: ['legal','case-law','religious','cannabis'], substances: ['cannabis'] },
+  { id: 'meyers-1996', authors: 'United States Court of Appeals, Tenth Circuit', year: 1996, title: 'United States v. Meyers', journal: 'Tenth Circuit', volume: 'decided 6 September 1996', url: 'https://www.courtlistener.com/opinion/153893/united-states-v-meyers/', keyFinding: 'Affirmed rejection of a RFRA defence by the founder of the “Church of Marijuana”, adopting a multi-factor test for whether a professed belief system is a religion at all. The threshold question every entheogenic church claim now has to clear before compelling interest is even reached.', tags: ['legal','case-law','religious','cannabis'], substances: ['cannabis'] },
+  { id: 'raich-2005', authors: 'Supreme Court of the United States', year: 2005, title: 'Gonzales v. Raich, 545 U.S. 1', journal: 'United States Reports', volume: '545 U.S. 1', url: 'https://tile.loc.gov/storage-services/service/ll/usrep/usrep545/usrep545001/usrep545001.pdf', keyFinding: 'Held that Congress may prohibit locally grown, non-commercial cannabis used for medical purposes under state law, as part of a comprehensive regulatory scheme. The reason state legalisation does not displace federal prohibition, and the structural fact underneath the whole reform landscape.', tags: ['legal','case-law','policy','cannabis'], substances: ['cannabis'] },
+  { id: 'holy-light-2009', authors: 'United States District Court, District of Oregon', year: 2009, title: 'Church of the Holy Light of the Queen v. Mukasey, 615 F. Supp. 2d 1210', journal: 'Federal Supplement, Second Series', volume: '615 F. Supp. 2d 1210', url: 'https://www.courtlistener.com/opinion/2482682/church-of-the-holy-light-of-the-queen-v-mukasey/', keyFinding: 'Extended O Centro to a Santo Daime congregation in Oregon, enjoining enforcement against its ayahuasca sacrament subject to conditions. A district court decision, so persuasive rather than binding elsewhere.', tags: ['legal','case-law','religious','ayahuasca'], substances: ['ayahuasca'] },
+  { id: 'oklevueha-2016', authors: 'United States Court of Appeals, Ninth Circuit', year: 2016, title: 'Oklevueha Native American Church of Hawaii, Inc. v. Lynch, 828 F.3d 1012', journal: 'Federal Reporter, Third Series', volume: '828 F.3d 1012', url: 'https://cdn.ca9.uscourts.gov/datastore/opinions/2016/04/06/14-15143.pdf', keyFinding: 'Rejected a RFRA claim for cannabis by a church whose own submissions described cannabis as a substitute sacrament rather than one whose prohibition substantially burdened its exercise. Shows how much RFRA analysis turns on the substantiality of the burden, before any government interest is weighed.', tags: ['legal','case-law','religious','cannabis'], substances: ['cannabis'] },
+  { id: 'fulton-2021', authors: 'Supreme Court of the United States', year: 2021, title: 'Fulton v. City of Philadelphia, 593 U.S. 522', journal: 'United States Reports', volume: '593 U.S. 522', url: 'https://www.supremecourt.gov/opinions/20pdf/19-123_g3bi.pdf', keyFinding: 'Decided for the religious claimant without overruling Smith, holding the policy at issue was not generally applicable because it allowed discretionary exemptions. Several concurrences argued for overruling Smith outright. The reason the constitutional footing of entheogenic practice is currently unsettled rather than settled against it.', tags: ['legal','case-law','religious'], substances: [] },
+  { id: 'airfa-statute-1994', authors: '103rd United States Congress', year: 1994, title: 'American Indian Religious Freedom Act Amendments of 1994, Pub. L. 103–344, 108 Stat. 3125', journal: 'United States Statutes at Large', volume: '108 Stat. 3125', url: 'https://www.govinfo.gov/content/pkg/STATUTE-108/pdf/STATUTE-108-Pg3125.pdf', keyFinding: 'The enacted text, signed 6 October 1994: “An Act to amend the American Indian Religious Freedom Act to provide for the traditional use of peyote by Indians for religious purposes.” Codified at 42 U.S.C. § 1996a.', tags: ['legal','policy','indigenous','peyote'], substances: ['peyote'] }
+];
+CITATIONS.push.apply(CITATIONS, LEGAL_CITATIONS);
+
+// ============================================================
+// NEUROSCIENCE — sources
+// Every DOI verified as registered in Crossref on 2026-08-29;
+// figures below are taken from the published abstracts, not from
+// secondary reporting.
+// ============================================================
+var NEURO_CITATIONS = [
+  { id: 'preller-2017', authors: 'Preller, K.H., Herdener, M., Pokorny, T., Planzer, A., Kraehenmann, R., Stämpfli, P., Liechti, M.E., Seifritz, E., & Vollenweider, F.X.', year: 2017, title: 'The fabric of meaning and subjective effects in LSD-induced states depend on serotonin 2A receptor activation', journal: 'Current Biology', volume: '27(3), 451–457', doi: '10.1016/j.cub.2016.12.030', url: 'https://doi.org/10.1016/j.cub.2016.12.030', keyFinding: 'Pretreatment with the 5-HT2A antagonist ketanserin fully blocked the general subjective effects of LSD and inhibited LSD-induced attribution of personal relevance to previously meaningless stimuli. The causal test, not a correlation.', tags: ['neuroscience','pharmacology','lsd'], substances: ['lsd'] },
+  { id: 'carhart-harris-friston-2019', authors: 'Carhart-Harris, R.L., & Friston, K.J.', year: 2019, title: 'REBUS and the anarchic brain: toward a unified model of the brain action of psychedelics', journal: 'Pharmacological Reviews', volume: '71(3), 316–344', doi: '10.1124/pr.118.017160', url: 'https://doi.org/10.1124/pr.118.017160', keyFinding: 'Frames psychedelic action as a relaxation of high-level priors under a predictive-processing account, superseding the looser 2014 entropic-brain formulation.', tags: ['neuroscience','pharmacology'], substances: ['lsd','psilocybin'] },
+  { id: 'ly-2018', authors: 'Ly, C., Greb, A.C., Cameron, L.P., Wong, J.M., Barragan, E.V., Wilson, P.C., et al.', year: 2018, title: 'Psychedelics promote structural and functional neural plasticity', journal: 'Cell Reports', volume: '23(11), 3170–3182', doi: '10.1016/j.celrep.2018.05.022', url: 'https://doi.org/10.1016/j.celrep.2018.05.022', keyFinding: 'Serotonergic psychedelics increased neuritogenesis and spinogenesis in vitro and in vivo, with increased synapse number and function, through TrkB, mTOR and 5-HT2A signalling. The structural mechanism behind the "psychoplastogen" account.', tags: ['neuroscience','pharmacology'], substances: ['lsd','psilocybin','dmt'] },
+  { id: 'cameron-2021', authors: 'Cameron, L.P., Tombari, R.J., Lu, J., Pell, A.J., Hurley, Z.Q., Ehinger, Y., et al.', year: 2021, title: 'A non-hallucinogenic psychedelic analogue with therapeutic potential', journal: 'Nature', volume: '589, 474–479', doi: '10.1038/s41586-020-3008-z', url: 'https://doi.org/10.1038/s41586-020-3008-z', keyFinding: 'Engineered tabernanthalog, a water-soluble, non-hallucinogenic, non-toxic ibogaine analogue that promoted structural plasticity in rodents. The empirical basis for arguing the subjective experience is separable from the therapeutic effect.', tags: ['neuroscience','pharmacology','ibogaine'], substances: ['ibogaine'] },
+  { id: 'kwan-2022', authors: 'Kwan, A.C., Olson, D.E., Preller, K.H., & Roth, B.L.', year: 2022, title: 'The neural basis of psychedelic action', journal: 'Nature Neuroscience', volume: '25(11), 1407–1419', doi: '10.1038/s41593-022-01177-4', url: 'https://doi.org/10.1038/s41593-022-01177-4', keyFinding: 'Review setting out where the mechanistic account is secure and where it is not, from receptor to circuit to behaviour.', tags: ['neuroscience','pharmacology'], substances: [] },
+  { id: 'vollenweider-preller-2020', authors: 'Vollenweider, F.X., & Preller, K.H.', year: 2020, title: 'Psychedelic drugs: neurobiology and potential for treatment of psychiatric disorders', journal: 'Nature Reviews Neuroscience', volume: '21(11), 611–624', doi: '10.1038/s41583-020-0367-2', url: 'https://doi.org/10.1038/s41583-020-0367-2', keyFinding: 'The standard current review of psychedelic neurobiology and its clinical translation.', tags: ['neuroscience','clinical'], substances: [] },
+  { id: 'siegel-2024', authors: 'Siegel, J.S., Subramanian, S., Perry, D., Kay, B.P., Gordon, E.M., Laumann, T.O., et al.', year: 2024, title: 'Psilocybin desynchronizes the human brain', journal: 'Nature', volume: '632, 131–138', doi: '10.1038/s41586-024-07624-5', url: 'https://doi.org/10.1038/s41586-024-07624-5', keyFinding: 'Longitudinal precision functional mapping, roughly 18 MRI visits per participant. A 25 mg psilocybin dose disrupted functional connectivity more than threefold more than 40 mg methylphenidate, by desynchronization across spatial scales, strongest in the default mode network.', tags: ['neuroscience','clinical','psilocybin'], substances: ['psilocybin'] },
+  { id: 'goodwin-2022', authors: 'Goodwin, G.M., Aaronson, S.T., Alvarez, O., Arden, P.C., Baker, A., Bennett, J.C., et al.', year: 2022, title: 'Single-dose psilocybin for a treatment-resistant episode of major depression', journal: 'New England Journal of Medicine', volume: '387(18), 1637–1648', doi: '10.1056/NEJMoa2206443', url: 'https://doi.org/10.1056/NEJMoa2206443', keyFinding: 'Phase 2, 233 participants across three doses. Least-squares mean MADRS change at week 3 was −12.0 (25 mg), −7.9 (10 mg) and −5.4 (1 mg control); the 25 mg versus 1 mg difference was −6.6.', tags: ['clinical','psilocybin'], substances: ['psilocybin'] },
+  { id: 'raison-2023', authors: 'Raison, C.L., Sanacora, G., Woolley, J., Heinzerling, K., Dunlop, B.W., Brown, R.T., et al.', year: 2023, title: 'Single-dose psilocybin treatment for major depressive disorder: a randomized clinical trial', journal: 'JAMA', volume: '330(9), 843–853', doi: '10.1001/jama.2023.14530', url: 'https://doi.org/10.1001/jama.2023.14530', keyFinding: 'Phase 2 across 11 US sites, 25 mg psilocybin against a niacin placebo with psychological support in both arms. Notable for using an active placebo, the design problem that dogs the whole field.', tags: ['clinical','psilocybin'], substances: ['psilocybin'] },
+  { id: 'mitchell-2021', authors: 'Mitchell, J.M., Bogenschutz, M., Lilienstein, A., Harrison, C., Kleiman, S., Parker-Guilbert, K., et al.', year: 2021, title: 'MDMA-assisted therapy for severe PTSD: a randomized, double-blind, placebo-controlled phase 3 study', journal: 'Nature Medicine', volume: '27(6), 1025–1033', doi: '10.1038/s41591-021-01336-3', url: 'https://doi.org/10.1038/s41591-021-01336-3', keyFinding: 'MAPP1. 90 participants with severe PTSD randomised 1:1 to manualised therapy with MDMA or placebo, with three preparatory and nine integrative sessions. Primary endpoint CAPS-5. This is the phase 3 record; it is not the pooled phase 2 analysis that the journal retracted in 2024.', tags: ['clinical','mdma','ptsd'], substances: ['mdma'] },
+  { id: 'mitchell-2023', authors: 'Mitchell, J.M., Ot’alora G., M., van der Kolk, B., Shannon, S., Bogenschutz, M., Gelfand, Y., et al.', year: 2023, title: 'MDMA-assisted therapy for moderate to severe PTSD: a randomized, placebo-controlled phase 3 trial', journal: 'Nature Medicine', volume: '29(10), 2473–2480', doi: '10.1038/s41591-023-02565-4', url: 'https://doi.org/10.1038/s41591-023-02565-4', keyFinding: 'MAPP2, the confirmatory trial. 104 participants; least-squares mean CAPS-5 change −23.7 for MDMA-assisted therapy against −14.8 for placebo with identical therapy (P < 0.001, d = 0.7).', tags: ['clinical','mdma','ptsd'], substances: ['mdma'] },
+  { id: 'nutt-2020', authors: 'Nutt, D., Erritzoe, D., & Carhart-Harris, R.', year: 2020, title: 'Psychedelic psychiatry’s brave new world', journal: 'Cell', volume: '181(1), 24–28', doi: '10.1016/j.cell.2020.03.020', url: 'https://doi.org/10.1016/j.cell.2020.03.020', keyFinding: 'A statement of the therapeutic case by three of its principal advocates. Read alongside the trials rather than instead of them.', tags: ['clinical','neuroscience'], substances: [] }
+];
+CITATIONS.push.apply(CITATIONS, NEURO_CITATIONS);
+
+
+// The case record. `cite` points at the primary source above.
+// Deliberately NOT the withdrawn "RFRA-strength" tool: no scoring, no
+// prediction, no risk rating — a sourced record of what each authority
+// decided, which the governance boundary retains rather than removes.
+var CASE_RECORD = [
+  { name: 'Sherbert v. Verner', year: 1963, court: 'U.S. Supreme Court', cite: 'sherbert-1963', substances: [],
+    question: 'May a state deny unemployment benefits to a claimant who will not work on her Sabbath?',
+    holding: 'No. A substantial burden on religious exercise requires a compelling state interest pursued by the least restrictive means.',
+    why: 'Not a drug case, but the source of the test. Everything in this list either applies Sherbert, dismantles it, or restores it by statute.' },
+  { name: 'People v. Woody', year: 1964, court: 'Supreme Court of California', cite: 'woody-1964', substances: ['peyote'],
+    question: 'Does the First Amendment protect Navajo peyote use in a Native American Church ceremony?',
+    holding: 'Yes. Convictions reversed; the state showed no compelling interest sufficient to override the practice.',
+    why: 'The first serious judicial recognition that an entheogen can be a sacrament rather than a controlled substance. Decided under the Sherbert framework that Smith would later abandon.' },
+  { name: 'Leary v. United States', year: 1969, court: 'U.S. Supreme Court', cite: 'leary-1969', substances: ['cannabis'],
+    question: 'Does the Marihuana Tax Act compel self-incrimination?',
+    holding: 'Yes as to the transfer-tax provisions; conviction reversed.',
+    why: 'The prohibition apparatus of the 1930s failed on constitutional grounds and was replaced within a year by the Controlled Substances Act, which does not depend on a tax and has proved far harder to dislodge.' },
+  { name: 'Wisconsin v. Yoder', year: 1972, court: 'U.S. Supreme Court', cite: 'yoder-1972', substances: [],
+    question: 'Can compulsory schooling law be applied to Amish families against their religious objection?',
+    holding: 'No, on the record presented.',
+    why: 'With Sherbert, marks how far accommodation reached before 1990 — and therefore how much Smith removed.' },
+  { name: '21 C.F.R. § 1307.31', year: 1971, court: 'DEA regulation', cite: 'cfr-1307-31', substances: ['peyote'],
+    question: 'Does Schedule I listing of peyote reach Native American Church ceremony?',
+    holding: 'No. The listing "does not apply to the nondrug use of peyote in bona fide religious ceremonies of the Native American Church."',
+    why: 'The peyote exemption was administrative before it was statutory. Reading the regulation explains why the NAC carve-out has always been narrower and more specific than the popular account of it.' },
+  { name: 'Olsen v. DEA', year: 1989, court: 'D.C. Circuit', cite: 'olsen-1989', substances: ['cannabis'],
+    question: 'Must the NAC peyote exemption be extended to an Ethiopian Zion Coptic cannabis sacrament?',
+    holding: 'No. The court distinguished the NAC on the quantity involved and the specificity of ceremonial use.',
+    why: 'The clearest statement of why the one existing exemption did not generalise — and the asymmetry that made every later cannabis church claim an uphill one.' },
+  { name: 'Employment Division v. Smith', year: 1990, court: 'U.S. Supreme Court', cite: 'smith-1990', substances: ['peyote'],
+    question: 'Does the Free Exercise Clause require a religious exemption from a neutral, generally applicable drug law?',
+    holding: 'No. Neutral laws of general applicability need not accommodate religious exercise.',
+    why: 'A peyote case that rewrote American religious liberty doctrine wholesale. The legislative reaction — RFRA — is the reason entheogenic claims are litigated under a statute rather than the Constitution.' },
+  { name: 'Religious Freedom Restoration Act', year: 1993, court: 'Act of Congress', cite: 'rfra-1993', substances: ['peyote','ayahuasca','psilocybin'],
+    question: 'Can Congress restore by statute the test the Court had just abandoned?',
+    holding: 'Enacted: substantial burdens on religious exercise must serve a compelling interest by the least restrictive means.',
+    why: 'The framework every subsequent entheogen church claim is argued under.' },
+  { name: 'AIRFA Amendments of 1994', year: 1994, court: 'Act of Congress', cite: 'airfa-statute-1994', substances: ['peyote'],
+    question: 'Should the peyote exemption be secured against both federal and state prosecution?',
+    holding: 'Enacted at 42 U.S.C. § 1996a, protecting traditional Indian religious use of peyote.',
+    why: 'Still the only explicit statutory entheogen exemption in United States law. It protects one substance for one class of practitioner.' },
+  { name: 'United States v. Meyers', year: 1996, court: 'Tenth Circuit', cite: 'meyers-1996', substances: ['cannabis'],
+    question: 'Is a self-declared "Church of Marijuana" a religion for RFRA purposes?',
+    holding: 'No, on the facts. The court set out a multi-factor test for what counts as religious rather than secular or philosophical.',
+    why: 'RFRA claims usually fail here rather than at the compelling-interest stage. The threshold question is what a court will recognise as a religion at all.' },
+  { name: 'City of Boerne v. Flores', year: 1997, court: 'U.S. Supreme Court', cite: 'boerne-1997', substances: ['peyote','ayahuasca'],
+    question: 'Does RFRA validly bind the states?',
+    holding: 'No. RFRA exceeds Congress’s enforcement power as applied to the states; it remains in force against the federal government.',
+    why: 'Splits the map. A federal RFRA defence and a state prosecution are two different problems, and state RFRAs vary.' },
+  { name: 'Gonzales v. Raich', year: 2005, court: 'U.S. Supreme Court', cite: 'raich-2005', substances: ['cannabis'],
+    question: 'May Congress prohibit locally grown, non-commercial cannabis that a state has legalised for medical use?',
+    holding: 'Yes, as part of a comprehensive regulatory scheme.',
+    why: 'The structural reason state reform never resolves federal exposure. Every "legal in my state" claim runs into this case.' },
+  { name: 'Gonzales v. O Centro Espírita Beneficente União do Vegetal', year: 2006, court: 'U.S. Supreme Court', cite: 'o-centro-2006', substances: ['ayahuasca'],
+    question: 'Did the government carry its RFRA burden against the UDV’s sacramental ayahuasca use?',
+    holding: 'No, on the preliminary-injunction record before the Court. Roberts wrote; Alito took no part.',
+    why: 'The foundational win — and routinely overstated. It is a case-specific holding on a specific record, not a general exemption for ayahuasca or for entheogenic religion.' },
+  { name: 'Church of the Holy Light of the Queen v. Mukasey', year: 2009, court: 'D. Oregon', cite: 'holy-light-2009', substances: ['ayahuasca'],
+    question: 'Does O Centro extend to a Santo Daime congregation?',
+    holding: 'Yes on this record, subject to conditions on importation, storage and handling.',
+    why: 'Shows what a successful claim costs in practice: not a right to a sacrament, but a supervised regime negotiated case by case. A district decision, persuasive elsewhere rather than binding.' },
+  { name: 'Oklevueha Native American Church of Hawaii v. Lynch', year: 2016, court: 'Ninth Circuit', cite: 'oklevueha-2016', substances: ['cannabis'],
+    question: 'Is a cannabis prohibition a substantial burden on a church that describes cannabis as a substitute sacrament?',
+    holding: 'No. Claim failed at the substantial-burden stage.',
+    why: 'RFRA does not ask whether a practice is sincere but whether prohibiting it substantially burdens exercise. A church’s own description of its practice can defeat its claim.' },
+  { name: 'Fulton v. City of Philadelphia', year: 2021, court: 'U.S. Supreme Court', cite: 'fulton-2021', substances: [],
+    question: 'Should Employment Division v. Smith be overruled?',
+    holding: 'Not reached. The claimant won on the narrower ground that the policy was not generally applicable; several Justices wrote separately urging that Smith be overruled.',
+    why: 'The constitutional ground under entheogenic practice is unsettled rather than closed. If Smith falls, thirty years of exemption litigation is re-argued on First Amendment terms.' }
+];
+
+
+
 
 // ============================================================
 // V5 — KEY RESEARCHERS
@@ -2749,7 +3285,32 @@ var BINDING_AFFINITY = [
 
 
 if(typeof NEW_SUBSTANCES!=='undefined')Object.assign(SUBSTANCES,NEW_SUBSTANCES);
-if(typeof NEW_CITATIONS!=='undefined')CITATIONS.push.apply(CITATIONS,NEW_CITATIONS);
+// The V5 merge above ran twice historically, which double-counted every entry in
+// NEW_CITATIONS and inflated the library total. Collapse by id; keep first occurrence.
+(function dedupeCitations(){
+  var seen = Object.create(null), out = [];
+  for (var i = 0; i < CITATIONS.length; i++) {
+    var c = CITATIONS[i];
+    if (!c || !c.id || seen[c.id]) continue;
+    seen[c.id] = true; out.push(c);
+  }
+  CITATIONS.length = 0; CITATIONS.push.apply(CITATIONS, out);
+})();
+// These ten definitions used to be injected only when the glossary page rendered,
+// which kept them out of site search. Merged at load so one list is the whole universe.
+(function(){ var extra = {
+  'REBUS': 'Relaxed Beliefs Under Psychedelics (Carhart-Harris & Friston, 2019). Psychedelics reduce the brain\'s reliance on high-level priors, enabling bottom-up sensory signals to dominate.',
+  'entropic brain': 'Carhart-Harris (2014): psychedelics increase neural entropy. The brain becomes less predictable during peak states.',
+  'entactogen': 'Compounds (MDMA, MDA) producing emotional openness and empathy. Distinct from classical serotonergic psychedelics.',
+  'cross-tolerance': 'Classical serotonergic psychedelics (LSD, psilocybin, DMT, mescaline) produce complete cross-tolerance via 5-HT2A downregulation. MDMA, ketamine, salvia, and ibogaine do not cross-tolerate with them.',
+  'BDNF': 'Brain-Derived Neurotrophic Factor. Promotes neuron survival. Increased by ketamine and psychedelics — may explain antidepressant effects.',
+  'integration': 'Post-session process of incorporating insights from a psychedelic experience into daily life. Clinical protocols require 2-4 integration sessions per psychedelic session.',
+  'set and setting': 'Leary\'s principle: mindset and environment are as determinative of psychedelic outcomes as dose. The basis of all current clinical trial design.',
+  'QTc prolongation': 'Lengthening of the cardiac QT interval. Ibogaine causes QTc prolongation via hERG channel — potentially fatal. Requires cardiac screening.',
+  'flood dose': 'Large initiatory ibogaine dose (10-25mg/kg) for addiction interruption or Bwiti initiation. Produces 18-36hr experience.',
+  'microdosing': 'Sub-perceptual dose (1/10th-1/20th of threshold). Clinical evidence for cognitive benefits is weak; expectancy effects significant.'
+}; for (var k in extra) { if (!GLOSSARY[k]) GLOSSARY[k] = extra[k]; } })();
+
 // ============================================
 // ENTHEOGEN ATLAS — MAIN JS
 // ============================================
@@ -2828,20 +3389,50 @@ function buildTimeline(containerId, events, filters) {
     node.className = 'timeline-event';
     node.dataset.category = ev.category || '';
     node.dataset.substance = (ev.substances || []).join(',');
+    node.dataset.evidence = ev.evidence || '';
+    // Stable per-entry anchor so a single timeline event is shareable as a URL.
+    node.id = 'tl-' + slugify(ev.title);
 
     const badgeHTML = (ev.substances || []).map(s => {
       const sub = (typeof SUBSTANCES !== 'undefined' && SUBSTANCES[s]) || {};
       return '<span class="timeline-substance-badge" style="background:' + (sub.color||'#555') + '22;color:' + (sub.color||'#aaa') + ';border:1px solid ' + (sub.color||'#555') + '44">' + s + '</span>';
     }).join('');
 
+    const evClass = (typeof EVIDENCE_CLASSES !== 'undefined')
+      ? EVIDENCE_CLASSES.filter(function(k){ return k.id === ev.evidence; })[0] : null;
+    const evidenceHTML = evClass
+      ? '<span class="evidence-pill" style="--rung-color:' + evClass.color + '" title="' + evClass.label + ' evidence">' + evClass.label + '</span>'
+      : '';
+    const citeHTML = (typeof citeChips === 'function') ? citeChips(ev.cite) : '';
     node.innerHTML =
       '<div class="timeline-dot" style="--event-color:' + ev.color + '"></div>' +
-      '<div class="timeline-year">' + ev.year + '</div>' +
+      '<div class="timeline-year">' + ev.year + evidenceHTML + '</div>' +
       '<div class="timeline-title">' + ev.title + badgeHTML + '</div>' +
-      '<div class="timeline-body">' + ev.body + '</div>';
+      '<div class="timeline-body">' + ev.body + '</div>' + citeHTML +
+      '<button class="tl-permalink" data-tl-anchor="' + node.id + '" title="Copy link to this entry" aria-label="Copy link to this entry: ' +
+        plainText(ev.title).replace(/"/g,'&quot;') + '">#</button>';
     track.appendChild(node);
   });
 
+  track.querySelectorAll('.tl-permalink').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var key = (typeof window._activeTimeline !== 'undefined') ? window._activeTimeline : '';
+      var url = location.origin + location.pathname + '#timeline/' + key + '/' + btn.dataset.tlAnchor.replace(/^tl-/, '');
+      var done = function() {
+        var prev = btn.textContent; btn.textContent = '\u2713';
+        setTimeout(function(){ btn.textContent = prev; }, 1400);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done, function(){ location.hash = url.split('#')[1]; });
+      } else { location.hash = url.split('#')[1]; }
+    });
+  });
+
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || typeof IntersectionObserver === 'undefined') {
+    track.querySelectorAll('.timeline-event').forEach(e => e.classList.add('visible'));
+    return;
+  }
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
@@ -3057,12 +3648,32 @@ function initDrawer() {
     });
     overlay.classList.add('open');
     drawer.classList.add('open');
+    window._drawerReturnFocus = document.activeElement;
+    var cb = drawer.querySelector('.drawer-close');
+    if (cb) setTimeout(function(){ cb.focus(); }, 30);
   };
 
-  overlay.addEventListener('click', () => { overlay.classList.remove('open'); drawer.classList.remove('open'); });
+  function closeDrawer() {
+    overlay.classList.remove('open');
+    drawer.classList.remove('open');
+    var r = window._drawerReturnFocus;
+    if (r && typeof r.focus === 'function' && document.contains(r)) r.focus();
+  }
+  window.closeDrawer = closeDrawer;
+  overlay.addEventListener('click', closeDrawer);
   const closeBtn = drawer.querySelector('.drawer-close');
-  if (closeBtn) closeBtn.addEventListener('click', () => { overlay.classList.remove('open'); drawer.classList.remove('open'); });
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  drawer.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { e.stopPropagation(); closeDrawer(); }
+  });
 }
+
+window.openCitation = function(cid) {
+  if (typeof window.openDrawer !== 'function') return;
+  var c = (typeof CITATIONS !== 'undefined') ? CITATIONS.filter(function(x){return x.id===cid;})[0] : null;
+  window.openDrawer([cid], c ? 'Source — ' + c.year : 'Source');
+  try { history.replaceState(historyState(), '', hashFor({ page: currentPage, cite: cid })); } catch(e) {}
+};
 
 function initGlossary() {
   if (typeof GLOSSARY === 'undefined') return;
@@ -3178,12 +3789,46 @@ window.renderDoseCalculator = typeof renderDoseCalculator !== 'undefined' ? rend
 window.renderRadarChart = typeof renderRadarChart !== 'undefined' ? renderRadarChart : function(){};
 
 
+// ===================================================
+// KEYBOARD PARITY
+// The card grids are clickable <div>s. Rather than hand-editing
+// two dozen call sites (and missing the ones rendered at runtime),
+// promote every non-native clickable to a real button in the
+// accessibility tree and give it Enter/Space. Runs after each page
+// render, and is idempotent.
+// ===================================================
+function upgradeClickables(root) {
+  var scope = root || document;
+  scope.querySelectorAll('[onclick]').forEach(function(el) {
+    var tag = el.tagName.toLowerCase();
+    // An <a> with no href is not in the tab order, so it needs the same
+    // treatment as a clickable div. An <a href="..."> already works.
+    if (tag === 'a' && el.hasAttribute('href')) return;
+    if (tag === 'button' || tag === 'input' || tag === 'select' || tag === 'textarea') return;
+    if (el.dataset.kbdReady === '1') return;
+    el.dataset.kbdReady = '1';
+    if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+    if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+    if (!el.hasAttribute('aria-label')) {
+      var name = el.querySelector('.card-name');
+      if (name) el.setAttribute('aria-label', (name.textContent || '').trim());
+    }
+    el.addEventListener('keydown', function(e) {
+      if (e.key !== 'Enter' && e.key !== ' ' && e.key !== 'Spacebar') return;
+      e.preventDefault();
+      el.click();
+    });
+  });
+}
+window.upgradeClickables = upgradeClickables;
+
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
   initTabs();
   initDrawer();
   initGlossary();
   initScrollReveal();
+  upgradeClickables();
 });
 
 // ============================================
@@ -3502,6 +4147,7 @@ var showPage = window.showPage = function(id, pushState) {
     }
     window._pendingScroll = false;
     renderPage(id);
+    if (typeof upgradeClickables === 'function') upgradeClickables(el);
     document.querySelectorAll('[data-page]').forEach(function(a) {
       a.classList.toggle('nav-active', a.dataset.page === id);
     });
@@ -3519,20 +4165,92 @@ var showPage = window.showPage = function(id, pushState) {
     }
   }
 }
-// DEV-19: handle browser back/forward
+// ===================================================
+// DEEP LINKS
+// Any substance, citation, timeline entry, glossary term or search
+// is addressable as a URL and restored on load. Hash-based: no server
+// rewrite, no build step, and plain "#pageid" links keep working.
+//   #receptor
+//   #substance/psilocybin
+//   #cite/griffiths-2006
+//   #timeline/archaeological
+//   #timeline/archaeological/jirzankal-braziers-earliest-confirmed-cannabis
+//   #glossary/entheogen
+//   #search/mescaline
+// ===================================================
+function parseRoute(raw) {
+  var h = String(raw || '').replace(/^#/, '');
+  if (!h) return { page: 'home' };
+  var parts = h.split('/').map(decodeURIComponent);
+  var head = parts[0];
+  if (head === 'substance' && parts[1]) return { page: 'home', substance: parts[1] };
+  if (head === 'cite' && parts[1])      return { page: currentPage || 'home', cite: parts[1] };
+  if (head === 'timeline' && parts[1])  return { page: 'home', timeline: parts[1], entry: parts[2] || null };
+  if (head === 'glossary' && parts[1])  return { page: 'glossary-page', term: parts[1] };
+  if (head === 'search' && parts[1])    return { page: currentPage || 'home', search: parts.slice(1).join('/') };
+  if (document.getElementById('page-' + head)) return { page: head };
+  return { page: 'home' };
+}
+function hashFor(state) {
+  if (!state) return '#home';
+  if (state.substance) return '#substance/' + encodeURIComponent(state.substance);
+  if (state.cite)      return '#cite/' + encodeURIComponent(state.cite);
+  if (state.timeline)  return '#timeline/' + encodeURIComponent(state.timeline) + (state.entry ? '/' + encodeURIComponent(state.entry) : '');
+  if (state.term)      return '#glossary/' + encodeURIComponent(state.term);
+  if (state.search)    return '#search/' + encodeURIComponent(state.search);
+  return '#' + (state.page || 'home');
+}
+function historyState() { return { page: currentPage }; }
+window.pushRoute = function(state) {
+  try { history.pushState(state, '', hashFor(state)); } catch (e) { /* sandboxed iframe */ }
+};
+function applyRoute(r) {
+  if (!r) return;
+  if (r.page && r.page !== currentPage) showPage(r.page, false);
+  if (r.substance && typeof window.showSubstanceModal === 'function') {
+    window.showSubstanceModal(r.substance, false);
+  }
+  if (r.timeline && typeof window.openTimeline === 'function') {
+    window.openTimeline(r.timeline, false);
+    if (r.entry) setTimeout(function() {
+      var el = document.getElementById('tl-' + r.entry);
+      if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.classList.add('tl-targeted'); }
+    }, 360);
+  }
+  if (r.cite && typeof window.openDrawer === 'function') window.openDrawer([r.cite], 'Source');
+  if (r.anchor) setTimeout(function() {
+    var el = document.getElementById(r.anchor);
+    if (!el) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    el.classList.add('archaeo-targeted');
+    setTimeout(function(){ el.classList.remove('archaeo-targeted'); }, 2200);
+  }, 200);
+  if (r.term) setTimeout(function() {
+    var gi = document.getElementById('glossary-search');
+    if (gi) { gi.value = r.term.replace(/-/g, ' '); gi.dispatchEvent(new Event('input')); }
+  }, 120);
+  if (r.search && typeof window.openSiteSearch === 'function') {
+    window.openSiteSearch();
+    setTimeout(function() {
+      var si = document.getElementById('site-search-input');
+      if (si) { si.value = r.search; si.dispatchEvent(new Event('input')); }
+    }, 90);
+  }
+}
 try {
   window.addEventListener('popstate', function(e) {
-    var id = (e.state && e.state.page) ? e.state.page : (location.hash.replace('#','') || 'home');
-    showPage(id, false);
+    applyRoute(parseRoute(location.hash));
   });
-} catch(e) { /* sandboxed iframe */ }
+} catch (e) { /* sandboxed iframe */ }
 (function() {
-  try {
-    var hash = location.hash.replace('#','');
-    if (hash && document.getElementById('page-' + hash)) {
-      showPage(hash, false);
-    }
-  } catch(e) { /* sandboxed iframe */ }
+  // parseRoute asks whether #page-<id> exists, and pages declared further
+  // down the document have not been parsed yet at this point — so resolve
+  // the route inside the ready handler, not before it.
+  function boot() { try { applyRoute(parseRoute(location.hash)); } catch (e) { /* sandboxed iframe */ } }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else { boot(); }
 })();
 var scrollToSection = window.scrollToSection = function(sel) {
   setTimeout(function() {
@@ -3548,15 +4266,92 @@ var pageRendered = {};
 
 window.closeMegaMenu=window.closeMegaMenu||function(){};
 var SEARCH_INDEX=null;
+// ===================================================
+// SITE SEARCH
+// Indexes the whole enumerable universe the page already holds —
+// substances, citations, timeline entries, glossary terms,
+// researchers, traditions and trials — not a hand-picked subset.
+// Every hit resolves to a deep link, so a result can be shared.
+// ===================================================
 function buildSearchIndex(){
   if(SEARCH_INDEX)return SEARCH_INDEX;
   var idx=[];
-  Object.values(SUBSTANCES).forEach(function(s){idx.push({type:'Substance',title:s.name,snippet:(s.abstract||s.receptor).slice(0,100),action:function(id){showSubstanceModal(id);},id:s.id,q:(s.name+' '+(s.aliases||[]).join(' ')+' '+(s.abstract||'')).toLowerCase()});});
-  CITATIONS.forEach(function(c){idx.push({type:'Citation',title:c.authors+' ('+c.year+')',snippet:c.title.slice(0,100),action:function(){showPage('home');},id:c.id,q:(c.title+' '+c.authors).toLowerCase()});});
-  if(typeof RFRA_CASES!=='undefined')RFRA_CASES.forEach(function(c){idx.push({type:'Case Law',title:c.name,snippet:c.question,action:function(){showPage('governance');},id:c.name,q:(c.name+' '+c.question).toLowerCase()});});
-  if(typeof GLOSSARY!=='undefined')Object.entries(GLOSSARY).forEach(function(e){idx.push({type:'Glossary',title:e[0],snippet:e[1].slice(0,100),action:function(){showPage('glossary-page');},id:e[0],q:(e[0]+' '+e[1]).toLowerCase()});});
-  if(typeof RESEARCHERS!=='undefined')RESEARCHERS.forEach(function(r){idx.push({type:'Researcher',title:r.name,snippet:r.role,action:function(){showPage('researchers');},id:r.id,q:(r.name+' '+r.contributions.join(' ')).toLowerCase()});});
+  function add(o){ o.q=(o.q||'').toLowerCase(); idx.push(o); }
+  // Entries carry inline markup for the page; search needs plain text.
+  var _de=document.createElement('textarea');
+  function plain(x){ _de.innerHTML=String(x==null?'':x).replace(/<[^>]+>/g,''); return _de.value; }
+
+  Object.keys(SUBSTANCES).forEach(function(k){
+    var s=SUBSTANCES[k];
+    add({type:'Substance',title:s.name,snippet:plain(s.abstract||s.receptorDetail||s.receptor||'').slice(0,140),
+         route:{page:'home',substance:s.id},
+         q:[s.name,(s.aliases||[]).join(' '),s.abstract,s.formula,s.receptor,s.tradition,(s.tags||[]).join(' ')].join(' ')});
+  });
+
+  CITATIONS.forEach(function(c){
+    add({type:'Citation',title:plain(c.authors)+' ('+c.year+')',snippet:plain(c.title),
+         route:{page:currentPage,cite:c.id},
+         q:[c.title,c.authors,c.journal,c.keyFinding,c.doi,(c.tags||[]).join(' ')].join(' ')});
+  });
+
+  if(typeof TIMELINE_EVENTS!=='undefined')Object.keys(TIMELINE_EVENTS).forEach(function(key){
+    var meta=(typeof TIMELINE_META!=='undefined'&&TIMELINE_META[key])||{title:key};
+    (TIMELINE_EVENTS[key]||[]).forEach(function(e){
+      var t=plain(e.title);
+      add({type:'Timeline',title:t,snippet:plain(e.year)+' · '+meta.title,
+           route:{page:'home',timeline:key,entry:slugify(e.title)},
+           q:[t,plain(e.year),plain(e.body),meta.title,e.evidence,(e.substances||[]).join(' ')].join(' ')});
+    });
+  });
+
+  if(typeof GLOSSARY!=='undefined')Object.keys(GLOSSARY).forEach(function(t){
+    add({type:'Glossary',title:t,snippet:plain(GLOSSARY[t]).slice(0,140),
+         route:{page:'glossary-page',term:t},q:t+' '+GLOSSARY[t]});
+  });
+
+  if(typeof RESEARCHERS!=='undefined')RESEARCHERS.forEach(function(r){
+    add({type:'Researcher',title:r.name,snippet:r.role+' · '+r.years,
+         route:{page:'researchers'},q:[r.name,r.role,(r.contributions||[]).join(' '),r.quote].join(' ')});
+  });
+
+  if(typeof WHO_USES_DATA!=='undefined')WHO_USES_DATA.forEach(function(w){
+    add({type:'Tradition',title:w.tradition,snippet:w.region+' · '+w.period,
+         route:w.substance?{page:'home',substance:w.substance}:{page:'home'},
+         q:[w.tradition,w.region,w.period,w.purpose,w.sovereigntyNote,w.substance].join(' ')});
+  });
+
+  if(typeof SCIENCE_PIPELINE!=='undefined')SCIENCE_PIPELINE.forEach(function(t){
+    add({type:'Trial',title:t.compound||t.name||'Trial',snippet:[t.indication,t.phase,t.sponsor].filter(Boolean).join(' · '),
+         route:{page:'pipeline'},q:Object.keys(t).map(function(k){return t[k];}).join(' ')});
+  });
+
+  if(typeof CASE_RECORD!=='undefined')CASE_RECORD.forEach(function(c){
+    add({type:'Case Law',title:c.name,snippet:c.court+' · '+c.year,
+         route:{page:'legitimacy',anchor:'case-'+slugify(c.name)},
+         q:[c.name,c.court,c.year,c.question,c.holding,c.why].join(' ')});
+  });
+
   SEARCH_INDEX=idx;return idx;
+}
+
+// Rank: exact title, then title prefix, then title substring, then body.
+function searchRank(item,q){
+  var t=String(item.title).toLowerCase();
+  if(t===q)return 0;
+  if(t.indexOf(q)===0)return 1;
+  if(t.indexOf(q)!==-1)return 2;
+  if(String(item.snippet).toLowerCase().indexOf(q)!==-1)return 3;
+  return 4;
+}
+function runSearch(q){
+  q=String(q||'').trim().toLowerCase();
+  if(q.length<2)return [];
+  return buildSearchIndex()
+    .map(function(i){ return i.q.indexOf(q)!==-1 ? {i:i,r:searchRank(i,q)} : null; })
+    .filter(Boolean)
+    .sort(function(a,b){ return a.r-b.r; })
+    .slice(0,24)
+    .map(function(x){ return x.i; });
 }
 
 var handleSearchHit = window.handleSearchHit = function(idx) {
@@ -3564,45 +4359,97 @@ var handleSearchHit = window.handleSearchHit = function(idx) {
   if (!hits || !hits[idx]) return;
   var h = hits[idx];
   closeSiteSearch();
-  // Route based on type
-  if (h.type === 'Substance') {
-    showSubstanceModal(h.id);
-  } else if (h.type === 'Citation') {
-    showPage('home'); setTimeout(function(){ scrollToSection('#research'); }, 100);
-  } else if (h.type === 'Case Law') {
-    showPage('governance');
-  } else if (h.type === 'Glossary') {
-    showPage('glossary-page');
-  } else if (h.type === 'Researcher') {
-    showPage('researchers');
-  } else if (h.type === 'Trial') {
-    showPage('pipeline');
-  } else if (h.type === 'Timeline') {
-    showPage('home'); setTimeout(function(){ scrollToSection('#timelines'); }, 100);
-  } else {
-    showPage('home');
-  }
+  var route = h.route || { page: 'home' };
+  window.pushRoute(route);
+  applyRoute(route);
 }
 
-var openSiteSearch = window.openSiteSearch = function(){var ov=document.getElementById('site-search-overlay'),inp=document.getElementById('site-search-input');if(!ov||!inp)return;buildSearchIndex();ov.style.display='flex';inp.value='';document.getElementById('site-search-results').innerHTML='<div style="padding:var(--s4) var(--s6);color:var(--text-muted);font-size:0.8rem">Start typing…</div>';setTimeout(function(){inp.focus();},50);}
-var closeSiteSearch = window.closeSiteSearch = function(){var ov=document.getElementById('site-search-overlay');if(ov)ov.style.display='none';}
+var openSiteSearch = window.openSiteSearch = function(prefill){
+  var ov=document.getElementById('site-search-overlay'),inp=document.getElementById('site-search-input');
+  if(!ov||!inp)return;
+  buildSearchIndex();
+  window._searchReturnFocus = document.activeElement;
+  ov.style.display='flex';
+  inp.value = typeof prefill === 'string' ? prefill : '';
+  if(inp.value){ setTimeout(function(){ inp.dispatchEvent(new Event('input')); },0); }
+  else { document.getElementById('site-search-results').innerHTML =
+    '<div class="search-empty">Search '+ (SEARCH_INDEX?SEARCH_INDEX.length:0) +
+    ' indexed entries — substances, sources, timeline events, glossary terms, traditions and people.</div>'; }
+  setTimeout(function(){inp.focus();},50);
+}
+var closeSiteSearch = window.closeSiteSearch = function(){
+  var ov=document.getElementById('site-search-overlay');
+  if(ov)ov.style.display='none';
+  var r=window._searchReturnFocus;
+  if(r&&typeof r.focus==='function'&&document.contains(r))r.focus();
+}
+function escapeHTML(x){return String(x==null?'':x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function highlight(text,q){
+  var t=escapeHTML(String(text||''));
+  if(!q)return t;
+  var i=t.toLowerCase().indexOf(q.toLowerCase());
+  if(i===-1)return t;
+  return t.slice(0,i)+'<mark class="sr-mark">'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);
+}
 document.addEventListener('DOMContentLoaded',function(){
   var ov=document.getElementById('site-search-overlay'),inp=document.getElementById('site-search-input'),res=document.getElementById('site-search-results');
   if(!ov||!inp||!res)return;
+  var active=-1;
+  function paint(){
+    var items=res.querySelectorAll('.search-result-item');
+    items.forEach(function(el,i){
+      var on = i===active;
+      el.classList.toggle('sr-active',on);
+      el.setAttribute('aria-selected',on?'true':'false');
+      if(on){ el.scrollIntoView({block:'nearest'}); inp.setAttribute('aria-activedescendant',el.id); }
+    });
+    if(active===-1)inp.removeAttribute('aria-activedescendant');
+  }
   ov.addEventListener('click',function(e){if(e.target===ov)closeSiteSearch();});
   inp.addEventListener('input',function(){
-    var q=inp.value.trim().toLowerCase();
-    if(q.length<2){res.innerHTML='<div style="padding:var(--s4) var(--s6);color:var(--text-muted);font-size:0.8rem">Keep typing…</div>';return;}
-    var hits=buildSearchIndex().filter(function(i){return i.q.includes(q);}).slice(0,12);
-    // Store hits for keyboard/click access
-window._searchHits = hits;
-res.innerHTML=hits.length?hits.map(function(h,i){return '<div class="search-result-item" tabindex="0" data-hit-idx="'+i+'" onclick="handleSearchHit('+i+')"><div class="search-result-type">'+h.type+'</div><div class="search-result-title">'+h.title+'</div>'+(h.snippet?'<div class="search-result-snippet">'+h.snippet+'</div>':'')+'</div>';}).join(''):'<div style="padding:16px 24px;color:#7878a0;font-size:0.8rem">No results for &ldquo;'+q+'&rdquo;</div>';
+    var q=inp.value.trim();
+    active=-1;
+    if(q.length<2){
+      res.innerHTML='<div class="search-empty">Keep typing — two characters minimum.</div>';
+      window._searchHits=[];return;
+    }
+    var hits=runSearch(q);
+    window._searchHits=hits;
+    if(!hits.length){
+      res.innerHTML='<div class="search-empty">No results for &ldquo;'+escapeHTML(q)+'&rdquo;.</div>';
+      return;
+    }
+    res.innerHTML=hits.map(function(h,i){
+      return '<div class="search-result-item" id="sr-'+i+'" role="option" aria-selected="false" tabindex="-1" data-hit-idx="'+i+'">'+
+        '<div class="search-result-type">'+escapeHTML(h.type)+'</div>'+
+        '<div class="search-result-title">'+highlight(h.title,q)+'</div>'+
+        (h.snippet?'<div class="search-result-snippet">'+highlight(h.snippet,q)+'</div>':'')+
+      '</div>';
+    }).join('');
+    res.querySelectorAll('.search-result-item').forEach(function(el){
+      el.addEventListener('click',function(){handleSearchHit(parseInt(el.dataset.hitIdx,10));});
+      el.addEventListener('mousemove',function(){active=parseInt(el.dataset.hitIdx,10);paint();});
+    });
+    // Keep the query itself shareable.
+    try{history.replaceState({page:currentPage},'', '#search/'+encodeURIComponent(q));}catch(e){}
   });
-  inp.addEventListener('keydown',function(e){if(e.key==='Enter'){var f=res.querySelector('.search-result-item');if(f)f.click();}});
+  inp.addEventListener('keydown',function(e){
+    var items=res.querySelectorAll('.search-result-item');
+    if(e.key==='ArrowDown'){e.preventDefault();if(!items.length)return;active=(active+1)%items.length;paint();}
+    else if(e.key==='ArrowUp'){e.preventDefault();if(!items.length)return;active=(active-1+items.length)%items.length;paint();}
+    else if(e.key==='Home'&&items.length){e.preventDefault();active=0;paint();}
+    else if(e.key==='End'&&items.length){e.preventDefault();active=items.length-1;paint();}
+    else if(e.key==='Enter'){
+      e.preventDefault();
+      if(!items.length)return;
+      handleSearchHit(active>=0?active:0);
+    }
+    else if(e.key==='Tab'){ e.preventDefault(); } // keep focus in the dialog
+  });
 });
 document.addEventListener('keydown',function(e){
   if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();openSiteSearch();}
-  if(e.key==='Escape'){var m=document.querySelector('.modal-overlay');if(m){m.remove();return;}closeSiteSearch();}
+  if(e.key==='Escape'){var m=document.querySelector('.modal-overlay');if(m){if(typeof m._closeModal==='function'){m._closeModal();}else{m.remove();}return;}closeSiteSearch();}
 });
 document.getElementById('app') && document.getElementById('app').addEventListener('scroll',function(){
   var bar=document.getElementById('reading-progress');if(!bar)return;
@@ -3620,13 +4467,209 @@ document.addEventListener('scroll',function(){
   var pct=scrollable>0?Math.round(app.scrollTop/scrollable*100):0;
   bar.style.width=pct+'%';bar.setAttribute('aria-valuenow',pct);
 });
+// ===================================================
+// ARCHAEOLOGY PAGE — rendered from TIMELINE_EVENTS.archaeological
+// so the page and the timeline can never drift apart.
+// ===================================================
+var EVIDENCE_CLASSES = [
+  { id: 'chemical',     label: 'Chemical',     color: 'var(--acid)',   rank: 1, blurb: 'The active compound itself is recovered from the artefact and identified instrumentally &mdash; GC-MS, LC-MS/MS, FTIR. The plant, the human context and the pharmacology are established by the same specimen.' },
+  { id: 'botanical',    label: 'Botanical',    color: 'var(--sage)',   rank: 2, blurb: 'Plant material is recovered and identified to genus or species by morphology and anatomy. The plant is certain; what was done with it is inferred from context.' },
+  { id: 'textual',      label: 'Textual',      color: 'var(--cyan)',   rank: 3, blurb: 'A written source describes the practice. The practice is attested; the botanical identity usually is not, and the text may postdate the practice by centuries or be written by its suppressors.' },
+  { id: 'ethnographic', label: 'Ethnographic', color: 'var(--violet)', rank: 4, blurb: 'A living tradition is observed and recorded. Antiquity is attributed rather than dated, and the recording itself is an event in the tradition’s history.' },
+  { id: 'iconographic', label: 'Iconographic', color: 'var(--amber)',  rank: 5, blurb: 'An image is read as depicting a plant or its effects. The weakest rung that is still routinely cited: identification, intent and date are all interpretive.' },
+  { id: 'contested',    label: 'Contested',    color: 'var(--magenta)',rank: 6, blurb: 'A material finding exists but the inference from it is disputed in the literature, and the dispute has not resolved.' },
+  { id: 'rejected',     label: 'Not supported',color: '#e08a8a',       rank: 7, blurb: 'Advanced, widely repeated, and since attributed to a non-human or non-psychoactive cause by later work. Listed so the claim can be found and checked rather than quietly dropped.' }
+];
+function citeChips(ids) {
+  if (!ids || !ids.length || typeof CITATIONS === 'undefined') return '';
+  return '<div style="display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)">' + ids.map(function(cid) {
+    var c = CITATIONS.filter(function(x){ return x.id === cid; })[0];
+    if (!c) return '';
+    // Prefer a reporter or statutory cite when there is one — "374 U.S. 398"
+    // is a more useful chip than "Supreme Court of the United States 1963".
+    var vol = String(c.volume || '');
+    var label = /(U\.S\.|F\.\d|F\. Supp|Cal\. 2d|C\.F\.R\.|Stat\.)/.test(vol)
+      ? vol
+      : (c.authors || '').split(',')[0].split('&')[0].trim() + ' ' + c.year;
+    return '<button class="cite-chip" data-cite="' + cid + '" onclick="window.openCitation(\'' + cid + '\')" title="' + plainText(c.title).replace(/"/g,'&quot;') + '">' + label + '</button>';
+  }).join('') + '</div>';
+}
+// ---------------------------------------------------
+// DEEP-TIME SPINE
+// A 5,700-year record cannot be read on a linear axis: the
+// interesting entries pile into the last 3,000 years and the
+// contested Neanderthal claim sits ten times further out than
+// everything else. Log scale on years-before-2000 spreads it.
+// Bars carry date UNCERTAINTY as width and evidence strength as
+// colour, so a range and a point are not drawn as the same thing.
+// Built from real elements, not SVG shapes, so every mark is a
+// focusable link with a name.
+// ---------------------------------------------------
+function renderDeepTimeSpine(containerId, events) {
+  var wrap = document.getElementById(containerId);
+  if (!wrap) return;
+  var evs = (events || []).filter(function(e){ return typeof e.t === 'number'; });
+  if (!evs.length) { wrap.innerHTML = ''; return; }
+  var NOW = 2000;
+  var maxBP = Math.max.apply(null, evs.map(function(e){ return NOW - Math.min(e.t, e.t2 == null ? e.t : e.t2); }));
+  var minBP = 300; // floor so the modern end has room
+  var lo = Math.log(minBP), hi = Math.log(Math.max(maxBP, minBP * 2));
+  function pos(year) { // 0 = oldest (left), 1 = most recent (right)
+    var bp = Math.max(NOW - year, minBP);
+    return 1 - (Math.log(bp) - lo) / (hi - lo);
+  }
+  var narrow = (wrap.clientWidth || 600) < 520;
+  var ticks = [60000, 10000, 5000, 2000, 1000, 500]
+    .filter(function(bp){ return bp <= maxBP * 1.05; })
+    // Drop any tick that would collide with the "now" marker at 100%,
+    // and thin the scale out further on a narrow viewport.
+    .filter(function(bp){ return pos(NOW - bp) * 100 < (narrow ? 82 : 92); })
+    .filter(function(bp){ return narrow ? [60000, 10000, 2000, 1000].indexOf(bp) !== -1 : true; });
+  var tickHTML = ticks.map(function(bp) {
+    var left = pos(NOW - bp) * 100;
+    return '<div class="dt-tick" style="left:' + left.toFixed(2) + '%"><span>' +
+      (bp >= 1000 ? (bp / 1000) + 'k' : bp) + '</span></div>';
+  }).join('') + '<div class="dt-tick dt-tick-now" style="left:100%"><span>now</span></div>';
+
+  // Greedy row packing so overlapping bars stay readable.
+  var rows = [];
+  var placed = evs.slice().sort(function(a, b){ return a.t - b.t; }).map(function(e) {
+    var a = pos(e.t), b = pos(e.t2 == null ? e.t : e.t2);
+    var left = Math.min(a, b) * 100, right = Math.max(a, b) * 100;
+    var width = Math.max(right - left, 0.9);
+    var r = 0;
+    while (rows[r] != null && rows[r] > left - 6) r++;
+    rows[r] = left + width;
+    return { e: e, left: left, width: width, row: r };
+  });
+  var rowCount = rows.length;
+
+  var barsHTML = placed.map(function(pi) {
+    var e = pi.e;
+    var k = EVIDENCE_CLASSES.filter(function(x){ return x.id === e.evidence; })[0] ||
+            { color: 'var(--text-muted)', label: 'Unclassified' };
+    var isRange = (e.t2 != null && e.t2 !== e.t);
+    var label = plainText(e.title) + ' — ' + plainText(e.year) +
+                ' — ' + k.label + ' evidence' + (isRange ? ' (dated range)' : '');
+    return '<a class="dt-bar' + (e.evidence === 'rejected' ? ' dt-rejected' : '') +
+      (isRange ? ' dt-range' : ' dt-point') + '" href="#arch-' + slugify(e.title) + '"' +
+      ' style="--rung-color:' + k.color + ';left:' + pi.left.toFixed(2) + '%;width:' + pi.width.toFixed(2) +
+      '%;top:' + (pi.row * 15) + 'px" title="' + label.replace(/"/g, '&quot;') + '">' +
+      '<span class="dt-sr">' + label + '</span></a>';
+  }).join('');
+
+  wrap.innerHTML =
+    '<div class="dt-spine" style="--dt-rows:' + rowCount + '">' +
+      '<div class="dt-axis">' + tickHTML + '</div>' +
+      '<div class="dt-plot" style="height:' + (rowCount * 15 + 6) + 'px">' + barsHTML + '</div>' +
+      '<div class="dt-scale-note">Years before present, logarithmic. Bar width is the dated range; a square is a single date. Colour is the class of evidence.</div>' +
+    '</div>' +
+    '<div class="dt-legend">' + EVIDENCE_CLASSES.filter(function(k){
+        return evs.some(function(e){ return e.evidence === k.id; });
+      }).map(function(k) {
+        return '<span class="dt-legend-item"><i style="--rung-color:' + k.color + '"></i>' + k.label + '</span>';
+      }).join('') + '</div>';
+
+  wrap.querySelectorAll('.dt-bar').forEach(function(a) {
+    a.addEventListener('click', function(ev) {
+      ev.preventDefault();
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if (!t) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      t.classList.add('archaeo-targeted');
+      setTimeout(function(){ t.classList.remove('archaeo-targeted'); }, 2200);
+    });
+  });
+}
+// ---------------------------------------------------
+// CASE RECORD — rendered on the Law & Policy page.
+// Chronological, primary-source linked, no scoring.
+// ---------------------------------------------------
+function renderCaseRecord() {
+  var wrap = document.getElementById('case-record');
+  if (!wrap || typeof CASE_RECORD === 'undefined') return;
+  var courtClass = function(c) {
+    if (/Supreme Court of the United States|U\.S\. Supreme Court/.test(c)) return 'court-scotus';
+    if (/Act of Congress|regulation/i.test(c)) return 'court-statute';
+    return 'court-lower';
+  };
+  wrap.innerHTML =
+    '<div class="case-key">' +
+      '<span class="case-key-item court-scotus">Supreme Court</span>' +
+      '<span class="case-key-item court-lower">Lower court</span>' +
+      '<span class="case-key-item court-statute">Statute or regulation</span>' +
+    '</div><ol class="case-list">' +
+    CASE_RECORD.slice().sort(function(a, b){ return a.year - b.year; }).map(function(c) {
+      var subs = (c.substances || []).map(function(sid) {
+        var sub = (typeof SUBSTANCES !== 'undefined' && SUBSTANCES[sid]) || {};
+        return '<button class="timeline-substance-badge" style="background:' + (sub.color||'#555') + '22;color:' +
+          (sub.color||'#aaa') + ';border:1px solid ' + (sub.color||'#555') + '44;cursor:pointer" ' +
+          'onclick="window.showSubstanceModal(\'' + sid + '\')">' + (sub.name || sid) + '</button>';
+      }).join('');
+      return '<li class="case-item ' + courtClass(c.court) + '" id="case-' + slugify(c.name) + '">' +
+        '<div class="case-meta"><span class="case-year">' + c.year + '</span>' +
+        '<span class="case-court">' + c.court + '</span></div>' +
+        '<h3 class="case-name">' + c.name + ' ' + subs + '</h3>' +
+        '<dl class="case-body">' +
+          '<dt>Question</dt><dd>' + c.question + '</dd>' +
+          '<dt>Holding</dt><dd>' + c.holding + '</dd>' +
+          '<dt>Why it matters here</dt><dd>' + c.why + '</dd>' +
+        '</dl>' + citeChips([c.cite]) + '</li>';
+    }).join('') + '</ol>';
+}
+function renderArchaeologyPage() {
+  var ladder = document.getElementById('archaeo-ladder');
+  var groups = document.getElementById('archaeo-groups');
+  if (!ladder || !groups || typeof TIMELINE_EVENTS === 'undefined') return;
+  ladder.innerHTML = '<ol class="ladder">' + EVIDENCE_CLASSES.map(function(k){
+    var n = (TIMELINE_EVENTS.archaeological||[]).filter(function(e){ return e.evidence === k.id; }).length;
+    return '<li class="ladder-rung" style="--rung-color:' + k.color + '">' +
+      '<div class="ladder-head"><span class="ladder-label">' + k.label + '</span>' +
+      '<span class="ladder-count">' + n + (n === 1 ? ' entry' : ' entries') + '</span></div>' +
+      '<p class="ladder-blurb">' + k.blurb + '</p></li>';
+  }).join('') + '</ol>';
+
+  renderDeepTimeSpine('archaeo-spine', TIMELINE_EVENTS.archaeological);
+
+  var evs = (TIMELINE_EVENTS.archaeological || []).slice();
+  groups.innerHTML = EVIDENCE_CLASSES.map(function(k){
+    var items = evs.filter(function(e){ return e.evidence === k.id; })
+                   .sort(function(a,b){ return (a.t||0) - (b.t||0); });
+    if (!items.length) return '';
+    return '<section class="archaeo-group" style="--rung-color:' + k.color + '">' +
+      '<h3 class="archaeo-group-title">' + k.label + '</h3>' +
+      items.map(function(e){
+        var subs = (e.substances||[]).map(function(sid){
+          var sub = (typeof SUBSTANCES !== 'undefined' && SUBSTANCES[sid]) || {};
+          return '<button class="timeline-substance-badge" style="background:' + (sub.color||'#555') + '22;color:' + (sub.color||'#aaa') + ';border:1px solid ' + (sub.color||'#555') + '44;cursor:pointer" onclick="window.showSubstanceModal(\'' + sid + '\')">' + (sub.name || sid) + '</button>';
+        }).join('');
+        return '<article class="archaeo-entry" id="arch-' + slugify(e.title) + '">' +
+          '<div class="archaeo-date">' + e.year + '</div>' +
+          '<h4 class="archaeo-title">' + e.title + ' ' + subs + '</h4>' +
+          '<p class="archaeo-body">' + e.body + '</p>' + citeChips(e.cite) + '</article>';
+      }).join('') + '</section>';
+  }).join('');
+}
+var _plainEl = null;
+function plainText(x) {
+  if (!_plainEl) _plainEl = document.createElement('textarea');
+  _plainEl.innerHTML = String(x == null ? '' : x).replace(/<[^>]+>/g, '');
+  return _plainEl.value.replace(/\s+/g, ' ').trim();
+}
+function slugify(str) {
+  var out = String(str).replace(/<[^>]+>/g,'').replace(/&[a-z]+;/g,'').toLowerCase()
+    .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  if (out.length > 48) { out = out.slice(0, 48); out = out.slice(0, out.lastIndexOf('-') + 1 || out.length); }
+  return out.replace(/-$/,'');
+}
 function renderResearchersPage(){var g=document.getElementById('researchers-grid');if(!g||typeof RESEARCHERS==='undefined')return;g.innerHTML='<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:var(--s6)">'+RESEARCHERS.map(function(r){var b=(r.substances||[]).map(function(s){var sub=SUBSTANCES[s]||{};return '<span style="display:inline-block;font-family:var(--font-mono);font-size:0.6rem;padding:2px 6px;border-radius:var(--r-pill);background:'+(sub.color||'#555')+'22;color:'+(sub.color||'#999')+';border:1px solid '+(sub.color||'#555')+'44;margin-right:4px">'+(sub.name||s)+'</span>';}).join('');return '<div class="researcher-card"><div><div class="researcher-name">'+r.name+'</div><div class="researcher-role">'+r.role+' &middot; '+r.years+'</div></div>'+(r.quote?'<blockquote class="researcher-quote">'+r.quote+'</blockquote>':'')+'<ul class="researcher-contributions">'+r.contributions.map(function(c){return '<li>'+c+'</li>';}).join('')+'</ul><div style="margin-top:auto">'+b+'</div></div>';}).join('')+'</div>';}
 function renderNeuroPage(){var c=document.getElementById('neuro-content');if(!c)return;var h='';if(typeof NEUROIMAGING!=='undefined'){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s6)">Neuroimaging Findings</h2><div style="display:flex;flex-direction:column;gap:var(--s4);margin-bottom:var(--s12)">'+NEUROIMAGING.map(function(n){var sub=SUBSTANCES[n.substance.toLowerCase()]||{};return '<div class="neuroimaging-card" style="border-left-color:'+(sub.color||'var(--cyan)')+'"><div style="display:flex;gap:var(--s4);align-items:center;margin-bottom:var(--s3);flex-wrap:wrap"><span style="font-family:var(--font-mono);font-size:0.6rem;background:'+(sub.color||'var(--cyan)')+'22;color:'+(sub.color||'var(--cyan)')+';border:1px solid '+(sub.color||'var(--cyan)')+'44;padding:2px 8px;border-radius:var(--r-pill)">'+n.substance+'</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted)">'+n.modality+' &middot; '+n.study+'</span></div><p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.7;margin:0">'+n.finding+'</p></div>';}).join('')+'</div>';}
 if(typeof BINDING_AFFINITY!=='undefined'){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Receptor Binding Affinity (Ki)</h2><p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:var(--s6)">Lower Ki = stronger binding. Values in nM. Source: PDSP Ki Database.</p><div style="overflow-x:auto;margin-bottom:var(--s12)"><table class="binding-table"><thead><tr><th>Substance</th><th>Receptor</th><th>Ki (nM)</th><th>Note</th></tr></thead><tbody>'+BINDING_AFFINITY.map(function(b){var sub=Object.values(SUBSTANCES).find(function(s){return s.name===b.substance||(b.substance==="Psilocin"&&s.id==="psilocybin")||(b.substance==="Mescaline"&&s.id==="peyote")||(b.substance==="Salvinorin A"&&s.id==="salvia");})||{};var pc=b.ki_nm<10?"var(--acid)":b.ki_nm<100?"var(--cyan)":b.ki_nm<500?"#fb923c":"var(--text-muted)";return "<tr><td style='color:"+(sub.color||"var(--text-primary)")+";font-weight:600'>"+b.substance+"</td><td style='font-family:var(--font-mono);font-size:0.75rem'>"+b.receptor+"</td><td><span class='ki-value' style='color:"+pc+"'>"+b.ki_nm+"</span></td><td style='color:var(--text-muted);font-size:0.78rem'>"+b.note+"</td></tr>";}).join('')+'</tbody></table></div>';}
 if(typeof CROSS_TOLERANCE!=='undefined'){var sk=["lsd","psilocybin","dmt","peyote","mdma","ketamine","ibogaine","salvia"],av=sk.filter(function(k){return SUBSTANCES[k];}),tc={complete:"tol-complete",partial:"tol-partial",none:"tol-none",rapid:"tol-rapid",minimal:"tol-minimal"};h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Cross-Tolerance Matrix</h2><p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:var(--s6)">'+CROSS_TOLERANCE.explanation+'</p><div style="overflow-x:auto;margin-bottom:var(--s12)"><table class="binding-table"><thead><tr><th></th>'+av.map(function(k){return '<th style="color:'+(SUBSTANCES[k]&&SUBSTANCES[k].color||"#fff")+'">'+((SUBSTANCES[k]&&SUBSTANCES[k].name)||k)+'</th>';}).join('')+'</tr></thead><tbody>'+av.map(function(rk){var sub=SUBSTANCES[rk],mr=(CROSS_TOLERANCE.matrix[rk]||{});return '<tr><td style="color:'+(sub&&sub.color||"#fff")+';font-weight:600">'+((sub&&sub.name)||rk)+'</td>'+av.map(function(ck){var t=rk===ck?"complete":(mr[ck]||"none");return '<td style="text-align:center"><span class="cross-tol-badge '+(tc[t]||"tol-none")+'">'+t+'</span></td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';}
 if(typeof MICRODOSING_DATA!=='undefined' && MICRODOSING_DATA && MICRODOSING_DATA.definition && MICRODOSING_DATA.substances){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Microdosing: Evidence vs. Claims</h2><div class="microdose-card" style="margin-bottom:var(--s8)"><p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s6)">'+MICRODOSING_DATA.definition+'</p>'+Object.entries(MICRODOSING_DATA.substances).map(function(e){var sub=SUBSTANCES[e[0]]||{},md=e[1];return '<div style="background:var(--surface);border:1px solid var(--border);border-left:2px solid '+(sub.color||"var(--acid)")+';border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5);margin-bottom:var(--s4)"><div style="font-family:var(--font-display);font-weight:700;color:'+(sub.color||"var(--acid)")+';margin-bottom:var(--s3)">'+(sub.name||e[0])+'</div><div class="data-row"><span class="data-label">Dose</span><span class="data-value" style="font-size:0.78rem">'+md.dose+'</span></div><div class="data-row"><span class="data-label">Schedule</span><span class="data-value" style="font-size:0.78rem">'+md.schedule+'</span></div><div class="data-row"><span class="data-label">Evidence</span><span class="data-value" style="font-size:0.78rem">'+md.evidence+'</span></div></div>';}).join('')+'<div style="background:rgba(255,45,143,.08);border:1px solid rgba(255,45,143,.2);border-radius:var(--r-md);padding:var(--s4)"><div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#ff2d8f;margin-bottom:var(--s2)">Verdict</div><p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6;margin:0">'+MICRODOSING_DATA.verdict+'</p></div></div>';if(typeof POLICY_ORGS!=='undefined')h+='<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:var(--s4)">Policy Organizations</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s4)">'+POLICY_ORGS.map(function(org){return '<div class="org-card"><div style="font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--acid);margin-bottom:var(--s1)">'+org.name+'</div><div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);margin-bottom:var(--s3)">Est. '+org.founded+' &middot; '+org.founder+'</div><p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:var(--s3)">'+org.focus+'</p><div style="font-size:0.78rem;color:var(--text-muted);font-style:italic">'+org.status+'</div></div>';}).join('')+'</div>';}
 c.innerHTML=h;}
-function renderGlossaryPage(){var container=document.getElementById('glossary-full-content'),si=document.getElementById('glossary-search');if(!container||typeof GLOSSARY==='undefined')return;var g=Object.assign({},GLOSSARY);g['REBUS']='Relaxed Beliefs Under Psychedelics (Carhart-Harris & Friston, 2019). Psychedelics reduce the brain\'s reliance on high-level priors, enabling bottom-up sensory signals to dominate.';g['entropic brain']='Carhart-Harris (2014): psychedelics increase neural entropy. The brain becomes less predictable during peak states.';g['entactogen']='Compounds (MDMA, MDA) producing emotional openness and empathy. Distinct from classical serotonergic psychedelics.';g['cross-tolerance']='Classical serotonergic psychedelics (LSD, psilocybin, DMT, mescaline) produce complete cross-tolerance via 5-HT2A downregulation. MDMA, ketamine, salvia, and ibogaine do not cross-tolerate with them.';g['BDNF']='Brain-Derived Neurotrophic Factor. Promotes neuron survival. Increased by ketamine and psychedelics — may explain antidepressant effects.';g['integration']='Post-session process of incorporating insights from a psychedelic experience into daily life. Clinical protocols require 2-4 integration sessions per psychedelic session.';g['set and setting']='Leary\'s principle: mindset and environment are as determinative of psychedelic outcomes as dose. The basis of all current clinical trial design.';g['QTc prolongation']='Lengthening of the cardiac QT interval. Ibogaine causes QTc prolongation via hERG channel — potentially fatal. Requires cardiac screening.';g['flood dose']='Large initiatory ibogaine dose (10-25mg/kg) for addiction interruption or Bwiti initiation. Produces 18-36hr experience.';g['microdosing']='Sub-perceptual dose (1/10th-1/20th of threshold). Clinical evidence for cognitive benefits is weak; expectancy effects significant.';
+function renderGlossaryPage(){var container=document.getElementById('glossary-full-content'),si=document.getElementById('glossary-search');if(!container||typeof GLOSSARY==='undefined')return;var g=GLOSSARY;
 function re(f){var e=Object.entries(g).filter(function(x){return!f||x[0].toLowerCase().includes(f)||x[1].toLowerCase().includes(f);}).sort(function(a,b){return a[0].localeCompare(b[0]);});container.innerHTML=e.map(function(x){return '<div class="glossary-entry"><div class="glossary-term">'+x[0]+'</div><div class="glossary-def">'+x[1]+'</div></div>';}).join('');}
 re('');if(si)si.addEventListener('input',function(){re(this.value.trim().toLowerCase());});}
 
@@ -3793,7 +4836,7 @@ function renderPage(id) {
   if (id === 'receptor') renderReceptorPage();
   if (id === 'phenomenology') { renderPhenomenologyPage(); setTimeout(function(){ if(typeof renderMEQScorer==='function') renderMEQScorer(); },100); }
   if (id === 'rfra') renderRFRAPage();
-  if (id === 'pipeline') renderPipelinePage();
+  if (id === 'pipeline') { renderPipelinePage(); var ps = document.getElementById('pipeline-sources'); if (ps) ps.innerHTML = citeChips(['goodwin-2022','raison-2023','mitchell-2021','mitchell-2023','mithoefer-2018']); }
   if (id === 'ceremony') renderCeremonyPage();
   if (id === 'comparative') renderComparativePage();
   if (id === 'decrim') renderDecrimPage();
@@ -3801,7 +4844,8 @@ function renderPage(id) {
   if (id === 'researchers') renderResearchersPage();
   if (id === 'neuro') renderNeuroPage();
   if (id === 'glossary-page') renderGlossaryPage();
-  // legitimacy has static HTML content — no render function needed
+  if (id === 'archaeology') renderArchaeologyPage();
+  if (id === 'legitimacy') renderCaseRecord();
 }
 
 // ===================================================
@@ -3836,6 +4880,13 @@ document.addEventListener('DOMContentLoaded', function() {
   if (citeLabel && typeof CITATIONS !== 'undefined') {
     citeLabel.textContent = 'Citation Library (' + CITATIONS.length + ' sources)';
   }
+  var glossLabel = document.getElementById('mega-glossary-count');
+  if (glossLabel && typeof GLOSSARY !== 'undefined') {
+    glossLabel.textContent = 'Glossary (' + Object.keys(GLOSSARY).length + ' terms)';
+  }
+  document.querySelectorAll('[data-count="glossary"]').forEach(function(el) {
+    if (typeof GLOSSARY !== 'undefined') el.textContent = Object.keys(GLOSSARY).length + ' terms, fully searchable';
+  });
   var citeHead = document.getElementById('cite-lib-count');
   if (citeHead && typeof CITATIONS !== 'undefined') {
     citeHead.textContent = CITATIONS.length + ' sources spanning judicial opinions, government material, peer-reviewed research, and foundational or contextual texts';
@@ -3963,7 +5014,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ===================================================
 // TIMELINE
 // ===================================================
-var openTimeline = window.openTimeline = function(key) {
+var openTimeline = window.openTimeline = function(key, push) {
   var meta = TIMELINE_META[key];
   if (!meta) { console.warn('openTimeline: unknown key', key); return; }
   var panel = document.getElementById('timeline-panel');
@@ -3978,6 +5029,8 @@ var openTimeline = window.openTimeline = function(key) {
   titleEl.textContent = meta.title;
   titleEl.style.color = meta.color;
   pdfBtn.onclick = function() { exportTimelinePDF(key, meta.title); };
+  window._activeTimeline = key;
+  if (push !== false) window.pushRoute({ page: 'home', timeline: key });
   meta.cats.forEach(function(cat) {
     var btn = document.createElement('button');
     btn.className = 'filter-btn' + (cat==='all'?' active':'');
@@ -4019,8 +5072,12 @@ var openTimeline = window.openTimeline = function(key) {
 // ===================================================
 // SUBSTANCE MODAL
 // ===================================================
-var showSubstanceModal = window.showSubstanceModal = function(id) {
+var showSubstanceModal = window.showSubstanceModal = function(id, push) {
   var sub = SUBSTANCES[id]; if (!sub) return;
+  var existing = document.querySelector('.modal-overlay');
+  if (existing) existing.remove();
+  var returnFocusTo = document.activeElement;
+  if (push !== false) window.pushRoute({ page: currentPage, substance: id });
   var mol = MOLECULES[id] || ('<div style="font-size:4rem;color:'+sub.color+'">'+sub.symbol+'</div>');
   var who = WHO_USES_DATA.filter(function(d){return d.substance===id;});
   var cites = CITATIONS.filter(function(c){return c.substances&&c.substances.includes(id);});
@@ -4104,7 +5161,7 @@ var showSubstanceModal = window.showSubstanceModal = function(id) {
         '</div>' +
         '<div style="display:flex;gap:var(--s3);flex-wrap:wrap">' +
           '<button class="btn btn-outline" style="border-color:'+sub.color+'55;color:'+sub.color+'" onclick="exportSubstancePDF(\'+id+\')">Export PDF</button>' +
-          '<button class="btn btn-outline" onclick="this.closest(\'.modal-overlay\').remove()">&times; Close</button>' +
+          '<button class="btn btn-outline modal-close-btn">&times; Close</button>' +
         '</div>' +
       '</div>' +
       '<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);margin-bottom:var(--s8)">' +
@@ -4153,7 +5210,28 @@ var showSubstanceModal = window.showSubstanceModal = function(id) {
     });
   });
 
-  overlay.addEventListener('click', function(e) { if(e.target===overlay) overlay.remove(); });
+  // Close handling: restore the page URL, return focus, keep Tab inside the dialog.
+  function closeModal() {
+    overlay.remove();
+    try { history.pushState({ page: currentPage }, '', '#' + currentPage); } catch (e) {}
+    if (returnFocusTo && typeof returnFocusTo.focus === 'function') returnFocusTo.focus();
+  }
+  overlay._closeModal = closeModal;
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
+  overlay.querySelectorAll('.modal-close-btn').forEach(function(b) {
+    b.addEventListener('click', function(e) { e.preventDefault(); closeModal(); });
+  });
+  overlay.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { e.stopPropagation(); closeModal(); return; }
+    if (e.key !== 'Tab') return;
+    var f = overlay.querySelectorAll('a[href], button:not([disabled]), select, input, textarea, [tabindex]:not([tabindex="-1"])');
+    if (!f.length) return;
+    var first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  var firstFocus = overlay.querySelector('.modal-close-btn') || overlay.querySelector('button');
+  if (firstFocus) setTimeout(function(){ firstFocus.focus(); }, 30);
 }
 
 // ===================================================
@@ -4725,15 +5803,20 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
   </div>
 </div>
 <div id="page-governance" class="page-section">
+  <div class="section" style="padding-top:calc(80px + var(--s8))">
   <div class="section-header">
     <div class="section-kicker">Evidence integrity</div>
-    <h2 class="section-title">Evidence &amp; Cultural Governance</h2>
+    <h1 class="section-title">Evidence &amp; Cultural Governance</h1>
     <p class="section-desc">Every retained substantive claim must identify its source type, scope, verification date, and correction route. Unverified dose, interaction, current-law, legal-risk, RFRA-strength, and living-tradition protocol tools have been removed from production.</p>
   </div>
   <div class="feature-grid">
-    <article class="feature-card"><h3>Claim register</h3><p>Machine-readable records connect retained claims to sources and state the limits of each source.</p><p><a href="/evidence-register.json" target="_blank" rel="noopener">Open evidence register (JSON)</a></p></article>
-    <article class="feature-card"><h3>Cultural authority</h3><p>Community-origin material is not treated as public-domain permission. Living-tradition protocols are excluded unless the relevant authority has approved publication.</p><p><a href="/governance.html">Review policy or request correction/withdrawal</a></p></article>
-    <article class="feature-card"><h3>Current-status boundary</h3><p>This edition does not provide individualized medical advice, dose guidance, interaction clearance, or current legal advice. Those functions require qualified review and continuously maintained jurisdictional data.</p></article>
+    <article class="feature-card"><h2>Claim register</h2><p>Machine-readable records connect retained claims to sources and state the limits of each source.</p><p><a href="/evidence-register.json" target="_blank" rel="noopener">Open evidence register (JSON)</a></p></article>
+    <article class="feature-card"><h2>Cultural authority</h2><p>Community-origin material is not treated as public-domain permission. Living-tradition protocols are excluded unless the relevant authority has approved publication.</p><p><a href="/governance.html">Review policy or request correction/withdrawal</a></p></article>
+    <article class="feature-card"><h2>Current-status boundary</h2><p>This edition does not provide individualized medical advice, dose guidance, interaction clearance, or current legal advice. Those functions require qualified review and continuously maintained jurisdictional data.</p></article>
+    <article class="feature-card"><h2>Source hierarchy</h2><p>Archaeological claims are ranked by the kind of evidence behind them rather than by age, and the ranking is published rather than implied: chemical, botanical, textual, ethnographic, iconographic, contested, and not&nbsp;supported. A claim on a lower rung is not omitted; it is labelled.</p><p><a href="#archaeology" onclick="event.preventDefault();showPage('archaeology')">Read the evidence ladder</a></p></article>
+    <article class="feature-card"><h2>Primary sources first</h2><p>Case law and statute cite the United States Reports scan, the court&rsquo;s own opinion PDF, the Statutes at Large, or the text of the regulation &mdash; not a secondary summary. Archaeology cites the excavation report or the dating paper. Every DOI on this site is checked against Crossref and every URL fetched before publication.</p></article>
+    <article class="feature-card"><h2>Disagreement is retained</h2><p>Where the literature genuinely divides &mdash; the Shanidar pollen, the Eleusinian ergot hypothesis, whether the subjective experience is necessary to the therapeutic effect &mdash; both positions are stated and both are cited. Consensus is not manufactured by omission.</p></article>
+  </div>
   </div>
 </div>
 <script>

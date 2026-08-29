@@ -10,20 +10,25 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Entheogen Atlas — Sacred Plants, Science &amp; the Law">
   <meta property="og:description" content="A source-classified research atlas covering selected historical, scientific, and legal materials with explicit evidence and cultural-governance controls.">
-  <meta property="og:url" content="https://entheogetatlas.com">
-  <meta property="og:image" content="https://entheogetatlas.com/og-image.png">
+  <meta property="og:url" content="https://entheogen-atlas.vercel.app">
+  <meta property="og:image" content="https://entheogen-atlas.vercel.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Entheogen Atlas — a research atlas of entheogenic substances.">
   <meta property="og:site_name" content="Entheogen Atlas">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@fatnugsmag">
   <meta name="twitter:title" content="Entheogen Atlas — Sacred Plants, Science &amp; the Law">
-  <meta name="twitter:description" content="Ten substances. Sixty millennia. The archaeology, neuroscience, phenomenology, case law, and clinical science of entheogenic plants.">
-  <meta name="twitter:image" content="https://entheogetatlas.com/og-image.png">
+  <meta name="twitter:description" content="Ten substances. 5,700 years of chemically confirmed use. The archaeology, neuroscience, phenomenology, case law, and clinical science of entheogenic plants.">
+  <meta name="twitter:image" content="https://entheogen-atlas.vercel.app/og-image.png">
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://entheogetatlas.com">
+  <link rel="canonical" href="https://entheogen-atlas.vercel.app/">
   <link rel="author" href="https://fatnugsmag.com">
+  <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -33,8 +38,8 @@
       {
         "@type": "WebSite",
         "name": "Entheogen Atlas",
-        "url": "https://entheogetatlas.com",
-        "description": "A complete research atlas of entheogenic substances covering archaeology, neuroscience, legal history, phenomenology, and religious use.",
+        "url": "https://entheogen-atlas.vercel.app",
+        "description": "A research atlas of entheogenic substances covering archaeology, neuroscience, legal history, phenomenology, and religious use.",
         "author": {
           "@type": "Person",
           "name": "RN Collins",
@@ -64,7 +69,7 @@
     ]
   }
   </script>
-  <meta name="description" content="A complete research atlas of entheogenic substances: archaeology, neuroscience, legal history, phenomenology, and religious use — mapped across 60,000 years.">
+  <meta name="description" content="A research atlas of entheogenic substances: archaeology, neuroscience, legal history, phenomenology and religious use, from the oldest chemically confirmed use of a psychedelic — peyote, c. 3700 BCE — to the present.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -84,7 +89,7 @@
   --border:      #34345a;
 
   --acid:        #c8ff00;
-  --violet:      #7b2fff;
+  --violet:      #a97bff;   /* 6.44:1 on --void; was #7b2fff at 3.41:1 */
   --magenta:     #ff2d8f;
   --cyan:        #00f5ff;
   --amber:       #ff8c00;
@@ -94,7 +99,8 @@
   --text-secondary: #c8c8e8;
   --text-muted:     #a0a0c8;
 
-  --fnm:        #C24A2E;
+  --fnm:        #C24A2E;   /* button background only — white on it is 4.87:1 */
+  --fnm-text:   #E2704F;   /* 6.16:1 on --void, for small FNM-coloured text */
   /* Substance colors */
   --cannabis:   #4ade80;
   --ayahuasca:  #c084fc;
@@ -1072,10 +1078,6 @@ main { min-height: calc(100vh - 60px); }
 
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <meta name="robots" content="index, follow"/>
-<meta name="description" content="A source-classified research atlas. Unsupported safety, current-law, predictive legal, and living-tradition protocol tools have been removed."/>
-<meta property="og:title" content="Entheogen Atlas"/>
-<meta property="og:description" content="Research and editorial reference across ten substances, science, culture, and legal history."/>
-<meta property="og:type" content="website"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1117,13 +1119,13 @@ main { min-height: calc(100vh - 60px); }
 <a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="reading-progress" id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Reading progress"></div>
 <nav class="site-nav" id="main-nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-logo" role="button" tabindex="0" onclick="showPage('home')" aria-label="Home">Entheogen Atlas</div>
+  <div class="nav-logo" role="button" tabindex="0" onclick="showPage('home')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPage('home')}" aria-label="Home">Entheogen Atlas</div>
   <ul class="nav-links nav-cat-links" role="menubar">
-    <li><a href="#substances" onclick="event.preventDefault();showPage('home');scrollToSection('#substances')" class="nav-page-link nav-cat role="menuitem"">Substances</a></li>
-    <li><a href="#receptor" onclick="event.preventDefault();showPage('receptor')" class="nav-page-link nav-cat role="menuitem"" data-page="receptor">Science</a></li>
-    <li><a href="#legitimacy" onclick="event.preventDefault();showPage('legitimacy')" class="nav-page-link nav-cat role="menuitem" nav-cat-editorial" data-page="legitimacy" style="color:var(--fnm)">Law &amp; Policy</a></li>
-    <li><a href="#researchers" onclick="event.preventDefault();showPage('researchers')" class="nav-page-link nav-cat role="menuitem"" data-page="researchers">Culture</a></li>
-    <li><a href="#glossary-page" onclick="event.preventDefault();showPage('glossary-page')" class="nav-page-link nav-cat role="menuitem"" data-page="glossary-page">Reference</a></li>
+    <li><a href="#substances" onclick="event.preventDefault();showPage('home');scrollToSection('#substances')" class="nav-page-link nav-cat" role="menuitem">Substances</a></li>
+    <li><a href="#receptor" onclick="event.preventDefault();showPage('receptor')" class="nav-page-link nav-cat" role="menuitem" data-page="receptor">Science</a></li>
+    <li><a href="#legitimacy" onclick="event.preventDefault();showPage('legitimacy')" class="nav-page-link nav-cat nav-cat-editorial" role="menuitem" data-page="legitimacy" style="color:var(--fnm-text)">Law &amp; Policy</a></li>
+    <li><a href="#researchers" onclick="event.preventDefault();showPage('researchers')" class="nav-page-link nav-cat" role="menuitem" data-page="researchers">Culture</a></li>
+    <li><a href="#glossary-page" onclick="event.preventDefault();showPage('glossary-page')" class="nav-page-link nav-cat" role="menuitem" data-page="glossary-page">Reference</a></li>
   </ul>
   <div class="nav-right">
     <button class="nav-search-btn" onclick="openSiteSearch()" aria-label="Search (Cmd+K)">
@@ -1136,11 +1138,6 @@ main { min-height: calc(100vh - 60px); }
     </button>
   </div>
 </nav>
-<div style="background:#FFF8E7;border-left:4px solid #B8842A;padding:12px 16px;margin-bottom:24px;font-size:13px;color:#5A4000;border-radius:0 4px 4px 0;">
-  <strong>Review status:</strong> This July 2026 archival snapshot is not a current legal-status service. Verify official authorities and consult a qualified professional before relying on any legal, clinical, interaction, or safety statement.
-</div>
-
-</div>
 
 <!-- ============================================================ -->
 <!-- HOME PAGE -->
@@ -1150,12 +1147,12 @@ main { min-height: calc(100vh - 60px); }
 
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-eyebrow">60,000 Years of Sacred Chemistry</div>
+  <div class="hero-eyebrow">5,700 Years of Confirmed Sacred Chemistry</div>
   <h1 class="hero-title">
     <span class="line-acid">Entheogen</span><br>
     <span class="line-violet">Atlas</span>
   </h1>
-  <p class="hero-subtitle">Ten substances. Sixty millennia. One legal contradiction. The most ancient human practice — sacred plant medicine — is a federal crime. This atlas maps the archaeology, the neuroscience, the case law, and the phenomenology of why that matters.</p>
+  <p class="hero-subtitle">Ten substances. Fifty-seven centuries of confirmed use. One legal contradiction. The most ancient human practice — sacred plant medicine — is a federal crime. This atlas maps the archaeology, the neuroscience, the case law, and the phenomenology of why that matters.</p>
   <blockquote class="hero-quote">"To fathom hell or soar angelic / just take a pinch of psychedelic." — Humphry Osmond, in correspondence with Aldous Huxley (1957) — the letter in which Osmond coined the word "psychedelic"</blockquote>
   <div class="hero-actions">
           <button class="btn btn-primary" onclick="showPage('home');setTimeout(function(){scrollToSection('#substances')},50)">Explore Substances</button>
@@ -1164,8 +1161,10 @@ main { min-height: calc(100vh - 60px); }
         </div>
 </section>
 
-<div style="background:rgba(255,107,107,0.06);border:1px solid rgba(255,107,107,0.15);border-radius:var(--r-md);padding:var(--s4) var(--s6);margin:var(--s6) var(--s8);font-size:0.78rem;color:#cc8888;max-width:900px;margin-left:auto;margin-right:auto" role="note" aria-label="Safety disclaimer">
-  &#9888; <strong>Disclaimer:</strong> Substance pharmacology, dosage data, and drug interaction information on this site is for educational and harm-reduction reference only. It does not constitute medical advice. RFRA case analysis and legal tool outputs are educational issue-spotting only and do not constitute legal advice. Verify clinical trial data at ClinicalTrials.gov. Site by RN Collins, M.S.
+<div style="background:rgba(255,107,107,0.06);border:1px solid rgba(255,107,107,0.22);border-radius:var(--r-md);padding:var(--s5) var(--s6);margin:var(--s6) auto;font-size:0.8rem;line-height:1.8;color:var(--text-secondary);max-width:900px" role="note" aria-labelledby="scope-note-h">
+  <div id="scope-note-h" style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:#e08a8a;margin-bottom:var(--s3)">&#9888; What this is, and what it is not</div>
+  <p style="margin:0 0 0.6rem">This is a research and editorial reference. It is not medical advice, not legal advice, and not a current-law service &mdash; statutes, agency positions and litigation move faster than any archive. Verify the official authority and consult a qualified professional before acting on anything here, and check clinical figures against the cited paper and <a href="https://clinicaltrials.gov" target="_blank" rel="noopener" style="color:var(--acid)">ClinicalTrials.gov</a>.</p>
+  <p style="margin:0">Dosing, interaction clearance, individualised legal-risk scoring, live-law tracking and living-tradition protocols are deliberately not published here. <a href="/governance.html" style="color:var(--acid)">Evidence &amp; cultural governance</a> sets out why, and how to request a correction. Built by RN Collins, M.S.</p>
 </div>
 
 <section style="background:var(--deep);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:var(--s8) var(--s8)" id="about-atlas">
@@ -1300,7 +1299,7 @@ main { min-height: calc(100vh - 60px); }
   <div class="substance-card" style="--card-color:var(--amber)" onclick="window.openTimeline&&window.openTimeline('archaeological')">
     <div class="card-symbol" style="color:var(--amber)">&#8987;</div>
     <div class="card-name">Archaeological</div>
-    <div class="card-sub">60,000 BCE &rarr; Present</div>
+    <div class="card-sub">Palaeolithic &rarr; Present</div>
     <div class="card-tags"><span class="tag">Prehistory</span><span class="tag">Ritual</span></div>
   </div>
   <div class="substance-card" style="--card-color:var(--cyan)" onclick="window.openTimeline&&window.openTimeline('clinical')">
@@ -1630,7 +1629,7 @@ main { min-height: calc(100vh - 60px); }
   <div class="section-header">
     <div class="section-eyebrow">Research Hub</div>
     <h2 class="section-title">Citation <span class="accent-magenta">Library</span></h2>
-    <div style="font-size:0.85rem;color:var(--text-secondary);margin-top:var(--s3)">30+ sources spanning judicial opinions, government material, peer-reviewed research, and foundational or contextual texts</div>
+    <div id="cite-lib-count" style="font-size:0.85rem;color:var(--text-secondary);margin-top:var(--s3)">Judicial opinions, government material, peer-reviewed research, and foundational or contextual texts</div>
   </div>
   <div style="margin-bottom:var(--s6);display:flex;gap:var(--s3)">
     <button class="btn btn-outline" onclick="exportCitationLibraryPDF()">Export Citations PDF</button>
@@ -1672,7 +1671,7 @@ main { min-height: calc(100vh - 60px); }
       <div style="font-size:0.78rem;color:var(--text-muted);line-height:1.6">Psilocybin regulatory monitor — a weekly primary-source sweep of Oregon, Colorado, and New Mexico programs. The law-in-motion counterpart to this atlas's legal history.</div>
     </a>
     <a href="https://psych-ops-directory.vercel.app" target="_blank" rel="noopener" style="text-decoration:none;background:var(--panel);border:1px solid var(--border);border-left:2px solid var(--fnm);border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5);display:block">
-      <div style="font-family:var(--font-mono);font-size:0.58rem;color:var(--fnm);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--s2)">Directory</div>
+      <div style="font-family:var(--font-mono);font-size:0.58rem;color:var(--fnm-text);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--s2)">Directory</div>
       <div style="font-size:0.88rem;font-weight:600;margin-bottom:var(--s2);color:var(--text-primary)">Psych Ops Directory</div>
       <div style="font-size:0.78rem;color:var(--text-muted);line-height:1.6">Operational infrastructure for the psychedelic ecosystem — vetted legal, financial, and clinical vendors for turning research into practice.</div>
     </a>
@@ -1747,7 +1746,7 @@ main { min-height: calc(100vh - 60px); }
   <div class="site-footer">
     <div>
       <div class="footer-brand">Entheogen Atlas</div>
-      <p class="footer-tagline">A complete research atlas: ten substances, sixty millennia, thirteen pages of deep analysis.</p>
+      <p class="footer-tagline">A research atlas: ten substances, 5,700 years of confirmed use, nine pages of analysis.</p>
     </div>
     <div>
       <div class="footer-col-title">Substances</div>
@@ -1769,7 +1768,7 @@ main { min-height: calc(100vh - 60px); }
     </div>
     <div>
       <div class="footer-col-title">Source Material</div>
-      <p class="footer-tagline" style="font-size:0.75rem">Griffiths et al. (2006), Hoffman et al. (2001), Pahnke (1967), Carhart-Harris et al. (2021), Nichols (2016), Gonzales v. O Centro (2006), Employment Division v. Smith (1990), and 25+ additional primary sources.</p>
+      <p class="footer-tagline" style="font-size:0.75rem">Griffiths et al. (2006), Carhart-Harris et al. (2012, 2016, 2021), Nichols (2016), El-Seedi et al. (2005), Gonzales v. O Centro (2006), Employment Division v. Smith (1990), and 55 further sources in the citation library.</p>
     </div>
   </div>
   <div style="text-align:center;padding:var(--s4) var(--s8);font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);border-top:1px solid var(--border)">This site does not use tracking cookies, automatic page-view beacons, or third-party analytics. Contact details are sent only after explicit consent and are used to respond to the inquiry. Data inquiries: contact via <a href="https://fatnugsmag.com" target="_blank" rel="noopener" style="color:var(--fnm);font-weight:600">Fat Nugs Magazine</a>.</div>
@@ -2040,29 +2039,29 @@ main { min-height: calc(100vh - 60px); }
           <li><a onclick="closeMegaMenu();showPage('neuro')" data-page="neuro">Brain Science &amp; Neuroimaging</a></li>
           <li><a onclick="closeMegaMenu();showPage('pipeline')" data-page="pipeline">Science Pipeline</a></li>
           <li><a onclick="closeMegaMenu();showPage('phenomenology')" data-page="phenomenology">Mystical Experience (MEQ)</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="interactions">Drug Interactions</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="interactions">Drug Interactions &mdash; not published</a></li>
         </ul>
         <div class="mega-divider"></div>
         <div class="mega-col-label">Law &amp; Policy</div>
         <ul class="mega-links">
           <li><a onclick="closeMegaMenu();showPage('legitimacy')" data-page="legitimacy" class="mega-editorial">&#9632; The Legitimacy Gap</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="rfra">RFRA Litigation Tracker</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="decrim">Decriminalization Tracker</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="comparative">Global Legal Frameworks</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="rfra">RFRA Litigation Tracker &mdash; not published</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="decrim">Decriminalization Tracker &mdash; not published</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="comparative">Global Legal Frameworks &mdash; not published</a></li>
         </ul>
       </div>
       <div class="mega-col">
         <div class="mega-col-label">Culture &amp; History</div>
         <ul class="mega-links">
           <li><a onclick="closeMegaMenu();showPage('researchers')" data-page="researchers">Key Researchers</a></li>
-          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="ceremony">Ceremony Structures</a></li>
+          <li><a onclick="closeMegaMenu();showPage('governance')" data-page="ceremony">Ceremony Structures &mdash; not published</a></li>
           <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#timelines')">Historical Timelines</a></li>
         </ul>
         <div class="mega-divider"></div>
         <div class="mega-col-label">Reference</div>
         <ul class="mega-links">
-          <li><a onclick="closeMegaMenu();showPage('glossary-page')" data-page="glossary-page">Glossary (40+ terms)</a></li>
-          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#research')">Citation Library (44 sources)</a></li>
+          <li><a onclick="closeMegaMenu();showPage('glossary-page')" data-page="glossary-page">Glossary (42 terms)</a></li>
+          <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#research')" id="mega-cite-count">Citation Library</a></li>
           <li><a onclick="closeMegaMenu();window._pendingScroll=true;showPage('home');scrollToSection('#tools')">Interactive Tools</a></li>
           <li><a onclick="closeMegaMenu();openSiteSearch()">&#9906; Search Everything</a></li>
         </ul>
@@ -2267,7 +2266,7 @@ var CITATIONS = [
   { id: 'carhart-harris-dmn', authors: 'Carhart-Harris, R.L., Leech, R., Hellyer, P.J., et al.', year: 2014, title: 'The entropic brain: a theory of conscious states informed by neuroimaging research with psychedelic drugs', journal: 'Frontiers in Human Neuroscience', volume: '8, 20', doi: '10.3389/fnhum.2014.00020', url: 'https://doi.org/10.3389/fnhum.2014.00020', keyFinding: 'Psychedelics increase neural entropy, suppress DMN — mechanistic basis of ego dissolution and mystical experience', tags: ['neuroscience','pharmacology'], substances: ['lsd','psilocybin','ayahuasca'] },
   { id: 'hoffman-2001', authors: 'Hoffmann, E., Keppel Hesselink, J.M., & da Silveira Barbosa, Y.M.', year: 2001, title: 'Effects of a psychedelic, tropical tea, ayahuasca, on the EEG activity of the human brain during a shamanistic ritual', journal: 'MAPS Bulletin', volume: 'Spring, 25–30', url: null, keyFinding: 'Alpha +80%, theta +60% post-ayahuasca; beta unchanged. Profile resembles meditation, distinct from LSD/psilocybin', tags: ['neuroscience','anthropology','ayahuasca'], substances: ['ayahuasca','cannabis'] },
   { id: 'strassman-1994', authors: 'Strassman, R.J., Qualls, C.R., Uhlenhuth, E.H., & Kellner, R.', year: 1994, title: 'Dose-response study of N,N-dimethyltryptamine in humans', journal: 'Archives of General Psychiatry', volume: '51(2), 98–108', doi: '10.1001/archpsyc.1994.03950020022002', url: 'https://doi.org/10.1001/archpsyc.1994.03950020022002', keyFinding: 'First modern human DMT study post-prohibition. Dose-response established. Mystical experience at high doses confirmed.', tags: ['clinical','neuroscience','ayahuasca'], substances: ['ayahuasca'] },
-  { id: 'mithoefer-2018', authors: 'Mithoefer, M.C., Feduccia, A.A., Jerome, L., et al.', year: 2018, title: 'MDMA-assisted psychotherapy for treatment of PTSD: study design and rationale for Phase 3 trials', journal: 'Psychopharmacology', volume: '236(9), 2735–2745', doi: '10.1007/s00213-019-05249-5', url: 'https://doi.org/10.1007/s00213-019-05249-5', keyFinding: 'Phase 3 protocol design; 88mg MDMA + therapy. Builds on Phase 2 showing 67% no longer meeting PTSD criteria', tags: ['clinical'], substances: ['lsd'] },
+  { id: 'mithoefer-2018', authors: 'Mithoefer, M.C., Feduccia, A.A., Jerome, L., et al.', year: 2019, title: 'RETRACTED: MDMA-assisted psychotherapy for treatment of PTSD: study design and rationale for phase 3 trials based on pooled analysis of six phase 2 randomized controlled trials', journal: 'Psychopharmacology', volume: '236(9), 2735–2745', doi: '10.1007/s00213-019-05249-5', url: 'https://doi.org/10.1007/s00213-019-05249-5', keyFinding: 'Retracted by the journal in November 2024 (Psychopharmacology 241(11), 2405). Listed here because it is widely cited: it is the source of the pooled Phase 2 figures of 54.2% versus 22.6% no longer meeting PTSD criteria. Those figures should no longer be relied on.', tags: ['clinical','mdma','ptsd'], substances: ['mdma'] },
   { id: 'doblin-2002', authors: 'Doblin, R.', year: 1991, title: 'Pahnke\'s Good Friday experiment: a long-term follow-up and methodological critique', journal: 'Journal of Transpersonal Psychology', volume: '23(1), 1–28', url: null, keyFinding: '25-year follow-up of Marsh Chapel Experiment. Mystical experiences persisted and were rated as among the most meaningful of subjects\' lives.', tags: ['clinical','religious','psilocybin'], substances: ['psilocybin'] },
   { id: 'pahnke-1967', authors: 'Pahnke, W.N.', year: 1967, title: 'LSD and religious experience', journal: 'LSD Man & Society, Wesleyan University Press', volume: '60–85', url: null, keyFinding: 'Nine characteristics of mystical experience defined. Psychedelic peak experience documented across religious traditions and secular contexts.', tags: ['clinical','religious','lsd','peyote'], substances: ['lsd','peyote'] },
   { id: 'van-solinge-1996', authors: 'van Solinge, T.B.', year: 1996, title: 'Ganja in Jamaica', journal: 'Amsterdams Drug Tijdschrift', volume: '2, 11–14', url: null, keyFinding: 'Ethnographic documentation of Rastafari ganja use as non-addictive spiritual sacrament.', tags: ['anthropology','religious','cannabis'], substances: ['cannabis'] },
@@ -2279,7 +2278,7 @@ var CITATIONS = [
   { id: 'osmond-1961', authors: 'Osmond, H.', year: 1961, title: 'Peyote night', journal: 'Tomorrow Magazine', volume: '9(2), 112', url: null, keyFinding: 'First-person account of NAC peyote ceremony by non-indigenous psychiatrist. Coined term "psychedelic" (1957).', tags: ['anthropology','indigenous','peyote'], substances: ['peyote'] },
   { id: 'schultes-1963', authors: 'Schultes, R.E.', year: 1963, title: 'Botanical sources of the new world narcotics', journal: 'Psychedelic Review', volume: '1(2), 157', url: null, keyFinding: 'Botanical taxonomy of psychedelic plant sources in Americas. Foundational ethnobotanical reference. Schultes essentially founded ethnobotany as a discipline and documented hundreds of psychoactive plant traditions before they were disrupted or lost.', tags: ['anthropology','archaeology','indigenous'], substances: ['peyote','ayahuasca','psilocybin'] },
   { id: 'csa-1970', authors: '91st United States Congress', year: 1970, title: 'Controlled Substances Act, 21 U.S.C. § 812 — Schedule I Criteria', journal: 'United States Code', volume: 'Pub.L. 91–513', url: 'https://uscode.house.gov/view.xhtml?path=/prelim@title21/chapter13&edition=prelim', keyFinding: 'Schedule I criteria: (1) high abuse potential; (2) no accepted medical use; (3) lack of accepted safety. All five substances placed Schedule I at enactment.', tags: ['legal','policy'], substances: ['ayahuasca','lsd','peyote','psilocybin'] },
-  { id: 'o-centro-2006', authors: 'Supreme Court of the United States', year: 2006, title: 'Gonzales v. O Centro Espirita Beneficente Uniao do Vegetal, 546 U.S. 418', journal: 'United States Reports', volume: '546 U.S. 418', url: 'https://supreme.justia.com/cases/federal/us/546/418/', keyFinding: 'Unanimous: government failed RFRA compelling interest test for UDV ayahuasca use. Roberts opinion. Foundational entheogen exemption precedent.', tags: ['legal','case-law','ayahuasca'], substances: ['ayahuasca'] },
+  { id: 'o-centro-2006', authors: 'Supreme Court of the United States', year: 2006, title: 'Gonzales v. O Centro Espirita Beneficente Uniao do Vegetal, 546 U.S. 418', journal: 'United States Reports', volume: '546 U.S. 418', url: 'https://supreme.justia.com/cases/federal/us/546/418/', keyFinding: 'The government failed to carry its RFRA compelling-interest burden on the preliminary-injunction record for UDV ayahuasca use. Roberts opinion; Alito took no part. Foundational, but a case-specific holding, not a general exemption.', tags: ['legal','case-law','ayahuasca'], substances: ['ayahuasca'] },
   { id: 'smith-1990', authors: 'Supreme Court of the United States', year: 1990, title: 'Employment Division v. Smith, 494 U.S. 872', journal: 'United States Reports', volume: '494 U.S. 872', url: 'https://supreme.justia.com/cases/federal/us/494/872/', keyFinding: '6-3: neutral generally applicable laws need not provide religious exemptions. Nearly eliminated First Amendment protection for sacramental drug use.', tags: ['legal','case-law','peyote'], substances: ['peyote'] },
   { id: 'rfra-1993', authors: '103rd United States Congress', year: 1993, title: 'Religious Freedom Restoration Act, 42 U.S.C. § 2000bb', journal: 'United States Code', volume: 'Pub.L. 103–141', url: 'https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section2000bb&num=0&edition=prelim', keyFinding: 'Restores compelling interest + least restrictive means test for government burdens on religious exercise. Direct legislative response to Employment Division v. Smith.', tags: ['legal','policy'], substances: ['peyote','ayahuasca','psilocybin'] },
   { id: 'boerne-1997', authors: 'Supreme Court of the United States', year: 1997, title: 'City of Boerne v. Flores, 521 U.S. 507', journal: 'United States Reports', volume: '521 U.S. 507', url: 'https://supreme.justia.com/cases/federal/us/521/507/', keyFinding: 'RFRA unconstitutional as applied to states. Federal RFRA survives. States may independently burden religious exercise without compelling interest showing.', tags: ['legal','case-law'], substances: ['ayahuasca','peyote'] },
@@ -2332,7 +2331,7 @@ var GLOSSARY = {
   'contraindication': 'Medical condition or drug combination that makes a treatment potentially harmful. Key contraindications for psychedelics: personal or family history of psychosis/schizophrenia; SSRIs (serotonin syndrome, reduced efficacy); lithium (seizure risk); cardiovascular disease (ibogaine).',
   'serotonin syndrome': 'Potentially life-threatening condition caused by excess serotonergic activity. Symptoms: agitation, tremor, hyperthermia, tachycardia, muscle rigidity. Risk: combining serotonergic psychedelics with SSRIs, MAOIs, or MDMA. MAOI + MDMA is the highest-risk combination.',
   'psychosis risk': 'Psychedelics can trigger or exacerbate psychotic episodes in individuals with predisposition. Risk factors: personal history of schizophrenia spectrum disorder, first-degree relative with psychosis, current antipsychotic use. This is the primary clinical contraindication.',
-  'ayahuasca': 'DMT-containing brew from Amazonian plants (typically Banisteriopsis caapi + Psychotria viridis). B. caapi provides MAOI (harmine, harmaline, THH) that enables oral DMT activity. Used ceremonially for millennia; FDA approved as religious sacrament for UDV (2006) and CHL Queen (2009).',
+  'ayahuasca': 'DMT-containing brew from Amazonian plants (typically Banisteriopsis caapi + Psychotria viridis). B. caapi provides MAOI (harmine, harmaline, THH) that enables oral DMT activity. Used ceremonially for centuries. The FDA has never approved ayahuasca as a religious sacrament: the protections that exist are judicial and rest on the Religious Freedom Restoration Act &mdash; Gonzales v. O Centro (546 U.S. 418, 2006), affirming a preliminary injunction for the Uni&atilde;o do Vegetal, and Church of the Holy Light of the Queen v. Mukasey (D. Or. 2009), a district-court injunction for a Santo Daime congregation.',
   'peyote': 'Cactus (Lophophora williamsii) containing mescaline as primary psychoactive compound. Used by Huichol (Wixáritari) for at least 5,700 years. NAC exemption allows religious use by Native Americans. Federally Schedule I with specific religious exemption — unique among scheduled substances.',
   'Schedule I': 'DEA drug classification for substances with "high abuse potential, no accepted medical use, and lack of accepted safety." Criteria are statutory (21 U.S.C. §812). All five original psychedelics meet the legal test but clinical data increasingly contradicts the no-medical-use finding.',
   'Controlled Substances Act': 'Federal law (1970) that established the scheduling system. All five original psychedelics were placed in Schedule I at enactment without individualized hearings. DEA has authority to reschedule but has exercised it only for approved pharmaceuticals.',
@@ -2417,21 +2416,21 @@ var TIMELINE_EVENTS = {
     { year: '1990', title: 'Employment Division v. Smith', body: 'Supreme Court rules that neutral, generally applicable laws do not require religious exemptions. Limits First Amendment protections for sacramental drug use, triggering RFRA.', substances: ['peyote'], color: '#fb923c', category: 'legal' },
     { year: '1993', title: 'RFRA Enacted', body: 'Religious Freedom Restoration Act passed in response to Employment Division v. Smith. Restores "compelling interest" test for government burdens on religious exercise.', substances: ['peyote','ayahuasca'], color: '#c084fc', category: 'legal' },
     { year: '1994', title: 'AIRFA Amendment — NAC Peyote Exemption', body: 'American Indian Religious Freedom Act amended to explicitly protect NAC peyote use. Overrides state law; first explicit statutory entheogen exemption.', substances: ['peyote'], color: '#fb923c', category: 'legal' },
-    { year: '2006', title: 'Gonzales v. O Centro — UDV Wins', body: 'Supreme Court unanimously rules the União do Vegetal (UDV) may import and use ayahuasca for religious ceremonies under RFRA. First RFRA victory for a non-indigenous entheogenic church.', substances: ['ayahuasca'], color: '#c084fc', category: 'legal' },
+    { year: '2006', title: 'Gonzales v. O Centro — UDV Wins', body: 'The Supreme Court affirms a preliminary injunction letting the União do Vegetal import and use ayahuasca for religious ceremonies, holding the government had not carried its RFRA burden on the record before it. First RFRA victory for a non-indigenous entheogenic church. Alito took no part.', substances: ['ayahuasca'], color: '#c084fc', category: 'legal' },
     { year: '2012', title: 'Colorado & Washington Legalize Cannabis', body: 'Colorado and Washington become first US states to legalize recreational cannabis, breaking from federal Schedule I classification.', substances: ['cannabis'], color: '#4ade80', category: 'decriminalization' },
     { year: '2018', title: 'FDA Psilocybin Breakthrough Designation', body: 'FDA grants Breakthrough Therapy designation to psilocybin for treatment-resistant depression (COMPASS Pathways). Accelerates clinical research pathway.', substances: ['psilocybin'], color: '#f472b6', category: 'clinical' },
     { year: '2019', title: 'Denver Decriminalizes Psilocybin', body: 'Denver, CO becomes first US city to decriminalize psilocybin mushrooms. Initiates a national wave of local decriminalization measures.', substances: ['psilocybin'], color: '#f472b6', category: 'decriminalization' },
     { year: '2020', title: 'Oregon Measure 109', body: 'Oregon passes Measure 109, legalizing supervised psilocybin therapy. First state-level legalization of a classical psychedelic in any form.', substances: ['psilocybin'], color: '#f472b6', category: 'decriminalization' },
     { year: '2022', title: 'Colorado Proposition 122', body: 'Colorado voters pass Prop 122, creating a regulated framework for psilocybin, DMT, ibogaine, and mescaline (not peyote). Broadest state psychedelic reform to date.', substances: ['psilocybin','ayahuasca'], color: '#c084fc', category: 'decriminalization' },
-    { year: '2024', title: 'MAPS MDMA Phase 3 — FDA Advisory Panel', body: 'FDA advisory committee votes against approving MDMA-assisted therapy citing data concerns. Marks a significant setback for psychedelic medicine regulation.', substances: ['lsd'], color: '#38bdf8', category: 'clinical' },
+    { year: '2024', title: 'MAPS MDMA Phase 3 — FDA Advisory Panel', body: 'FDA advisory committee votes against approving MDMA-assisted therapy citing data concerns. Marks a significant setback for psychedelic medicine regulation.', substances: ['mdma'], color: '#38bdf8', category: 'clinical' },
   ],
   archaeological: [
-    { year: '60,000 BCE', title: 'Archaeological Evidence of Ritual Plant Use', body: 'Pollen of medicinal/psychoactive plants found at Shanidar Cave burial site in Iraq. Suggests early ritual relationship with psychoactive plants.', substances: [], color: '#ff8c00', category: 'archaeological' },
-    { year: '5,700 BCE', title: 'Earliest Peyote Use', body: 'Peyote buttons found in archaeological sites in the Rio Grande area. Earliest confirmed ritual use of a psychedelic substance.', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
-    { year: '3,500 BCE', title: 'Ergot Fungi at Mas Castellar', body: 'Ergot-infused grain found at a Neolithic site in Catalonia suggests possible psychedelic ritual use. Possible precursor to the Eleusinian Mysteries.', substances: ['lsd'], color: '#38bdf8', category: 'archaeological' },
+    { year: 'c. 60,000 BP — contested', title: 'Shanidar Cave &ldquo;Flower Burial&rdquo;', body: 'Clumped pollen from flowering and medicinal plants, including <em>Ephedra</em>, was recorded around the Neanderthal burial Shanidar IV in Iraq (Leroi-Gourhan 1975) and read as deliberate funerary deposition. Subsequent taphonomic work attributes the pollen to burrowing rodents rather than to human placement (Sommer 1999; Fiacconi &amp; Hunt 2015; Pomeroy et al. 2020). No entheogen is identified in the assemblage. Listed here as the earliest <em>claimed</em> evidence, not as accepted evidence of psychoactive plant use.', substances: [], color: '#ff8c00', category: 'archaeological' },
+    { year: 'c. 3,700 BCE', title: 'Earliest Chemically Confirmed Peyote Use', body: 'Two peyote buttons from Shumla Cave No. 5 on the Rio Grande, Texas, radiocarbon dated to 3780&ndash;3660 cal BC and shown by GC-MS to contain mescaline &mdash; roughly 5,700 years before present. The oldest plant drug yet to yield its major bioactive compound on chemical analysis (El-Seedi et al. 2005, <em>J. Ethnopharmacol.</em> 101:238&ndash;242, doi:10.1016/j.jep.2005.04.022).', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
+    { year: 'c. 4th&ndash;2nd c. BCE', title: 'Ergot at Mas Castellar de Pont&oacute;s', body: 'Fragments of ergot sclerotia (<em>Claviceps purpurea</em>) recovered from a beer-residue vessel and from human dental calculus at an Iron Age Iberian settlement in Catalonia with a cult space associated with Demeter and Persephone (Juan-Tresserras 2000, 2002). Ergot carries ergot alkaloids and traces of lysergic acid amide. Cited in support of the ergot hypothesis for the Eleusinian kykeon; the inference from residue to ritual ingestion remains contested.', substances: ['lsd'], color: '#38bdf8', category: 'archaeological' },
     { year: '1,500 BCE', title: 'Vedic Soma', body: 'The Rigveda describes Soma — a ritual drink with likely psychedelic properties. Candidates include Amanita muscaria, Peganum harmala, or Ephedra.', substances: [], color: '#ff8c00', category: 'archaeological' },
     { year: '750 BCE', title: 'Eleusinian Mysteries', body: 'Greek mystery cult centered at Eleusis uses kykeon — a barley drink possibly spiked with ergot (LSA). Participants including Plato and Cicero reported profound transformative experiences.', substances: ['lsd'], color: '#38bdf8', category: 'archaeological' },
-    { year: '900 CE', title: 'Aztec Teonanácatl', body: 'Aztec ritual use of psilocybin mushrooms (teonanácatl — "flesh of the gods") documented. Used in ceremonial contexts by priests and ruling class.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
+    { year: '1569&ndash;1582 CE', title: 'Aztec Teonan&aacute;catl Documented', body: 'Bernardino de Sahag&uacute;n records Nahua ceremonial use of psilocybin mushrooms &mdash; <em>teonan&aacute;catl</em>, &ldquo;flesh of the gods&rdquo; &mdash; in the Florentine Codex, the earliest written description of a Psilocybe ritual. Mesoamerican mushroom stones suggest the practice is far older, but they cannot be tied to a specific species.', substances: ['psilocybin'], color: '#f472b6', category: 'archaeological' },
     { year: '1300 CE', title: 'Huichol Peyote Pilgrimage', body: 'Huichol (Wixáritari) people of Mexico develop elaborate annual peyote pilgrimage to Wirikuta — still practiced today. Among the most intact pre-Columbian ritual systems surviving.', substances: ['peyote'], color: '#fb923c', category: 'archaeological' },
   ],
   clinical: [
@@ -2637,16 +2636,20 @@ var NEW_SUBSTANCES = {
 var NEW_CITATIONS = [
   // IBOGAINE
   { id: 'brown-2013', authors: 'Brown, T.K.', year: 2013, title: 'Ibogaine in the treatment of substance dependence', journal: 'Current Drug Abuse Reviews', volume: '6(1), 3–16', doi: '10.2174/15672050113109990001', url: 'https://doi.org/10.2174/15672050113109990001', keyFinding: 'Review of ibogaine for opioid, stimulant, and alcohol dependence. Single flood dose produces sustained reduction in cravings across multiple substance classes.', tags: ['clinical','ibogaine','anti-addiction'], substances: ['ibogaine'] },
-  { id: 'mash-2000', authors: 'Mash, D.C., Kovera, C.A., Buck, B.E., et al.', year: 2000, title: 'Medication development of ibogaine as a pharmacotherapy for drug dependence', journal: 'Annals of the New York Academy of Sciences', volume: '914(1), 394–401', doi: '10.1111/j.1749-6632.2000.tb05223.x', url: 'https://doi.org/10.1111/j.1749-6632.2000.tb05223.x', keyFinding: 'Phase 1/2 data from St. Kitts ibogaine treatment program: 70% opioid-dependent patients showed 30-day abstinence post-treatment.', tags: ['clinical','ibogaine'], substances: ['ibogaine'] },
+  { id: 'mash-2000', authors: 'Mash, D.C., Kovera, C.A., Pablo, J., et al.', year: 2000, title: 'Ibogaine: complex pharmacokinetics, concerns for safety, and preliminary efficacy measures', journal: 'Annals of the New York Academy of Sciences', volume: '914(1), 394–401', doi: '10.1111/j.1749-6632.2000.tb05213.x', url: 'https://doi.org/10.1111/j.1749-6632.2000.tb05213.x', keyFinding: 'Open-label inpatient detoxification data: ibogaine significantly reduced cocaine and heroin craving, and self-reported depressive symptoms remained significantly lower 30 days after discharge. Preliminary efficacy only — no controlled abstinence outcome is reported.', tags: ['clinical','ibogaine'], substances: ['ibogaine'] },
   { id: 'lotsof-1985', authors: 'Lotsof, H.S.', year: 1985, title: 'Rapid method for interrupting the narcotic addiction syndrome', journal: 'US Patent 4,499,096', volume: null, url: null, keyFinding: 'Howard Lotsof\'s foundational patent for ibogaine addiction interruption, based on self-experimentation and observation of heroin-dependent subjects.', tags: ['ibogaine','anti-addiction','history'], substances: ['ibogaine'] },
   // MDMA
-  { id: 'feduccia-2019', authors: 'Feduccia, A.A., Holland, J., & Mithoefer, M.C.', year: 2019, title: 'Progress and promise for the MDMA drug and psychotherapy treatment model', journal: 'Journal of Psychopharmacology', volume: '33(8), 1062–1067', doi: '10.1177/0269881119849919', url: 'https://doi.org/10.1177/0269881119849919', keyFinding: 'MAPS Phase 2 pooled analysis: 54% of MDMA group no longer met PTSD criteria vs 23% placebo. Effect sizes among largest in psychiatric literature.', tags: ['clinical','mdma','ptsd'], substances: ['mdma'] },
+  { id: 'feduccia-2019', authors: 'Feduccia, A.A., Jerome, L., Yazar-Klosinski, B., et al.', year: 2019, title: 'Breakthrough for trauma treatment: safety and efficacy of MDMA-assisted psychotherapy compared to paroxetine and sertraline', journal: 'Frontiers in Psychiatry', volume: '10, 650', doi: '10.3389/fpsyt.2019.00650', url: 'https://doi.org/10.3389/fpsyt.2019.00650', keyFinding: 'Pooled across six MAPS Phase 2 trials, mean CAPS-IV reduction was −37.8 for active MDMA (75–125 mg, n=72) versus −11.6 for control (0–40 mg, n=31); between-group Cohen\'s d 0.9. Among participants who had previously failed paroxetine or sertraline, 20 of 38 (52.6%) no longer met PTSD criteria at the primary endpoint.', tags: ['clinical','mdma','ptsd'], substances: ['mdma'] },
   // KETAMINE
   { id: 'berman-2000', authors: 'Berman, R.M., Cappiello, A., Anand, A., et al.', year: 2000, title: 'Antidepressant effects of ketamine in depressed patients', journal: 'Biological Psychiatry', volume: '47(4), 351–354', doi: '10.1016/S0006-3223(99)00230-9', url: 'https://doi.org/10.1016/S0006-3223(99)00230-9', keyFinding: 'First randomized controlled trial of ketamine for depression. Rapid antidepressant effect within 72 hours of single IV infusion.', tags: ['clinical','ketamine','depression'], substances: ['ketamine'] },
   { id: 'murrough-2013', authors: 'Murrough, J.W., Iosifescu, D.V., Chang, L.C., et al.', year: 2013, title: 'Antidepressant efficacy of ketamine in treatment-resistant major depression', journal: 'American Journal of Psychiatry', volume: '170(10), 1134–1142', doi: '10.1176/appi.ajp.2013.13030392', url: 'https://doi.org/10.1176/appi.ajp.2013.13030392', keyFinding: '64% response rate at 24 hours vs 28% midazolam control. Largest randomized ketamine depression trial at time of publication.', tags: ['clinical','ketamine'], substances: ['ketamine'] },
   { id: 'zarate-2006', authors: 'Zarate, C.A., Singh, J.B., Carlson, P.J., et al.', year: 2006, title: 'A randomized trial of an N-methyl-D-aspartate antagonist in treatment-resistant major depression', journal: 'Archives of General Psychiatry', volume: '63(8), 856–864', doi: '10.1001/archpsyc.63.8.856', url: 'https://doi.org/10.1001/archpsyc.63.8.856', keyFinding: 'NIMH study: 71% response within 2 hours. Established ketamine\'s rapid mechanism as distinct from monoamine antidepressants.', tags: ['clinical','ketamine','depression'], substances: ['ketamine'] },
   // DMT
-  { id: 'timmermann-2019', authors: 'Timmermann, C., Roseman, L., Williams, L., et al.', year: 2019, title: 'DMT models the near-death experience', journal: 'Frontiers in Psychology', volume: '10, 1–12', doi: '10.3389/fpsyg.2019.01424', url: 'https://doi.org/10.3389/fpsyg.2019.01424', keyFinding: 'IV DMT produced phenomenological features indistinguishable from near-death experiences across standardized NDE scale.', tags: ['neuroscience','dmt','phenomenology'], substances: ['dmt'] },
+  { id: 'carhart-harris-2016-lsd', authors: 'Carhart-Harris, R.L., Muthukumaraswamy, S., Roseman, L., et al.', year: 2016, title: 'Neural correlates of the LSD experience revealed by multimodal neuroimaging', journal: 'Proceedings of the National Academy of Sciences', volume: '113(17), 4853–4858', doi: '10.1073/pnas.1518377113', url: 'https://doi.org/10.1073/pnas.1518377113', keyFinding: 'First modern neuroimaging of LSD: increased visual-cortex blood flow, decreased visual alpha power and a greatly expanded V1 connectivity profile, all correlating with rated visual hallucinations.', tags: ['neuroscience','lsd'], substances: ['lsd'] },
+  { id: 'carhart-harris-2012-psilocybin', authors: 'Carhart-Harris, R.L., Erritzoe, D., Williams, T., et al.', year: 2012, title: 'Neural correlates of the psychedelic state as determined by fMRI studies with psilocybin', journal: 'Proceedings of the National Academy of Sciences', volume: '109(6), 2138–2143', doi: '10.1073/pnas.1119598109', url: 'https://doi.org/10.1073/pnas.1119598109', keyFinding: 'Intravenous psilocybin reduced cerebral blood flow and BOLD signal in hub regions including the default-mode network and thalamus; the size of the reduction tracked the intensity of the subjective effects.', tags: ['neuroscience','psilocybin'], substances: ['psilocybin'] },
+  { id: 'palhano-fontes-2019', authors: 'Palhano-Fontes, F., Barreto, D., Onias, H., et al.', year: 2019, title: 'Rapid antidepressant effects of the psychedelic ayahuasca in treatment-resistant depression: a randomized placebo-controlled trial', journal: 'Psychological Medicine', volume: '49(4), 655–663', doi: '10.1017/S0033291718001356', url: 'https://doi.org/10.1017/S0033291718001356', keyFinding: 'First randomized placebo-controlled trial of ayahuasca for treatment-resistant depression; significant antidepressant effect at day seven versus placebo.', tags: ['clinical','ayahuasca'], substances: ['ayahuasca'] },
+  { id: 'el-seedi-2005', authors: 'El-Seedi, H.R., De Smet, P.A.G.M., Beck, O., Possnert, G., & Bruhn, J.G.', year: 2005, title: 'Prehistoric peyote use: alkaloid analysis and radiocarbon dating of archaeological specimens of Lophophora from Texas', journal: 'Journal of Ethnopharmacology', volume: '101(1–3), 238–242', doi: '10.1016/j.jep.2005.04.022', url: 'https://doi.org/10.1016/j.jep.2005.04.022', keyFinding: 'Peyote buttons from Shumla Cave No. 5 radiocarbon dated to 3780–3660 cal BC and shown by GC-MS to contain mescaline — the oldest chemically confirmed use of a psychedelic, roughly 5,700 years before present.', tags: ['anthropology','history','peyote'], substances: ['peyote'] },
+  { id: 'timmermann-2019', authors: 'Timmermann, C., Roseman, L., Williams, L., et al.', year: 2018, title: 'DMT models the near-death experience', journal: 'Frontiers in Psychology', volume: '9, 1424', doi: '10.3389/fpsyg.2018.01424', url: 'https://doi.org/10.3389/fpsyg.2018.01424', keyFinding: 'Within-subjects placebo-controlled study in 13 volunteers: IV DMT significantly raised scores on a validated near-death-experience scale, with significant overlap on nearly all NDE features against a matched group of actual NDE experiencers.', tags: ['neuroscience','dmt','phenomenology'], substances: ['dmt'] },
   { id: 'dean-2019', authors: 'Dean, J.G., Liu, T., Huff, S., et al.', year: 2019, title: 'Biosynthesis and extracellular concentrations of N,N-dimethyltryptamine in mammalian brain', journal: 'Scientific Reports', volume: '9, 9333', doi: '10.1038/s41598-019-45812-w', url: 'https://doi.org/10.1038/s41598-019-45812-w', keyFinding: 'Confirmed DMT synthesis in rat cerebral cortex and pineal gland. Extracellular DMT concentrations comparable to other monoamine neurotransmitters — suggests neurotransmitter role.', tags: ['neuroscience','dmt'], substances: ['dmt'] },
   // SALVIA
   { id: 'roth-2002', authors: 'Roth, B.L., Baner, K., Westkaemper, R., et al.', year: 2002, title: 'Salvinorin A: a potent naturally occurring nonnitrogenous κ opioid selective agonist', journal: 'Proceedings of the National Academy of Sciences', volume: '99(18), 11934–11939', doi: '10.1073/pnas.182234399', url: 'https://doi.org/10.1073/pnas.182234399', keyFinding: 'Established salvinorin A as first known naturally occurring non-nitrogenous κ-opioid agonist. No 5-HT2A activity. Completely novel psychedelic mechanism.', tags: ['neuroscience','pharmacology','salvia'], substances: ['salvia'] },
@@ -3621,7 +3624,7 @@ function renderResearchersPage(){var g=document.getElementById('researchers-grid
 function renderNeuroPage(){var c=document.getElementById('neuro-content');if(!c)return;var h='';if(typeof NEUROIMAGING!=='undefined'){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s6)">Neuroimaging Findings</h2><div style="display:flex;flex-direction:column;gap:var(--s4);margin-bottom:var(--s12)">'+NEUROIMAGING.map(function(n){var sub=SUBSTANCES[n.substance.toLowerCase()]||{};return '<div class="neuroimaging-card" style="border-left-color:'+(sub.color||'var(--cyan)')+'"><div style="display:flex;gap:var(--s4);align-items:center;margin-bottom:var(--s3);flex-wrap:wrap"><span style="font-family:var(--font-mono);font-size:0.6rem;background:'+(sub.color||'var(--cyan)')+'22;color:'+(sub.color||'var(--cyan)')+';border:1px solid '+(sub.color||'var(--cyan)')+'44;padding:2px 8px;border-radius:var(--r-pill)">'+n.substance+'</span><span style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted)">'+n.modality+' &middot; '+n.study+'</span></div><p style="font-size:0.88rem;color:var(--text-secondary);line-height:1.7;margin:0">'+n.finding+'</p></div>';}).join('')+'</div>';}
 if(typeof BINDING_AFFINITY!=='undefined'){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Receptor Binding Affinity (Ki)</h2><p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:var(--s6)">Lower Ki = stronger binding. Values in nM. Source: PDSP Ki Database.</p><div style="overflow-x:auto;margin-bottom:var(--s12)"><table class="binding-table"><thead><tr><th>Substance</th><th>Receptor</th><th>Ki (nM)</th><th>Note</th></tr></thead><tbody>'+BINDING_AFFINITY.map(function(b){var sub=Object.values(SUBSTANCES).find(function(s){return s.name===b.substance||(b.substance==="Psilocin"&&s.id==="psilocybin")||(b.substance==="Mescaline"&&s.id==="peyote")||(b.substance==="Salvinorin A"&&s.id==="salvia");})||{};var pc=b.ki_nm<10?"var(--acid)":b.ki_nm<100?"var(--cyan)":b.ki_nm<500?"#fb923c":"var(--text-muted)";return "<tr><td style='color:"+(sub.color||"var(--text-primary)")+";font-weight:600'>"+b.substance+"</td><td style='font-family:var(--font-mono);font-size:0.75rem'>"+b.receptor+"</td><td><span class='ki-value' style='color:"+pc+"'>"+b.ki_nm+"</span></td><td style='color:var(--text-muted);font-size:0.78rem'>"+b.note+"</td></tr>";}).join('')+'</tbody></table></div>';}
 if(typeof CROSS_TOLERANCE!=='undefined'){var sk=["lsd","psilocybin","dmt","peyote","mdma","ketamine","ibogaine","salvia"],av=sk.filter(function(k){return SUBSTANCES[k];}),tc={complete:"tol-complete",partial:"tol-partial",none:"tol-none",rapid:"tol-rapid",minimal:"tol-minimal"};h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Cross-Tolerance Matrix</h2><p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:var(--s6)">'+CROSS_TOLERANCE.explanation+'</p><div style="overflow-x:auto;margin-bottom:var(--s12)"><table class="binding-table"><thead><tr><th></th>'+av.map(function(k){return '<th style="color:'+(SUBSTANCES[k]&&SUBSTANCES[k].color||"#fff")+'">'+((SUBSTANCES[k]&&SUBSTANCES[k].name)||k)+'</th>';}).join('')+'</tr></thead><tbody>'+av.map(function(rk){var sub=SUBSTANCES[rk],mr=(CROSS_TOLERANCE.matrix[rk]||{});return '<tr><td style="color:'+(sub&&sub.color||"#fff")+';font-weight:600">'+((sub&&sub.name)||rk)+'</td>'+av.map(function(ck){var t=rk===ck?"complete":(mr[ck]||"none");return '<td style="text-align:center"><span class="cross-tol-badge '+(tc[t]||"tol-none")+'">'+t+'</span></td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';}
-if(typeof MICRODOSING_DATA!=='undefined'){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Microdosing: Evidence vs. Claims</h2><div class="microdose-card" style="margin-bottom:var(--s8)"><p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s6)">'+MICRODOSING_DATA.definition+'</p>'+Object.entries(MICRODOSING_DATA.substances).map(function(e){var sub=SUBSTANCES[e[0]]||{},md=e[1];return '<div style="background:var(--surface);border:1px solid var(--border);border-left:2px solid '+(sub.color||"var(--acid)")+';border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5);margin-bottom:var(--s4)"><div style="font-family:var(--font-display);font-weight:700;color:'+(sub.color||"var(--acid)")+';margin-bottom:var(--s3)">'+(sub.name||e[0])+'</div><div class="data-row"><span class="data-label">Dose</span><span class="data-value" style="font-size:0.78rem">'+md.dose+'</span></div><div class="data-row"><span class="data-label">Schedule</span><span class="data-value" style="font-size:0.78rem">'+md.schedule+'</span></div><div class="data-row"><span class="data-label">Evidence</span><span class="data-value" style="font-size:0.78rem">'+md.evidence+'</span></div></div>';}).join('')+'<div style="background:rgba(255,45,143,.08);border:1px solid rgba(255,45,143,.2);border-radius:var(--r-md);padding:var(--s4)"><div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#ff2d8f;margin-bottom:var(--s2)">Verdict</div><p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6;margin:0">'+MICRODOSING_DATA.verdict+'</p></div></div>';if(typeof POLICY_ORGS!=='undefined')h+='<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:var(--s4)">Policy Organizations</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s4)">'+POLICY_ORGS.map(function(org){return '<div class="org-card"><div style="font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--acid);margin-bottom:var(--s1)">'+org.name+'</div><div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);margin-bottom:var(--s3)">Est. '+org.founded+' &middot; '+org.founder+'</div><p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:var(--s3)">'+org.focus+'</p><div style="font-size:0.78rem;color:var(--text-muted);font-style:italic">'+org.status+'</div></div>';}).join('')+'</div>';}
+if(typeof MICRODOSING_DATA!=='undefined' && MICRODOSING_DATA && MICRODOSING_DATA.definition && MICRODOSING_DATA.substances){h+='<h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:var(--s4)">Microdosing: Evidence vs. Claims</h2><div class="microdose-card" style="margin-bottom:var(--s8)"><p style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s6)">'+MICRODOSING_DATA.definition+'</p>'+Object.entries(MICRODOSING_DATA.substances).map(function(e){var sub=SUBSTANCES[e[0]]||{},md=e[1];return '<div style="background:var(--surface);border:1px solid var(--border);border-left:2px solid '+(sub.color||"var(--acid)")+';border-radius:0 var(--r-md) var(--r-md) 0;padding:var(--s5);margin-bottom:var(--s4)"><div style="font-family:var(--font-display);font-weight:700;color:'+(sub.color||"var(--acid)")+';margin-bottom:var(--s3)">'+(sub.name||e[0])+'</div><div class="data-row"><span class="data-label">Dose</span><span class="data-value" style="font-size:0.78rem">'+md.dose+'</span></div><div class="data-row"><span class="data-label">Schedule</span><span class="data-value" style="font-size:0.78rem">'+md.schedule+'</span></div><div class="data-row"><span class="data-label">Evidence</span><span class="data-value" style="font-size:0.78rem">'+md.evidence+'</span></div></div>';}).join('')+'<div style="background:rgba(255,45,143,.08);border:1px solid rgba(255,45,143,.2);border-radius:var(--r-md);padding:var(--s4)"><div style="font-family:var(--font-display);font-size:0.85rem;font-weight:700;color:#ff2d8f;margin-bottom:var(--s2)">Verdict</div><p style="font-size:0.82rem;color:var(--text-secondary);line-height:1.6;margin:0">'+MICRODOSING_DATA.verdict+'</p></div></div>';if(typeof POLICY_ORGS!=='undefined')h+='<h3 style="font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:var(--s4)">Policy Organizations</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:var(--s4)">'+POLICY_ORGS.map(function(org){return '<div class="org-card"><div style="font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--acid);margin-bottom:var(--s1)">'+org.name+'</div><div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--text-muted);margin-bottom:var(--s3)">Est. '+org.founded+' &middot; '+org.founder+'</div><p style="font-size:0.8rem;color:var(--text-secondary);line-height:1.6;margin-bottom:var(--s3)">'+org.focus+'</p><div style="font-size:0.78rem;color:var(--text-muted);font-style:italic">'+org.status+'</div></div>';}).join('')+'</div>';}
 c.innerHTML=h;}
 function renderGlossaryPage(){var container=document.getElementById('glossary-full-content'),si=document.getElementById('glossary-search');if(!container||typeof GLOSSARY==='undefined')return;var g=Object.assign({},GLOSSARY);g['REBUS']='Relaxed Beliefs Under Psychedelics (Carhart-Harris & Friston, 2019). Psychedelics reduce the brain\'s reliance on high-level priors, enabling bottom-up sensory signals to dominate.';g['entropic brain']='Carhart-Harris (2014): psychedelics increase neural entropy. The brain becomes less predictable during peak states.';g['entactogen']='Compounds (MDMA, MDA) producing emotional openness and empathy. Distinct from classical serotonergic psychedelics.';g['cross-tolerance']='Classical serotonergic psychedelics (LSD, psilocybin, DMT, mescaline) produce complete cross-tolerance via 5-HT2A downregulation. MDMA, ketamine, salvia, and ibogaine do not cross-tolerate with them.';g['BDNF']='Brain-Derived Neurotrophic Factor. Promotes neuron survival. Increased by ketamine and psychedelics — may explain antidepressant effects.';g['integration']='Post-session process of incorporating insights from a psychedelic experience into daily life. Clinical protocols require 2-4 integration sessions per psychedelic session.';g['set and setting']='Leary\'s principle: mindset and environment are as determinative of psychedelic outcomes as dose. The basis of all current clinical trial design.';g['QTc prolongation']='Lengthening of the cardiac QT interval. Ibogaine causes QTc prolongation via hERG channel — potentially fatal. Requires cardiac screening.';g['flood dose']='Large initiatory ibogaine dose (10-25mg/kg) for addiction interruption or Bwiti initiation. Produces 18-36hr experience.';g['microdosing']='Sub-perceptual dose (1/10th-1/20th of threshold). Clinical evidence for cognitive benefits is weak; expectancy effects significant.';
 function re(f){var e=Object.entries(g).filter(function(x){return!f||x[0].toLowerCase().includes(f)||x[1].toLowerCase().includes(f);}).sort(function(a,b){return a[0].localeCompare(b[0]);});container.innerHTML=e.map(function(x){return '<div class="glossary-entry"><div class="glossary-term">'+x[0]+'</div><div class="glossary-def">'+x[1]+'</div></div>';}).join('');}
@@ -3815,7 +3818,7 @@ var TIMELINE_META = {
 
 var TIMELINE_CARDS = [
   { key: 'legal',          symbol: '\u2696', color: 'var(--magenta)', name: 'Legal History',         sub: 'CSA \u2192 RFRA \u2192 Reform',          tags: ['Master','All Substances'] },
-  { key: 'archaeological', symbol: '\u231b', color: 'var(--amber)',   name: 'Archaeological',         sub: '60,000 BCE \u2192 Present',                tags: ['Prehistory','Ritual'] },
+  { key: 'archaeological', symbol: '\u231b', color: 'var(--amber)',   name: 'Archaeological',         sub: 'Palaeolithic \u2192 Present',                tags: ['Prehistory','Ritual'] },
   { key: 'clinical',       symbol: '\u2695', color: 'var(--cyan)',    name: 'Clinical Research',      sub: 'Sandoz 1950s \u2192 MAPS Phase 3',         tags: ['FDA','Hopkins'] },
   { key: 'criminalization', symbol:'\u26d4', color: '#ff2d8f',        name: 'Criminalization',        sub: 'CSA 1970 \u2192 UN Conventions',           tags: ['Schedule I','War on Drugs'] },
   { key: 'exemption',      symbol: '\u2726', color: 'var(--peyote)', name: 'Religious Exemption',    sub: 'NAC v. US \u2192 O Centro \u2192 Now',    tags: ['RFRA','Case Law'] },
@@ -3828,9 +3831,21 @@ var TIMELINE_CARDS = [
 document.addEventListener('DOMContentLoaded', function() {
   try {
 
+  // Keep the menu's source count honest by reading it off the data.
+  var citeLabel = document.getElementById('mega-cite-count');
+  if (citeLabel && typeof CITATIONS !== 'undefined') {
+    citeLabel.textContent = 'Citation Library (' + CITATIONS.length + ' sources)';
+  }
+  var citeHead = document.getElementById('cite-lib-count');
+  if (citeHead && typeof CITATIONS !== 'undefined') {
+    citeHead.textContent = CITATIONS.length + ' sources spanning judicial opinions, government material, peer-reviewed research, and foundational or contextual texts';
+  }
+
   // Substance grid
   var grid = document.getElementById('substance-grid');
-  if (grid) { Object.values(SUBSTANCES).forEach(function(sub) {
+  // The grid ships with a static no-JS fallback card per substance; clear it before
+  // rendering the interactive cards, or every substance appears twice.
+  if (grid) { grid.innerHTML = ''; Object.values(SUBSTANCES).forEach(function(sub) {
     var card = document.createElement('div');
     card.className = 'substance-card';
     card.style.setProperty('--card-color', sub.color);
@@ -3839,7 +3854,13 @@ document.addEventListener('DOMContentLoaded', function() {
       '<div class="card-name">' + sub.name + '</div>' +
       '<div class="card-sub" style="font-size:0.6rem">' + sub.formula + '</div>' +
       '<div class="card-tags">' + sub.tags.slice(0,3).map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('') + '</div>';
+    card.setAttribute('role','button');
+    card.setAttribute('tabindex','0');
+    card.setAttribute('aria-label', sub.name + ' — open detail');
     card.addEventListener('click', function() { showSubstanceModal(sub.id); });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showSubstanceModal(sub.id); }
+    });
     grid.appendChild(card);
     var li = document.createElement('li');
     li.innerHTML = '<a onclick="showSubstanceModal(\''+sub.id+'\')" style="cursor:pointer">' + sub.name + '</a>';
@@ -4689,11 +4710,11 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
     <p style="margin:0 0 1rem;font-size:.8rem;color:#555;line-height:1.5">Goes directly to RN Collins — the atlas's researcher and author. Use it for citation corrections, collaboration inquiries, or questions about a specific claim on this site.</p>
     <label style="display:flex;gap:.5rem;align-items:flex-start;margin:0 0 1rem;font-size:.72rem;color:#555;line-height:1.45"><input id="ca-consent" type="checkbox" required> I consent to RN Collins receiving these details to respond to this inquiry.</label>
     <div id="ca-status" role="status" aria-live="polite" style="min-height:1.2rem;margin-bottom:.65rem;font-size:.72rem;color:#8a2d55"></div>
-    <input id="ca-name" placeholder="Name (optional)"
+    <input id="ca-name" aria-label="Your name (optional)" placeholder="Name (optional)"
       style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box"/>
-    <input id="ca-email" type="email" placeholder="Email (required)"
+    <input id="ca-email" type="email" required aria-label="Your email address (required)" placeholder="Email (required)"
       style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box"/>
-    <textarea id="ca-msg" rows="3" placeholder="Message"
+    <textarea id="ca-msg" rows="3" aria-label="Your message" placeholder="Message"
       style="width:100%;padding:.6rem;margin-bottom:.75rem;border:1px solid #ccc;box-sizing:border-box;resize:vertical"></textarea>
     <div style="display:flex;gap:.75rem;justify-content:flex-end">
       <button onclick="document.getElementById('ca-modal').style.display='none'"

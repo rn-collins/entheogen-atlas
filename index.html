@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>document.documentElement.className += ' js';</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Entheogen Atlas — Sacred Plants, Science & the Law</title>
@@ -1045,6 +1046,14 @@ main { min-height: calc(100vh - 60px); }
 }
 .page-section { display: none; }
 .page-section.active { display: block; }
+/* Fragment fallback for the no-JS case. Scoped to html:not(.js) on purpose:
+   :target is NOT recomputed on history.pushState, so with the router live it
+   would freeze on whichever section was targeted at load and hide every page
+   navigated to afterwards. With no router, :target is the only thing driving
+   the page and a hash still reaches the section the link promised. */
+html:not(.js) .page-section:target { display: block; }
+html:not(.js):has(.page-section:target) .page-section:not(:target) { display: none; }
+html:not(.js) .site-search-overlay:target { display: flex !important; }
 .mega-menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s8)}
 @media(max-width:768px){.mega-menu-grid{grid-template-columns:1fr 1fr;gap:var(--s5)}}
 @media(max-width:480px){.mega-menu-grid{grid-template-columns:1fr;gap:var(--s4)}}
@@ -1290,40 +1299,40 @@ hr.section-rule {
    rendered as unstyled near-black text on a near-black ground
    with default blue links. Given real styles, on the site's tokens.
    ============================================================ */
-#page-governance .section-kicker {
+#governance .section-kicker {
   font-family: var(--font-mono); font-size: var(--t-register);
   letter-spacing: 0.3em; text-transform: uppercase;
   color: var(--text-muted); margin-bottom: var(--s3);
 }
-#page-governance .section-title {
+#governance .section-title {
   font-family: var(--font-display); font-size: var(--t-page);
   font-weight: 900; line-height: 1.02; letter-spacing: -0.02em;
   color: var(--text-primary); margin-bottom: var(--s5);
 }
-#page-governance .section-desc {
+#governance .section-desc {
   font-size: var(--t-sub); line-height: 1.7;
   color: var(--text-secondary); max-width: var(--measure-tight);
 }
-#page-governance .feature-grid {
+#governance .feature-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--s5); margin-top: var(--s12);
 }
-#page-governance .feature-card {
+#governance .feature-card {
   background: var(--surface); border: 1px solid var(--border);
   border-top: 2px solid var(--acid);
   border-radius: var(--r-md); padding: var(--s6);
 }
-#page-governance .feature-card h2 {
+#governance .feature-card h2 {
   font-family: var(--font-display); font-size: 0.95rem; font-weight: 700;
   letter-spacing: -0.005em; color: var(--text-primary); margin-bottom: var(--s3);
 }
-#page-governance .feature-card p {
+#governance .feature-card p {
   font-size: var(--t-small); line-height: 1.75;
   color: var(--text-secondary); margin-bottom: var(--s3);
 }
-#page-governance .feature-card p:last-child { margin-bottom: 0; }
-#page-governance a { color: var(--acid); text-decoration: none; border-bottom: 1px solid rgba(200,255,0,0.35); }
-#page-governance a:hover { border-bottom-color: var(--acid); }
+#governance .feature-card p:last-child { margin-bottom: 0; }
+#governance a { color: var(--acid); text-decoration: none; border-bottom: 1px solid rgba(200,255,0,0.35); }
+#governance a:hover { border-bottom-color: var(--acid); }
 
 /* ============================================================
    BASE INK
@@ -1430,7 +1439,7 @@ body { overflow-x: hidden; }
 <!-- HOME PAGE -->
 <!-- ============================================================ -->
 <div id="app"><span id="main-content" tabindex="-1" style="position:absolute;top:0"></span>
-<div id="page-home" class="page-section active">
+<div id="home" class="page-section active">
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -2048,15 +2057,15 @@ body { overflow-x: hidden; }
     <div>
       <div class="footer-col-title">Deep Research</div>
       <ul class="footer-links">
-        <li><a onclick="showPage('legitimacy')" style="cursor:pointer">The Legitimacy Gap</a></li>
-        <li><a onclick="showPage('receptor')" style="cursor:pointer">Receptor Atlas</a></li>
-        <li><a onclick="showPage('phenomenology')" style="cursor:pointer">Mystical Experience Taxonomy</a></li>
-        <li><a onclick="showPage('governance')" style="cursor:pointer">RFRA Litigation Tracker</a></li>
-        <li><a onclick="showPage('pipeline')" style="cursor:pointer">Science Pipeline</a></li>
-        <li><a onclick="showPage('governance')" style="cursor:pointer">Ceremony Structures</a></li>
-        <li><a onclick="showPage('governance')" style="cursor:pointer">Global Legal Frameworks</a></li>
-        <li><a onclick="showPage('governance')" style="cursor:pointer">Decrim Tracker</a></li>
-        <li><a onclick="showPage('governance')" style="cursor:pointer">Drug Interactions</a></li>
+        <li><a href="#legitimacy" onclick="event.preventDefault();showPage('legitimacy')" data-page="legitimacy">The Legitimacy Gap</a></li>
+        <li><a href="#receptor" onclick="event.preventDefault();showPage('receptor')" data-page="receptor">Receptor Atlas</a></li>
+        <li><a href="#phenomenology" onclick="event.preventDefault();showPage('phenomenology')" data-page="phenomenology">Mystical Experience Taxonomy</a></li>
+        <li><a href="#pipeline" onclick="event.preventDefault();showPage('pipeline')" data-page="pipeline">Science Pipeline</a></li>
+        <li><a href="#governance" onclick="event.preventDefault();showPage('governance')" data-page="governance">RFRA Litigation Tracker &mdash; not published</a></li>
+        <li><a href="#governance" onclick="event.preventDefault();showPage('governance')" data-page="governance">Ceremony Structures &mdash; not published</a></li>
+        <li><a href="#governance" onclick="event.preventDefault();showPage('governance')" data-page="governance">Global Legal Frameworks &mdash; not published</a></li>
+        <li><a href="#governance" onclick="event.preventDefault();showPage('governance')" data-page="governance">Decriminalization Tracker &mdash; not published</a></li>
+        <li><a href="#governance" onclick="event.preventDefault();showPage('governance')" data-page="governance">Drug Interactions &mdash; not published</a></li>
       </ul>
     </div>
     <div>
@@ -2069,7 +2078,7 @@ body { overflow-x: hidden; }
 </footer>
 <!-- fix: close page-home -->
 
-</div><!-- balance fix --><div id="page-researchers" class="page-section"><div style="padding-top:80px">
+</div><!-- balance fix --><div id="researchers" class="page-section"><div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(167,139,250,.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1200px;margin:0 auto">
       <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
@@ -2081,7 +2090,7 @@ body { overflow-x: hidden; }
   <div class="section" id="researchers-grid"></div>
 </div></div>
 
-<div id="page-neuro" class="page-section"><div style="padding-top:80px">
+<div id="neuro" class="page-section"><div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(0,245,255,.06) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1200px;margin:0 auto">
       <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
@@ -2093,7 +2102,7 @@ body { overflow-x: hidden; }
   <div class="section"><div id="neuro-content"></div></div>
 </div></div>
 
-<div id="page-glossary-page" class="page-section"><div style="padding-top:80px">
+<div id="glossary-page" class="page-section"><div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(200,255,0,.06) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1200px;margin:0 auto">
       <button onclick="showPage('home')" class="btn btn-outline" style="margin-bottom:var(--s6)">&larr; Back</button>
@@ -2108,7 +2117,7 @@ body { overflow-x: hidden; }
 </div></div>
 
 
-<div id="page-legitimacy" class="page-section">
+<div id="legitimacy" class="page-section">
 <div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(200,255,0,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:800px;margin:0 auto">
@@ -2200,7 +2209,7 @@ body { overflow-x: hidden; }
 <!-- ============================================================ -->
 <!-- ARCHAEOLOGY -->
 <!-- ============================================================ -->
-<div id="page-archaeology" class="page-section">
+<div id="archaeology" class="page-section">
 <div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(255,140,0,0.10) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1200px;margin:0 auto">
@@ -2255,7 +2264,7 @@ body { overflow-x: hidden; }
 </div>
 </div>
 
-<div id="page-receptor" class="page-section">
+<div id="receptor" class="page-section">
 <div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(0,245,255,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1200px;margin:0 auto">
@@ -2313,7 +2322,7 @@ body { overflow-x: hidden; }
 <!-- ============================================================ -->
 <!-- MYSTICAL EXPERIENCE TAXONOMY -->
 <!-- ============================================================ -->
-<div id="page-phenomenology" class="page-section">
+<div id="phenomenology" class="page-section">
 <div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(123,47,255,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1200px;margin:0 auto">
@@ -2350,7 +2359,7 @@ body { overflow-x: hidden; }
 <!-- ============================================================ -->
 <!-- SCIENCE PIPELINE -->
 <!-- ============================================================ -->
-<div id="page-pipeline" class="page-section">
+<div id="pipeline" class="page-section">
 <div style="padding-top:80px">
   <div style="background:linear-gradient(135deg,rgba(0,245,255,0.08) 0%,transparent 60%);padding:var(--s16) var(--s8) var(--s12);border-bottom:1px solid var(--border)">
     <div style="max-width:1400px;margin:0 auto">
@@ -2461,12 +2470,12 @@ body { overflow-x: hidden; }
   <button class="drawer-close" type="button">&larr; Close</button>
   <div class="drawer-body"></div>
 </aside>
-<div class="site-search-overlay" id="site-search-overlay" style="display:none" role="dialog" aria-modal="true"><div class="site-search-box"><input type="text" class="site-search-input" id="site-search-input" placeholder="Search substances, sources, timeline, glossary…" aria-label="Search the atlas" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="site-search-results" aria-autocomplete="list"><div class="site-search-results" id="site-search-results" role="listbox" aria-label="Search results"></div><div style="padding:8px 24px;font-family:monospace;font-size:0.6rem;color:#7878a0;display:flex;justify-content:space-between;align-items:center"><span>&uarr;&darr; to move &middot; ENTER to open &middot; ESC to close &middot; &#8984;K anywhere</span><button onclick="closeSiteSearch()" style="background:none;border:1px solid #2a2a3e;border-radius:4px;color:#7878a0;padding:2px 8px;cursor:pointer;font-size:0.6rem">Close</button></div></div></div>
+<div class="site-search-overlay" id="search" style="display:none" role="dialog" aria-modal="true"><div class="site-search-box"><input type="text" class="site-search-input" id="site-search-input" placeholder="Search substances, sources, timeline, glossary…" aria-label="Search the atlas" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="site-search-results" aria-autocomplete="list"><div class="site-search-results" id="site-search-results" role="listbox" aria-label="Search results"></div><div style="padding:8px 24px;font-family:monospace;font-size:0.6rem;color:#7878a0;display:flex;justify-content:space-between;align-items:center"><span>&uarr;&darr; to move &middot; ENTER to open &middot; ESC to close &middot; &#8984;K anywhere</span><button onclick="closeSiteSearch()" style="background:none;border:1px solid #2a2a3e;border-radius:4px;color:#7878a0;padding:2px 8px;cursor:pointer;font-size:0.6rem">Close</button></div></div></div>
 
 
 
 
-</div><!-- end #page-home -->
+</div><!-- end #home -->
 
 <!-- =============================== -->
 
@@ -3323,7 +3332,7 @@ function initNav() {
     pillContainer.innerHTML='';
     Object.values(SUBSTANCES).forEach(function(sub){
       var li=document.createElement('li');
-      li.innerHTML='<a onclick="closeMegaMenu();showSubstanceModal(\''+sub.id+'\')" style="border-left-color:'+sub.color+';color:'+sub.color+';opacity:1;font-weight:500" data-sub-id="'+sub.id+'">'+
+      li.innerHTML='<a href="#substance/'+encodeURIComponent(sub.id)+'" onclick="event.preventDefault();closeMegaMenu();showSubstanceModal(\''+sub.id+'\')" style="border-left-color:'+sub.color+';color:'+sub.color+';opacity:1;font-weight:500" data-sub-id="'+sub.id+'">'+
         '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+sub.color+';margin-right:8px;vertical-align:middle"></span>'+sub.name+'</a>';
       pillContainer.appendChild(li);
     });
@@ -4136,7 +4145,8 @@ function buildUSMap(containerId, substanceId) {
 var currentPage = 'home';
 var showPage = window.showPage = function(id, pushState) {
   document.querySelectorAll('.page-section').forEach(function(s){ s.classList.remove('active'); });
-  var el = document.getElementById('page-' + id);
+  var el = document.getElementById(id);
+  if (el && !el.classList.contains('page-section')) el = null;
   if (el) {
     el.classList.add('active');
     currentPage = id;
@@ -4187,8 +4197,9 @@ function parseRoute(raw) {
   if (head === 'cite' && parts[1])      return { page: currentPage || 'home', cite: parts[1] };
   if (head === 'timeline' && parts[1])  return { page: 'home', timeline: parts[1], entry: parts[2] || null };
   if (head === 'glossary' && parts[1])  return { page: 'glossary-page', term: parts[1] };
-  if (head === 'search' && parts[1])    return { page: currentPage || 'home', search: parts.slice(1).join('/') };
-  if (document.getElementById('page-' + head)) return { page: head };
+  if (head === 'search')                return { page: currentPage || 'home', search: parts.slice(1).join('/') };
+  var pageEl = document.getElementById(head);
+  if (pageEl && pageEl.classList.contains('page-section')) return { page: head };
   return { page: 'home' };
 }
 function hashFor(state) {
@@ -4230,7 +4241,7 @@ function applyRoute(r) {
     var gi = document.getElementById('glossary-search');
     if (gi) { gi.value = r.term.replace(/-/g, ' '); gi.dispatchEvent(new Event('input')); }
   }, 120);
-  if (r.search && typeof window.openSiteSearch === 'function') {
+  if (r.search != null && typeof window.openSiteSearch === 'function') {
     window.openSiteSearch();
     setTimeout(function() {
       var si = document.getElementById('site-search-input');
@@ -4365,7 +4376,7 @@ var handleSearchHit = window.handleSearchHit = function(idx) {
 }
 
 var openSiteSearch = window.openSiteSearch = function(prefill){
-  var ov=document.getElementById('site-search-overlay'),inp=document.getElementById('site-search-input');
+  var ov=document.getElementById('search'),inp=document.getElementById('site-search-input');
   if(!ov||!inp)return;
   buildSearchIndex();
   window._searchReturnFocus = document.activeElement;
@@ -4378,7 +4389,7 @@ var openSiteSearch = window.openSiteSearch = function(prefill){
   setTimeout(function(){inp.focus();},50);
 }
 var closeSiteSearch = window.closeSiteSearch = function(){
-  var ov=document.getElementById('site-search-overlay');
+  var ov=document.getElementById('search');
   if(ov)ov.style.display='none';
   var r=window._searchReturnFocus;
   if(r&&typeof r.focus==='function'&&document.contains(r))r.focus();
@@ -4392,7 +4403,7 @@ function highlight(text,q){
   return t.slice(0,i)+'<mark class="sr-mark">'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);
 }
 document.addEventListener('DOMContentLoaded',function(){
-  var ov=document.getElementById('site-search-overlay'),inp=document.getElementById('site-search-input'),res=document.getElementById('site-search-results');
+  var ov=document.getElementById('search'),inp=document.getElementById('site-search-input'),res=document.getElementById('site-search-results');
   if(!ov||!inp||!res)return;
   var active=-1;
   function paint(){
@@ -4914,7 +4925,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     grid.appendChild(card);
     var li = document.createElement('li');
-    li.innerHTML = '<a onclick="showSubstanceModal(\''+sub.id+'\')" style="cursor:pointer">' + sub.name + '</a>';
+    li.innerHTML = '<a href="#substance/' + encodeURIComponent(sub.id) + '" onclick="event.preventDefault();showSubstanceModal(\''+sub.id+'\')">' + sub.name + '</a>';
     var fs = document.getElementById('footer-substances');
     if (fs) fs.appendChild(li);
   }); } // end substance grid if
@@ -5802,7 +5813,7 @@ var renderCaseLawBuilder = window.renderCaseLawBuilder = function() {
     </div>
   </div>
 </div>
-<div id="page-governance" class="page-section">
+<div id="governance" class="page-section">
   <div class="section" style="padding-top:calc(80px + var(--s8))">
   <div class="section-header">
     <div class="section-kicker">Evidence integrity</div>

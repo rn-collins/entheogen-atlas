@@ -73,7 +73,8 @@
       "source": "Carhart-Harris et al. (2021), New England Journal of Medicine",
       "url": "https://doi.org/10.1056/NEJMoa2032994",
       "scope": "Small phase 2 trial; secondary outcomes were not corrected for multiple comparisons and cannot establish superiority.",
-      "verified": "2026-08-15"
+      "verified": "2026-10-13",
+      "note": "Checked against the PubMed record on 2026-10-13. The atlas essay (The Clinical Paradox) now matches this entry: the primary outcome showed no significant difference, and the trial was not a non-inferiority trial."
     },
     {
       "id": "EA-SCI-003",
@@ -97,7 +98,7 @@
       "id": "EA-LAW-001",
       "claim": "The federal Religious Freedom Restoration Act provides a statutory substantial-burden framework for federal government action, subject to strict-scrutiny defenses.",
       "sourceType": "enacted federal statute",
-      "source": "42 U.S.C. §§ 2000bb–2000bb-4",
+      "source": "42 U.S.C. §§ 2000bb to 2000bb-4",
       "url": "https://uscode.house.gov/view.xhtml?path=/prelim@title42/chapter21B&edition=prelim",
       "scope": "Federal statutory text; application depends on facts, jurisdiction, subsequent law, and legal advice.",
       "verified": "2026-08-15"

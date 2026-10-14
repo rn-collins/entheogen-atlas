@@ -47,3 +47,15 @@ The essay (The Clinical Paradox) said psilocybin was "non-inferior to escitalopr
 - The DMN percentage chart on the Brain Science page and the survey figures on the home page have no checked source.
 - Several substance profile lines read as unsupported claims (for example "efficacy unmatched by any approved treatment" was rewritten, but others such as the endogenous-analog lines were not reviewed one by one).
 - The repo is public, so the removed dose data remains readable in git history until the repo is made private.
+
+## 6. Onset and duration times removed (October 14, 2026)
+
+RN decided on October 14, 2026 that the site must not show onset or duration times for any substance, because next to each substance they read like instructions for use. Claude made these changes. The removed text is still in git history.
+
+- Removed the `onset` and `duration` fields from all ten substance records.
+- Removed the Onset and Duration rows from each substance window, from the comparison matrix and from the PDF export view.
+- Removed the DURATION and ONSET columns from the static comparison table.
+- Reworded text that gave effect timings so the science stays without the times: mescaline "explains its unusually long effects"; noribogaine's "long half-life" explains prolonged effects; DMT and salvinorin A are "rapidly metabolized" (the "< 1 min" figures are gone); the DMT and salvia abstracts call the experience brief; the Transiency dimension no longer lists hours per substance; the ketamine abstract says "a rapid antidepressant effect"; the phenomenology comparator's "Duration Curve" row now describes the shape of the arc with no hours or minutes.
+- Kept: the radar chart's relative "Duration" axis and its legend ("Duration=experience length"), which show no times; the glossary entries that name onset and duration as concepts; "short duration" in the salvia sovereignty note. The ceremony card field `c.duration` is the length of a ceremony, not a drug effect, and the ceremony list is currently empty, so nothing renders from it.
+- Judgment call for RN: citation findings that report trial measurement times are kept, for example ketamine response "at 24 hours", "within 72 hours" and "improvement began within 2 hours", and synaptogenesis "within 24 hours" (Abdallah 2017). These are study results, not effect lengths, but RN may want them reworded too.
+- Checks: inline scripts pass `node --check`; the page was rendered in jsdom with every substance window and the matrix opened, with no JavaScript errors and no onset or duration times in visible text.
